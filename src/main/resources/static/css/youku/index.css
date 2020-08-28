@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+
+#rooter{
+    width: 100%;
+    position: relative;
+}
+
+#rooter ul.main li{
+    float: left;
+    margin: 5px 14px;
+    padding: 5px;
+}
+
+#rooter ul{
+    clear: both;
+}
+
+#rooter ul li{
+    float: left;
+    margin: 5px 14px;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+#rooter ul li.focus{
+    background-color: #00a1d6;
+}
+
+#rooter ul li:hover{
+    background-color: #00a1d6;
+}
+
+div.searchArea {
+    width: 100%;
+    height: 57px;
+    line-height: 57px;
+    margin: 0 auto;
+    position: fixed;
+    text-align: center;
+    z-index: 9999999;
+}
+
+div.searchArea input {
+    width: 500px;
+    height: 57px;
+    outline: none;
+    line-height: 55px;
+    padding-left: 6px;
+    border: 1px solid #3385ff;
+    font-size: 18px;
+    transition: all 1s;
+}
+
+div.searchArea input:focus {
+    border: 1px solid #3385ff;
+}
+
+div.searchArea a.logo img {
+    color: #FFF;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+div.searchArea a.searchButton {
+    display: inline-block;
+    background-color: #3385ff;
+    width: 122px;
+    height: 100%;
+    position: relative;
+    left: -6px;
+    text-align: center;
+    line-height: 57px;
+    color: #FFFFFF;
+    transition: all 1s;
+    cursor: pointer;
+    border: 1px solid #3385ff;
+}
+
+div.searchArea a.searchButton:hover {
+    font-size: 18px;
+    background-color: #1f36ff;
+    font-weight: bold;
+}
+
+#rooter ul.main{
+    padding-top: 59px;
+}
+
+#rooter ul.content{
+    overflow: hidden;
+}
+
+#rooter ul.content li{
+    width: 197px;
+    height: 342px;
+    text-align: center;
+    float: left;
+    margin: 3px;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+#rooter ul.content li a{
+    display: inline-block;
+    width: 100%;
+    height: 263px;
+    overflow: hidden;
+}
+
+#rooter ul.content li span.jiNumber{
+    position: absolute;
+    right: 15px;
+    bottom: 100px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+#rooter ul.content li a img{
+    width: 197px;
+    height: 263px;
+}
+
+#rooter ul.content li p:nth-of-type(2){
+    font-size: 12px;
+}
+
+#rooter div.music ul.music li{
+    height: 162px;
+}
+
+#rooter div.music ul.music li a{
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+#rooter div.music ul.music li a img {
+    height: 100px;
+}
+
+#rooter div.music ul.music li span.jiNumber{
+    position: absolute;
+    right: 15px;
+    bottom: 71px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+#rooter div.information ul.information li{
+    height: 162px;
+}
+
+#rooter div.information ul.information li a{
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+#rooter div.information ul.information li a img {
+    height: 100px;
+}
+
+#rooter div.information ul.information li span.jiNumber{
+    position: absolute;
+    right: 15px;
+    bottom: 71px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+
+#rooter div.funny ul.funny li{
+    height: 162px;
+}
+
+#rooter div.funny ul.funny li a{
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+#rooter div.funny ul.funny li a img {
+    height: 100px;
+}
+
+#rooter div.funny ul.funny li span.jiNumber{
+    position: absolute;
+    right: 15px;
+    bottom: 71px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+
+#rooter div.life ul.life li{
+    height: 162px;
+}
+
+#rooter div.life ul.life li a{
+    display: inline-block;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+#rooter div.life ul.life li a img {
+    height: 100px;
+}
+
+#rooter div.life ul.life li span.jiNumber{
+    position: absolute;
+    right: 15px;
+    bottom: 71px;
+    color: #FFFFFF;
+    font-size: 12px;
+}

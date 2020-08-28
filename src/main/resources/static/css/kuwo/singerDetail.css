@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: #000000;
+}
+
+img{
+    vertical-align: top;
+}
+
+div.top{
+    border-bottom: 1px solid #CCCCCC;
+}
+
+div.top div.innerArea{
+    width: 1000px;
+    height: 67px;
+    line-height: 67px;
+    margin: 0 auto;
+}
+
+div.top div.innerArea a img{
+    width: 131px;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+}
+
+div.top div.innerArea a{
+    display: inline-block;
+    min-width: 100px;
+    height: 100%;
+    line-height: 67px;
+    text-align: center;
+    margin-left: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+div.top div.innerArea a:hover{
+    background-color: #ffe443;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+div.top div.innerArea a.focus{
+    background-color: #ffe443;
+}
+
+div.top div.innerArea input{
+    width: 260px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #CCCCCC;
+    outline: none;
+    padding-left: 5px;
+    font-size: 14px;
+    background-color: #CCCCCC;
+}
+
+div#rooter div.singerInfo{
+    background-color: #EEEEEE;
+    height: 300px;
+}
+
+div#rooter div.singerInfo ul{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+div#rooter div.singerInfo ul li{
+    float: left;
+    height: 300px;
+}
+
+div#rooter div.singerInfo ul li.header{
+    width: 230px;
+    line-height: 300px;
+}
+
+div#rooter div.singerInfo ul li.header img{
+    width: 100%;
+    border-radius: 50%;
+    position: relative;
+    top: 43px;
+}
+
+div#rooter div.singerInfo ul li.rightArea{
+    height: 200px;
+    margin: 60px 36px;
+}
+
+div#rooter div.singerInfo ul li.rightArea p{
+    width: 500px;
+    height: 36px;
+    margin-top: 30px;
+}
+
+div#rooter div.singerInfo ul li.rightArea p:nth-of-type(1){
+    font-size: 26px;
+    line-height: 36px;
+    margin-top: 10px;
+}
+
+div#rooter div.singerInfo ul li.rightArea p span{
+    font-size: 18px;
+    color: #999;
+}
+
+div#rooter div.singerInfo ul li.rightArea p span:nth-of-type(even){
+    margin-right: 20px;
+}
+
+div#rooter div.centerArea{
+    width: 1200px;
+    margin: 20px auto;
+}
+
+div#rooter div.centerArea ul.tab li{
+    float: left;
+    width: 80px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 26px;
+    color: #333333;
+    text-align: center;
+    cursor: pointer;
+}
+
+div#rooter div.centerArea ul.tab li.focus{
+    background-color: #ffe12c;
+}
+
+ul.singerInfo{
+    clear: both;
+    padding-top: 30px;
+}
+
+ul.singerInfo li ul.inner{
+    display: flex;
+}
+
+ul.singerInfo li ul.inner li{
+    flex: 1;
+    height: 40px;
+    line-height: 40px;
+    margin: 10px;
+}
+
+ul.singerInfo li ul.inner:nth-of-type(odd){
+    background-color: #EEEEEE;
+}
+
+ul.singerInfo li ul.inner li span{
+    margin: 10px;
+}
+
+ul.singerInfo li ul.inner li span:nth-of-type(odd){
+    color: #CCCCCC;
+}
+
+ul.songs{
+    clear: both;
+}
+
+ul.songs li{
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+}
+
+ul.songs li:nth-of-type(odd){
+    background-color: #CCCCCC;
+}
+
+ul.songs li img{
+    float: left;
+    width: 47px;
+    position: relative;
+    top: 8px;
+}
+
+ul.songs li span{
+    float: left;
+    width: 226px;
+    text-align: center;
+    height: 100%;
+    line-height: 50px;
+}
+
+ul.albums{
+    clear: both;
+}
+
+ul.albums li{
+    float: left;
+    position: relative;
+    margin: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+ul.albums li span{
+    display: block;
+    font-size: 18px;
+}
+
+ul.albums li img.playVideoBtn{
+    position: absolute;
+    width: 138px;
+    left: 78px;
+    top: 69px;
+    opacity: 0;
+    transition: all 1s;
+}
+
+ul.albums li:hover img.playVideoBtn{
+    opacity: 1;
+}
+
+ul.albums li img:nth-of-type(1){
+    transition: all 1s ease-in-out;
+}
+
+ul.albums li:hover img:nth-of-type(1){
+    transform: scale(1.2);
+}
+
+ul.mvs{
+    clear: both;
+    padding: 20px;
+}
+
+ul.mvs li{
+    margin: 10px;
+    position: relative;
+    float: left;
+}
+
+ul.mvs li img{
+    height: 200px;
+}
+
+ul.mvs li a img.playVideoBtn{
+    position: absolute;
+    width: 138px;
+    height: auto;
+    left: 78px;
+    top: 36px;
+    opacity: 0;
+    transition: all 1s;
+}
+
+ul.mvs li:hover img.playVideoBtn{
+    opacity: 1;
+}

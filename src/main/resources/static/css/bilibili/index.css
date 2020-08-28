@@ -1,0 +1,467 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+div#rooter div.topArea{
+    background-image: url("/images/bilibili/banner.png");
+    background-size: cover;
+    height: 180px;
+}
+
+div#rooter div.topArea img.logo{
+    position: relative;
+    top: 31px;
+    left: 317px;
+}
+
+div#rooter div.topArea div.searchArea{
+    position: absolute;
+    right: 370px;
+    top: 116px;
+}
+
+div#rooter div.topArea div.searchArea a{
+    display: inline-block;
+    width: 83px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #DDDDDD;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #f25d8e;
+}
+
+div#rooter div.topArea div.searchArea a b{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -659px -655px;
+    vertical-align: middle;
+    position: relative;
+    top: -6px;
+}
+
+div#rooter div.topArea div.searchArea input{
+    width: 280px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 10px;
+    border: 2px solid #DDDDDD;
+    outline: none;
+}
+
+div#rooter div.topArea div.searchArea i{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #DDDDDD;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -656px -720px;
+    position: relative;
+    left: -40px;
+    top: 12px;
+    cursor: pointer;
+}
+
+div#rooter div.topArea ul.types {
+    width: 1100px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 80px;
+    text-align: center;
+}
+
+div#rooter div.topArea ul.types li{
+    display: inline-block;
+    min-width: 50px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    margin: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid #FFFFFF;
+    transition: all 1s;
+}
+
+div#rooter div.topArea ul.types li:hover {
+    background-color: #3385ff;
+    color: #FFFFFF;
+    border-bottom: 1px solid #1f36ff;
+}
+
+div#rooter div.topArea ul.types li span.itemS{
+    display: inline-block;
+
+}
+
+div#rooter div.topArea ul.types li.focus{
+    border-bottom: 2px solid #00a1d6;
+    color: #00a1d6;
+}
+
+div#rooter div.topArea hr{
+    width: 1200px;
+    height: 1px;
+    background-color: #00a1d6;
+    margin: 5px auto;
+}
+
+div#rooter div.topArea div.subTitle{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+div#rooter div.topArea div.subTitle ul li{
+    float: left;
+    margin: 5px 10px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+div#rooter div.topArea div.subTitle ul li:hover{
+    text-decoration: underline;
+    color: #ff3724;
+}
+
+div#rooter div.topArea div.subTitle ul li.focus{
+    color: #00a1d6;
+}
+
+div#rooter div.topArea div.hotTagKeyWords{
+    margin: 40px auto;
+    width: 1200px;
+}
+
+div#rooter div.topArea div.hotTagKeyWords p{
+    margin-top: 50px;
+    height: 40px;
+    line-height: 40px;
+}
+
+div#rooter div.topArea div.hotTagKeyWords p span.icon{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -83px -1492px;
+    position: relative;
+    top: 5px;
+}
+
+div#rooter div.topArea div.hotTagKeyWords p span:nth-of-type(2){
+    font-size: 18px;
+    color: #222222;
+    font-weight: bolder;
+}
+
+div#rooter div.topArea div.hotTagKeyWords p span:nth-of-type(3){
+    font-size: 14px;
+    color: #99a2aa;
+}
+
+div#rooter div.topArea div.hotTagKeyWords ul li{
+    float: left;
+    min-width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    border: 1px solid #CCCCCC;
+    margin: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+div#rooter div.topArea div.hotTagKeyWords ul li:hover{
+    border: 1px solid #00a1d6;
+    color: #00a1d6;
+}
+
+div#rooter div.topArea div.hotTagKeyWords ul li.focus{
+    background-color: #00a1d6;
+    color: #FFFFFF;
+}
+
+div.centerArea{
+    margin: 0 auto;
+    width: 1200px;
+    margin-top: 311px;
+    height: 250px;
+    position: relative;
+}
+
+div.centerArea p.newLineP{
+    height: 30px;
+    line-height: 30px;
+}
+
+div.centerArea p.newLineP span.icon{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -84px -1427px;
+    position: relative;
+    top: 6px;
+}
+
+div.centerArea p.newLineP span:nth-of-type(2){
+    font-weight: bolder;
+}
+
+div.centerArea p.changeDynamicList{
+    float: right;
+    width: 71px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    top: -21px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+div.centerArea p.changeDynamicList i{
+    display: inline-block;
+    width: 12px;
+    height: 13px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -475px -89px;
+    margin-right: 3px;
+    position: relative;
+    top: 3px;
+    transition: all 1s;
+}
+
+div.centerArea p.changeDynamicList:hover i {
+    transform: rotate(360deg);
+}
+
+div.centerArea ul.dynamicList{
+    width: 100%;
+    display: flex;
+    margin-top: 16px;
+}
+
+div.centerArea ul.dynamicList li {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+}
+
+div.centerArea ul.dynamicList li a {
+    display: block;
+    width: 160px;
+    text-align: center;
+    text-decoration: none;
+    color: #000000;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+div.centerArea ul.dynamicList li a img{
+    width: 160px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+div.centerArea ul.dynamicList li a img:hover{
+    transform: scale(1.2);
+}
+
+div.centerArea ul.dynamicList li p{
+    text-align: left;
+    padding-left: 43px;
+    padding-top: 5px;
+}
+
+div.centerArea ul.dynamicList li p span:nth-of-type(1){
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -282px -90px;
+}
+
+div.centerArea ul.dynamicList li p span:nth-of-type(2){
+    color: #CCCCCC;
+}
+
+div.centerArea ul.dynamicList li p span:nth-of-type(3){
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -282px -218px;
+    margin-left: 26px;
+}
+
+div.centerArea ul.dynamicList li span:nth-of-type(4){
+    color: #CCCCCC;
+}
+
+div.centerArea ul.newLine{
+    width: 800px;
+    overflow: hidden;
+    margin-top: 46px;
+}
+
+div.centerArea ul.newLine li {
+    float: left;
+    width: 49%;
+    height: 200px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 1px solid #00a1d6;
+}
+
+div.centerArea ul.newLine li a {
+    display: block;
+    text-decoration: none;
+    color: #000000;
+    width: 160px;
+    overflow: hidden;
+    margin: 5px auto;
+}
+
+div.centerArea ul.newLine li a img{
+    width: 160px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+div.centerArea ul.newLine li a img:hover{
+    transform: scale(1.2);
+}
+
+div.centerArea ul.newLine li span:nth-of-type(1){
+    font-size: 12px;
+}
+
+div.centerArea ul.newLine li span:nth-of-type(2){
+    display: inline-block;
+    padding: 13px;
+    color: #CCCCCC;
+}
+
+div.centerArea ul.index{
+    width: 1200px;
+    overflow: hidden;
+    margin: 20px;
+}
+
+div.centerArea ul.index li{
+    float: left;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    margin: 5px;
+    background-color: #666666;
+    cursor: pointer;
+}
+
+div.centerArea ul.index li:hover{
+    background-color: #00a1d6;
+    color: #FFFFFF;
+}
+
+div.centerArea ul.index li.focus{
+    background-color: #00a1d6;
+    color: #FFFFFF;
+}
+
+div.centerArea p.count{
+    position: relative;
+    left: -116px;
+    top: -60px;
+    font-size: 14px;
+    color: #CCCCCC;
+    text-align: right;
+}
+
+div.centerArea p.count input{
+    width: 50px;
+}
+
+div.centerArea ul.rightArea{
+    width: 390px;
+    height: 1400px;
+    position: absolute;
+    right: 0;
+    top: 282px;
+    overflow-y: scroll;
+    border: 2px solid #00a1d6;
+}
+
+div.centerArea ul.rightArea li{
+    text-align: center;
+    margin: 5px 0;
+    position: relative;
+}
+
+div.centerArea ul.rightArea li b{
+    position: absolute;
+    left: 20px;
+    top: 54px;
+    font-size: 20px;
+    color: #00a1d6;
+}
+
+div.centerArea ul.rightArea li a{
+    display: block;
+    width: 180px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+div.centerArea ul.rightArea li a img{
+    width: 180px;
+    transition: all 1s;
+}
+
+div.centerArea ul.rightArea li a img:hover{
+    transform: scale(1.2);
+}
+
+/*滚动条凹槽的颜色，还可以设置边框属性 */
+::-webkit-scrollbar-track-piece {
+    background-color:#f8f8f8;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条的宽度*/
+::-webkit-scrollbar {
+    width:9px;
+}
+/*滚动条的设置*/
+::-webkit-scrollbar-thumb {
+    background-color:#dddddd;
+    background-clip:padding-box;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条鼠标移上去*/
+::-webkit-scrollbar-thumb:hover {
+    background-color:#bbb;
+}

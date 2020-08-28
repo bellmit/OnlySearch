@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+div#rooter div.topArea{
+    background-image: url("/images/bilibili/banner.png");
+    background-size: cover;
+    height: 180px;
+}
+
+div#rooter div.topArea img.logo{
+    position: relative;
+    top: 31px;
+    left: 317px;
+}
+
+div#rooter div.topArea div.searchArea{
+    text-align: center;
+}
+
+div#rooter div.topArea div.searchArea a{
+    display: inline-block;
+    width: 83px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #DDDDDD;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #f25d8e;
+}
+
+div#rooter div.topArea div.searchArea a b{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -659px -655px;
+    vertical-align: middle;
+    position: relative;
+    top: -6px;
+}
+
+div#rooter div.topArea div.searchArea input{
+    width: 470px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 10px;
+    border: 2px solid #DDDDDD;
+    outline: none;
+}
+
+div#rooter div.topArea div.searchArea i{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 2px solid #DDDDDD;
+    background-image: url("/images/bilibili/icons.png");
+    background-position: -656px -720px;
+    position: relative;
+    left: -40px;
+    top: 12px;
+    cursor: pointer;
+}
+
+/*滚动条凹槽的颜色，还可以设置边框属性 */
+::-webkit-scrollbar-track-piece {
+    background-color:#f8f8f8;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条的宽度*/
+::-webkit-scrollbar {
+    width:9px;
+}
+/*滚动条的设置*/
+::-webkit-scrollbar-thumb {
+    background-color:#dddddd;
+    background-clip:padding-box;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条鼠标移上去*/
+::-webkit-scrollbar-thumb:hover {
+    background-color:#bbb;
+}

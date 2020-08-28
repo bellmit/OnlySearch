@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+}
+
+#rooter div.content {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #faeed7;
+}
+
+#rooter div.content h2{
+    padding: 20px;
+}
+
+#rooter div.content p.author{
+    font-size: 14px;
+    margin: 10px;
+}
+
+#rooter div.content div.innerHtml{
+    text-align: left;
+    padding: 47px;
+}
+
+/*滚动条凹槽的颜色，还可以设置边框属性 */
+::-webkit-scrollbar-track-piece {
+    background-color:#f8f8f8;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条的宽度*/
+::-webkit-scrollbar {
+    width:9px;
+}
+/*滚动条的设置*/
+::-webkit-scrollbar-thumb {
+    background-color:#dddddd;
+    background-clip:padding-box;
+    -webkit-border-radius: 2em;
+    -moz-border-radius: 2em;
+    border-radius: 2em;
+}
+/*滚动条鼠标移上去*/
+::-webkit-scrollbar-thumb:hover {
+    background-color:#bbb;
+}

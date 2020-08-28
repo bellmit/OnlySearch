@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    overflow-x: hidden;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    color: #000000;
+}
+
+img{
+    vertical-align: top;
+}
+
+div.top{
+    border-bottom: 1px solid #CCCCCC;
+}
+
+div.top div.innerArea{
+    width: 1000px;
+    height: 67px;
+    line-height: 67px;
+    margin: 0 auto;
+}
+
+div.top div.innerArea a img{
+    width: 131px;
+    vertical-align: middle;
+    position: relative;
+    top: -5px;
+}
+
+div.top div.innerArea a{
+    display: inline-block;
+    min-width: 100px;
+    height: 100%;
+    line-height: 67px;
+    text-align: center;
+    margin-left: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: all 1s;
+}
+
+div.top div.innerArea a:hover{
+    background-color: #ffe443;
+    text-decoration: underline;
+    color: #FFFFFF;
+}
+
+div.top div.innerArea a.focus{
+    background-color: #ffe443;
+}
+
+div.top div.innerArea input{
+    width: 260px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #CCCCCC;
+    outline: none;
+    padding-left: 5px;
+    font-size: 14px;
+    background-color: #CCCCCC;
+}
+
+div#rooter{
+    width: 1600px;
+    margin: 0 auto;
+}
+
+div#rooter ul.centerArea{
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+div#rooter ul.centerArea li{
+    float: left;
+    margin: 20px;
+}
+
+div#rooter ul.centerArea li.leftArea{
+    width: 300px;
+    box-shadow: 0 0 15px 0 rgba(0,0,0,.1);
+}
+
+div#rooter ul.centerArea li.leftArea h2{
+    margin: 10px;
+}
+
+div#rooter ul.centerArea li.rightArea{
+    width: 1000px;
+    margin: 0 20px;
+}
+
+div#rooter ul.centerArea li.rightArea h2{
+    margin: 10px;
+}
+
+div#rooter ul.centerArea li.rightArea p{
+    margin: 10px;
+}
+
+div#rooter ul.centerArea li.rightArea p span{
+    font-size: 14px;
+    color: #999999;
+}
+
+div#rooter ul.centerArea li.rightArea p span:nth-of-type(even){
+    color: #000000;
+    margin-right: 20px;
+}
+
+div#rooter ul.centerArea li.rightArea p.playAllBtn{
+    background-color: #ffe443;
+    width: 100px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div#rooter ul.centerArea li.rightArea p.playAllBtn:hover{
+    background-color: #0000cc;
+    color: #FFFFFF;
+}
+
+div#rooter ul.centerArea li.rightArea ul.songs li{
+    display: flex;
+    width: 1152px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+
+div#rooter ul.centerArea li.rightArea ul.songs li:nth-of-type(odd){
+    background-color: #CCCCCC;
+}
+
+div#rooter ul.centerArea li.rightArea ul.songs li span{
+    flex: 1;
+    line-height: 50px;
+    text-align: center;
+}
+
+div#rooter ul.centerArea li.rightArea ul.songs li.change{
+    transform: scale(1.2);
+    background-color: #0000cc;
+}
+
+audio{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

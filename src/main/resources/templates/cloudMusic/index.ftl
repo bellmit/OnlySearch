@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>祥龙检索，千度寻--网易云音乐</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="pragma" content="no-cache"/>
+	<meta http-equiv="cache-control" content="no-cache"/>
+	<meta http-equiv="expires" content="0"/>
+	<meta name="referrer" content="no-referrer"/>
+	<meta name="keywords" content="电视剧千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<meta name="description" content="千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/cloudMusic/index.css"/>
+	<script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/jss/vue.js"></script>
+	<script type="text/javascript" src="/jss/cloudMusic/index.js"></script>
+	<script type="text/javascript" src="/jss/cloudMusic/common.js"></script>
+</head>
+
+<body>
+
+<div id="rooter">
+	<div style="height: 316px;background-color: rgba(0,0,0,.6);">
+		<div class="oneLine">
+			<a title="祥龙检索，搜音乐"><img src="/images/index/homelogo.png"/></a>
+		</div>
+		<p style="margin: 10px auto;text-align: center;
+	position: relative;left: 0px;top: 64px;color: #FFFFFF;">可以搜索音乐名称或者歌手名字等</p>
+		<div class="searchArea">
+			<p><input class="local" type="text" placeholder="请输入音乐名称或者歌手名字" title="可以搜索音乐名称或者歌手名字等"/></p>
+			<a class="searchButtonLocal" target="_blank">千度音乐</a>
+		</div>
+
+		<div id="fixed_top">
+			<div class="searchArea">
+				<p><input class="up" type="text" placeholder="请输入音乐名称或者歌手名字" title="可以搜索音乐名称或者歌手名字等"/></p>
+				<a class="searchButtonUp" target="_blank">千度音乐</a>
+			</div>
+		</div>
+
+		<p class="topN"><a href="/cloudMusic/topN/19723756" target="_blank">TopN排行榜</a></p>
+
+		<div class="items">
+			<ul>
+				<li><a href="/">回首页</a></li>
+				<li><a href="/tvResult?pageIndex=1">电视剧</a></li>
+				<li><a href="/movieResult?pageIndex=1">电影</a></li>
+				<li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
+				<li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
+				<li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=60">音乐</a></li>
+				<li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
+				<li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
+			</ul>
+		</div>
+
+		<div class="content">
+			<div class="cat">
+				<div class="expand">分类展开</div>
+				<div class="inner">
+					<span>语种</span>
+					<span class="item" v-for="(item,index) in language" v-html="item"></span>
+				</div>
+				<div class="inner">
+					<span>风格</span>
+					<span class="item" v-for="(item,index) in style" v-html="item"></span>
+				</div>
+				<div class="inner">
+					<span>场景</span>
+					<span class="item" v-for="(item,index) in scene" v-html="item"></span>
+				</div>
+				<div class="inner">
+					<span>情感</span>
+					<span class="item" v-for="(item,index) in emotion" v-html="item"></span>
+				</div>
+				<div class="inner">
+					<span>主题</span>
+					<span class="item" v-for="(item,index) in theme" v-html="item"></span>
+				</div>
+			</div>
+
+			<!--内容模块-->
+			<div class="playlist">
+				<ul>
+					<li v-for="(item,index) in musicList">
+						<a :href="'/cloudMusic/songListPage/' + item.playListId" target="_blank"><img :src="item.imgSrc"/></a><br/>
+						<span>{{item.title}}</span><br/>
+						<span>{{item.author}}</span>
+						<span class="playCount">{{item.playCount}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

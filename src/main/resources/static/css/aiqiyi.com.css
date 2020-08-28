@@ -1,0 +1,771 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+
+div.iqiyicom_top{
+    position: relative;
+}
+
+div.iqiyicom_top ul.rightData {
+    height: 500px;
+    width: 348px;
+    background-color: rgba(17, 18, 38, .5);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    padding-top: 16px;
+    z-index: 102;
+}
+
+div.iqiyicom_top ul.rightData li {
+    padding: 10px 5px;
+}
+
+div.iqiyicom_top ul.rightData li a {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.5s;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.iqiyicom_top ul.rightData li a:hover {
+    font-size: 23px;
+}
+
+div.iqiyicom_top ul.rightData li a span.text {
+    color: #FFF;
+}
+
+div.iqiyicom_top ul.rightData li a span.sub_text {
+    color: #ff5c38;
+}
+
+
+ul#tagChange div.iqiyicom_top ul.topBar {
+    height: auto;
+    position: relative;
+}
+
+ul#tagChange div.iqiyicom_top ul.topBar > li {
+    text-align: center;
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+    left: 0;
+    top: 0;
+    padding: 30px 0;
+    width: 100%;
+    transition: all 1s;
+}
+
+div.iqiyicom_secondRight{
+    padding-top: 500px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.iqiyicom_secondRight ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+p.bigTitle {
+    font-size: 30px;
+    border-bottom: 1px solid #CCC;
+}
+
+div.iqiyicom_secondRight ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 50px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_secondRight ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_secondRight ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_secondRight ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_secondRight ul li a span.sub_text{
+    position: absolute;
+    right: 136px;
+    bottom: 9px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_secondRight ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.iqiyicom_variety{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_variety ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_variety ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_variety ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_variety ul li a span.timeLength{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_variety ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_variety ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_variety ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.iqiyicom_homemade{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_homemade ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_homemade ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_homemade ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_homemade ul li a span.timeLength{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_homemade ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_homemade ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_homemade ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.iqiyicom_talkShow{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_talkShow ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_talkShow ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_talkShow ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_talkShow ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_talkShow ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_talkShow ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_talkShow ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_entertainment{
+     padding : 50px 100px 10px 100px;
+ }
+
+div.iqiyicom_entertainment ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_entertainment ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_entertainment ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_entertainment ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_entertainment ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_entertainment ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_entertainment ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_movie{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_movie ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_movie ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_movie ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_movie ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_movie ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_movie ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_movie ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_tv{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_tv ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_tv ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_tv ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_tv ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_tv ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_tv ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_tv ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_comic{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_comic ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_comic ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_comic ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_comic ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_comic ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_comic ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_comic ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_children{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_children ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_children ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_children ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_children ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_children ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_children ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_children ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_game{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_game ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_game ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_game ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_game ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_game ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_game ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_game ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_sports{
+     padding : 50px 100px 10px 100px;
+ }
+
+div.iqiyicom_sports ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_sports ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_sports ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_sports ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_sports ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_sports ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_sports ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_original{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_original ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_original ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_original ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_original ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_original ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_original ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_original ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.iqiyicom_documentary{
+    padding : 50px 100px 10px 100px;
+}
+
+div.iqiyicom_documentary ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.iqiyicom_documentary ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.iqiyicom_documentary ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.iqiyicom_documentary ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.iqiyicom_documentary ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.iqiyicom_documentary ul li a span.sub_text{
+    position: absolute;
+    right: 3px;
+    bottom: -6px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.iqiyicom_documentary ul li:hover img{
+    transform: scale(1.05);
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>祥龙检索，千度寻--漫画</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta name="keywords" content="动漫,动漫专区,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="description" content="动漫,动漫专区,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <link rel="shortcut icon" href="images/logo/index_logo.png" type="image/icon"/>
+    <link rel="stylesheet" type="text/css" href="css/cartoon/pageContent.css"/>
+    <script type="text/javascript" src="jss/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="jss/vue.js"></script>
+    <script type="text/javascript" src="jss/cartoon/pageContent.js"></script>
+</head>
+
+<body>
+
+<div id="rooter">
+    <div id="rightArea">
+        <p class="header">
+            爬虫动漫专区，资源来自于https://m.gufengmh8.com
+        </p>
+        <div class="content_info">
+            <p v-for="(data,index) in textList">
+                <span v-html="data" class="s"></span><br/>
+            </p>
+        </div>
+
+        <div class="chapter_index_image">
+            <img src="images/cartoon/loading.gif"/>
+        </div>
+
+        <div class="chapters">
+            <p v-for="(data,index) in chapterList" onclick="chapter_click_func(this)" :data="data.url" :class="index === 0 ? 'active' : ''"
+               :index="index">
+                <span v-html="data.title"></span>
+            </p>
+        </div>
+
+        <p class="next">下一个漫画</p>
+    </div>
+
+    <div id="leftArea">
+        <p class="logo">
+            <img src="images/cartoon/header.jpg"/>
+            <br/>
+            <span class="text">天龙战神</span>
+            <br/>
+            <span class="text">1050100468@qq.com</span>
+        </p>
+
+        <p class="text">
+            <a href="https://blog.csdn.net/wtl1992" target="_blank">我的csdn博客</a>
+        </p>
+
+        <p class="text">
+            Powered by Wang Tianlong!
+        </p>
+
+        <p class="text">
+            工欲善其事，必先利其器
+        </p>
+    </div>
+
+    <span style="display: none" title="${url}" id="url"></span>
+</div>
+<script type="text/javascript">
+    window.chapter_index = 0;
+
+    function chapter_click_func(_this) {
+        $("div.chapter_index_image img").attr("src", "images/cartoon/loading.gif");
+        var nodes = $(_this).parent().children();
+        var flag = false;
+        for (var i=0;i<nodes.length;i++){
+            $(nodes[i]).removeClass("active");
+        }
+
+        window.index = $(_this).attr("index");
+        window.chapter_index = 1;
+
+        $(_this).addClass("active");
+
+        $.ajax({
+            type: "GET",
+            url: "getChapterToAImage",
+            data: {
+                "chapterUrl": $(_this).attr("data"),
+                "index": window.chapter_index
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data["imgSrc"] !== '404'){
+                    var image = new Image();
+                    image.onload = function () {
+                        $("div.chapter_index_image img").attr("src", image.src);
+                        window.chapter_index++;
+                        $("p.next").text("下一个漫画");
+                    };
+                    image.onerror = function(){
+                        $("p.next").text("重新加载");
+                    };
+                    image.src = data["imgSrc"];
+                }
+            }
+        });
+    }
+</script>
+</body>
+</html>
