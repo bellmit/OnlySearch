@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html">
 <head>
     <title>祥龙检索，千度寻--音乐</title>
     <meta charset="UTF-8"/>
@@ -10,11 +10,9 @@
 	<meta name="description" content="网易云音乐,酷狗,酷我,QQ音乐,虾米音乐,千千音乐,音乐,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
 	<link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
     <link rel="stylesheet" type="text/css" href="/css/music/musicResult.css"/>
-    <!--
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        -->
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/jss/vue.js"></script>
+	<script type="text/javascript" src="/jss/music/musicResult.js"></script>
 </head>
 
 <body>
@@ -46,7 +44,6 @@
 	            <li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
 	            <li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
 	            <li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=60">音乐</a></li>
-	            <li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
 	            <li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
 	        </ul>
 	    </div>
@@ -74,9 +71,8 @@
 	    </div>
 	</div>
 </div>
-<i id="keyword" style="display: none;" th:text="${keyword}"></i>
-<i id="pageIndex" style="display: none;" th:text="${pageIndex}"></i>
-<i id="pageSize" style="display: none;" th:text="${pageSize}"></i>
-<script type="text/javascript" src="/jss/music/musicResult.js"></script>
+<i id="keyword" style="display: none;">${keyword}</i>
+<i id="pageIndex" style="display: none;">${pageIndex}</i>
+<i id="pageSize" style="display: none;">${pageSize}</i>
 </body>
 </html>

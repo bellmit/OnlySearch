@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 
     <title>祥龙检索，千度寻--电影</title>
@@ -7,13 +7,14 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="expires" content="0"/>
-	<meta name="keywords" th:content=" ${keyword} + ',千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全'"/>
-	<meta name="description" th:content="${keyword} + ',千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全'"/>
+	<meta name="keywords" content="${keyword},千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<meta name="description" content="${keyword},千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
 	<link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
     <link rel="stylesheet" type="text/css" href="/css/movie/movieSearchResult.css"/>
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/jss/vue.js"></script>
 	<script type="text/javascript" src="/jss/vue-lazyload.js"></script>
+	<script type="text/javascript" src="/jss/movie/movieSearchResult.js"></script>
 </head>
 
 <body>
@@ -59,8 +60,7 @@
 				<img src="/images/multiMusic/loading.gif"/>
 			</div>
 		</div>
-		<i id="keyword" style="display: none;" th:text="${keyword}"></i>
+		<i id="keyword" style="display: none;">${keyword}</i>
 	</div>
-<script type="text/javascript" src="/jss/movie/movieSearchResult.js"></script>
 </body>
 </html>

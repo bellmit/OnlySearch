@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 
     <title>祥龙检索，千度寻--电影</title>
@@ -14,6 +14,7 @@
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/jss/vue.js"></script>
 	<script type="text/javascript" src="/jss/vue-lazyload.js"></script>
+	<script type="text/javascript" src="/jss/movie/movieResult.js"></script>
 </head>
 
 <body>
@@ -45,7 +46,6 @@
 	            <li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
 	            <li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
 	            <li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=60">音乐</a></li>
-	            <li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
 	            <li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
 	        </ul>
 	    </div>
@@ -68,7 +68,6 @@
 		</div>
 	</div>
 </div>
-<i id="pageIndex" style="display: none;" th:text="${pageIndex}"></i>
-<script type="text/javascript" src="/jss/movie/movieResult.js"></script>
+<i id="pageIndex" style="display: none;">${pageIndex}</i>
 </body>
 </html>

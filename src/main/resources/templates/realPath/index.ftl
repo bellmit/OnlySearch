@@ -55,7 +55,6 @@
                 <li><a target="_blank" href="/iqiyi/showContent">爱奇艺专栏</a></li>
                 <li><a target="_blank" href="/fiction/fiction">爱小说</a></li>
                 <li><a target="_blank" href="/cloudMusic/index">网易云音乐</a></li>
-                <li><a target="_blank" href="/youku/index">优酷专栏</a></li>
                 <li><a target="_blank" href="/kuwo/index">酷我音乐</a></li>
             </ul>
         </div>

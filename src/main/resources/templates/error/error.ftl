@@ -171,7 +171,6 @@
         <li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
         <li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
         <li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=20">音乐</a></li>
-        <li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
         <li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
     </ul>
 </div>

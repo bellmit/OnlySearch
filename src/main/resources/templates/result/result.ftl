@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>祥龙检索，千度寻</title>
     <meta charset="UTF-8"/>
@@ -7,14 +7,12 @@
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="expires" content="0"/>
     <meta name="referrer" content="no-referrer"/>
-    <meta name="keywords" th:content="${keyword} + ',千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全'"/>
-    <meta name="description" th:content="${keyword} + ',千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全'"/>
+    <meta name="keywords" content="${keyword},千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="description" content="${keyword},千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
     <link rel="stylesheet" type="text/css" href="/css/result/result.css"/>
-    <!--
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        -->
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/jss/result/result.js"></script>
 </head>
 
 <body>
@@ -53,14 +51,13 @@ z-index: 99999;">
     <ul class="list">
     </ul>
 </div>
-<i id="keyword" style="display: none;" th:text="${keyword}"></i>
-<i id="pageIndex" style="display: none;" th:text="${pageIndex}"></i>
+<i id="keyword" style="display: none;">${keyword}</i>
+<i id="pageIndex" style="display: none;">${pageIndex}</i>
 
 <div class="loadingTop">
     <div class="loading_pic">
         <img src="/images/page_result/loading.gif">
     </div>
 </div>
-<script type="text/javascript" src="/jss/result/result.js"></script>
 </body>
 </html>

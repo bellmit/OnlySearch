@@ -1,19 +1,21 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
-	<title>祥龙检索，千度寻--电视剧</title>
+	<title th:text="'千度一下，搜索结果---' + ${keyword}"></title>
 	<meta charset="UTF-8"/>
 	<meta http-equiv="pragma" content="no-cache"/>
 	<meta http-equiv="cache-control" content="no-cache"/>
 	<meta http-equiv="expires" content="0"/>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 	<meta name="referrer" content="no-referrer"/>
-	<meta name="keywords" content="电视剧千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
-	<meta name="description" content="千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<meta name="keywords" content="${keyword}千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<meta name="description" content="${keyword}千度,千度一下,你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
 	<link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
-	<link rel="stylesheet" type="text/css" href="/css/tv/tvResult.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/tv/tvSearchResult.css"/>
 	<script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="/jss/vue.js"></script>
 	<script type="text/javascript" src="/jss/vue-lazyload.js"></script>
+	<script type="text/javascript" src="/jss/tv/tvSearchResult.js"></script>
 </head>
 
 <body>
@@ -45,30 +47,22 @@
 				<li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
 				<li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
 				<li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=60">音乐</a></li>
-				<li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
 				<li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
 			</ul>
 		</div>
-	</div>
-	<div class="list-view">
-		<div v-if="tvList.length > 0">
-			<ul class="tvUl">
-				<li v-for="(item , index ) in tvList">
-					<a :_href="item.href" href="javascript:void (0)" target="_blank" :platform="item.platform" :albumId="item.albumId">
-						<img v-lazy="item.imgSrc"/><br/>
-						<span class="title">{{item.title}}</span><br/>
-						<span class="zhuyan" v-html="item.subTitle"></span><br/>
-						<span class="jiNumber">{{item.jiNumber === undefined ? "" : item.jiNumber}}</span>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<div v-else style="text-align: center;">
-			<img src="/images/multiMusic/loading.gif"/>
-		</div>
+
+		<ul class="content">
+			<li v-for="(item,index) in tvList">
+				<a target="_blank" :href="item.href">
+					<img v-lazy="item.imgSrc">
+				</a>
+				<br/>
+				<span class="jiNumber" v-html="item.jiNumber"></span>
+				<p v-html="item.title"></p>
+			</li>
+		</ul>
 	</div>
 </div>
-<i id="pageIndex" style="display: none;" th:text="${pageIndex}"></i>
-<script type="text/javascript" src="/jss/tv/tvResult.js"></script>
+<a id="keyword" style="display: none" title="${keyword}"></a>
 </body>
 </html>
