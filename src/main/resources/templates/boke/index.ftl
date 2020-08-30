@@ -6,8 +6,8 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="expires" content="0"/>
-    <meta name="keywords" content="博客,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
-    <meta name="description" content="博客,千度一下,千度一下，你就知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="keywords" content="至尊博客,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="description" content="至尊博客,千度一下,千度一下，你就知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
     <link rel="stylesheet" type="text/css" href="/css/boke/index.css"/>
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-<h1 style="display: none" alt="博客,千度一下,千度一下，你就知道,千度搜索,千度网"></h1>
+<h1 style="display: none" alt="至尊博客,千度一下,千度一下，你就知道,千度搜索,千度网"></h1>
 <div class="topArea">
     <div class="background">
         <p>

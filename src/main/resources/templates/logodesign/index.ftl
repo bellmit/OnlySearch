@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <title>免费logo在线制作-字体logo-logo设计</title>
     <meta charset="UTF-8"/>
@@ -9,46 +9,39 @@
     <meta name="keywords" content="LOGO,LOGO在线,LOGO在线设计,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <meta name="description" content="LOGO,LOGO在线,LOGO在线设计,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
-    <link rel="stylesheet" type="text/css" href="/css/logodesign/logoContent.css"/>
-    <!--
-        <link rel="stylesheet" type="text/css" href="styles.css">
-        -->
+    <link rel="stylesheet" type="text/css" href="/css/logodesign/index.css"/>
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/jss/vue.js"></script>
-    <script type="text/javascript" src="/jss/logodesign/logoContent.js"></script>
+    <script type="text/javascript" src="/jss/vue-lazyload.js"></script>
     <script type="text/javascript" src="/jss/logodesign/gbk.js"></script>
     <script type="text/javascript" src="/jss/logodesign/common.js"></script>
 </head>
 
 <body>
+<div id="rooter">
     <div id="top">
         <div class="cover">
             <p>
                 <span>完全免费的LOGO在线设计制作工具</span>
                 <br/>
-                <input type="text" placeholder="LOGO名称"/>
-                <span>开始设计</span><br/>
+                <label>
+                    <input type="text" placeholder="LOGO名称"/>
+                </label>
+                <span class="design">开始设计</span><br/>
                 <span>请输入logo名称</span>
             </p>
         </div>
     </div>
 
-    <div id="rooter">
-        <p>
-            <span>免费LOGO设计案例</span>
-        </p>
-        <ul class="flex">
-            <li v-for="(item,key) of map" :data="key">
-                <span v-html="item"></span>
-            </li>
-        </ul>
-        <ul class="sucai">
-            <li v-for="(item,index) in filterSucais">
-                <img :src="item.sucaiUrl"/>
-            </li>
+    <div>
+        <ul class="images">
+            <#list indexImgList as indexImg>
+                <li>
+                    <img src="${indexImg}"/>
+                </li>
+            </#list>
         </ul>
     </div>
-
-<a id="type" style="display: none" th:title="${type}"></a>
+</div>
 </body>
 </html>

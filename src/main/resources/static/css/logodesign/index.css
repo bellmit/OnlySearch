@@ -53,7 +53,7 @@ div#top div.cover p input{
     font-size: 22px;
 }
 
-div#top div.cover p span:nth-of-type(2){
+div#top div.cover p span.design{
     width: 150px;
     height: 55px;
     line-height: 55px;
@@ -67,7 +67,7 @@ div#top div.cover p span:nth-of-type(2){
     cursor: pointer;
 }
 
-div#top div.cover p span:nth-of-type(2):hover{
+div#top div.cover p span.design:hover{
     background-color: #ff3724;
 }
 
@@ -79,58 +79,50 @@ div#top div.cover p span:nth-of-type(3){
     color: #777777;
 }
 
+div#top div.cover p span:nth-of-type(4) {
+    font-size: 16px;
+    position: absolute;
+    left: 485px;
+    top: 161px;
+    color: #FFFFFF;
+}
+
 div#rooter{
-    width: 100%;
+    margin: 5px auto;
 }
 
-div#rooter ul{
-    overflow: hidden;
-}
-
-div#rooter ul li{
-    float: left;
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-}
-
-div#rooter ul li img{
-    transition: all 0.5s;
-}
-
-div#rooter ul li img:hover{
-    transform: scale(1.3);
-}
-
-div#rooter p{
+div#rooter h1{
     text-align: center;
 }
 
 div#rooter ul.flex{
-    width: 1000px;
-    height: 50px;
+    width: 1200px;
+    overflow: hidden;
     display: flex;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 
 div#rooter ul.flex li{
     flex: 1;
-    height: 50px;
-    line-height: 50px;
+    font-size: 22px;
+    padding: 10px;
     text-align: center;
     cursor: pointer;
-    background-color: #6b6b6b;
-    color: #FFFFFF;
+    transition: all 1s;
+}
+
+div#rooter ul.flex li.focus{
+    background-color: rgba(255,204,0,1);
 }
 
 div#rooter ul.flex li:hover{
-    background-color: #3385ff;
-    color: #6ce26c;
+    background-color: rgba(255,204,0,1);
 }
 
-
-div#rooter p span{
-    font-size: 36px;
-    font-weight: bolder;
+div#rooter ul.images{
+    overflow: hidden;
 }
 
+div#rooter ul.images li{
+    float: left;
+}

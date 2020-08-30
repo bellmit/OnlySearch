@@ -1,73 +1,99 @@
 package application.controller.logodesign;
 
-import application.mybatis.model.Sucai;
 import application.service.logodesign.LogoDesignService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
-import java.util.Map;
 
+/**
+ * @author wtl
+ */
 @Controller
 @RequestMapping("/logo")
 public class LogoDesignController {
 
-    @Autowired
+    @Resource
     private LogoDesignService logoDesignService;
 
-    @GetMapping("/getImageMap")
-    public @ResponseBody
-    Map<String,Object> getImageMap(){
-        return logoDesignService.getImageMap();
-    }
-
-    @GetMapping("/index")
-    public String index(){
-        return "logodesign/index";
-    }
-
-    @GetMapping("/analysisIndex")
-    public @ResponseBody List<String> analysisIndex(){
+    /**
+     * 获取首页图片列表
+     * @return List<String>
+     */
+    @GetMapping("/getIndexImages")
+    public @ResponseBody List<String> getIndexImages(){
         return logoDesignService.analysisIndex();
     }
 
-    @GetMapping("/classfyLogo")
-    public @ResponseBody List<String> classfyLogo(){
-        return logoDesignService.classfyLogo();
+    @GetMapping("/index")
+    public String index(Model model){
+        model.addAttribute("indexImgList",logoDesignService.analysisIndex());
+        return "logodesign/index";
     }
 
+    /**
+     * 获取分页的文字类型
+     * @param pageIndex 页码
+     * @return List<String>
+     */
+    @GetMapping("/getWenziListByPage/{pageIndex}")
+    public @ResponseBody List<String> getWenziListByPage(@PathVariable int pageIndex){
+        return logoDesignService.getZitiListByPage(pageIndex);
+    }
 
-    @GetMapping("/logoContent/{type}")
-    public String logoContent(@PathVariable("type") String type,
-                              Model model){
-        model.addAttribute("type",type);
+    @GetMapping("/logoContent/{word}")
+    public String logoContent(@PathVariable String word, Model model){
+        model.addAttribute("word",word);
         return "logodesign/logoContent";
     }
 
-    @GetMapping("/getClassfySucaisByLimit/{type}/{offset}/{size}")
-    public @ResponseBody List<Sucai> getClassfySucaisByLimit(@PathVariable("type") String type,
-                                                             @PathVariable("offset") int offset,
-                                                             @PathVariable("size") int size){
-        return logoDesignService.getClassfySucaisByLimit(type,offset,size);
+    /**
+     * 获取所有字体样式
+     * @return List<String>
+     */
+    @GetMapping("/getAllZitiList")
+    public @ResponseBody List<String> getAllZitiList(){
+        return logoDesignService.getAllZitiList();
     }
 
-
-    @GetMapping("/getSucaiImage")
-    public void getSucaiImage(@RequestParam("path") String path, HttpServletResponse httpServletResponse) throws Exception{
-        logoDesignService.getSucaiImage(path,httpServletResponse);
+    /**
+     * 获取图片根据logo类型
+     * @param ziti 字体
+     * @param logodw logo类型
+     * @param pageIndex 页码
+     * @return List<String>
+     */
+    @GetMapping("/getImagesByLogoStyle/{ziti}/{logodw}/{pageIndex}")
+    public @ResponseBody List<String> getImagesByLogoStyle(
+            @PathVariable String ziti,
+            @PathVariable String logodw,
+            @PathVariable int pageIndex){
+        return logoDesignService.getImagesByLogoStyle(ziti, logodw, pageIndex);
     }
 
-    @GetMapping("/designZitiAndPic")
-    public @ResponseBody List<String> designZitiAndPic() throws Exception{
-        return logoDesignService.designZitiAndPic();
-    }
-
-    @GetMapping("/zitis/{ziTi}")
-    public String ziti(@PathVariable("ziTi")String ziTi,Model model) throws Exception{
-        model.addAttribute("ziTi",ziTi);
-        return "logodesign/zitis";
+    /**
+     * 获取log_img_sc
+     * @param ziti 字体
+     * @param tu 图片
+     * @param textColor 颜色
+     * @param txt 文字
+     * @return byte[]
+     */
+    @GetMapping("/getLogImageSrc/{ziti}/{tu}/{textColor}/{txt}")
+    public @ResponseBody void getLogImageSrc(
+            @PathVariable String ziti,
+            @PathVariable String tu,
+            @PathVariable String textColor,
+            @PathVariable String txt,
+            HttpServletResponse httpServletResponse) throws Exception {
+        httpServletResponse.setHeader("Content-Type","image/png");
+        byte[] bytes = logoDesignService.getLogImageSrc(ziti, tu, textColor, txt);
+        httpServletResponse.getOutputStream().write(bytes);
     }
 }

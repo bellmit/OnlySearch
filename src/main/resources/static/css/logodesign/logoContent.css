@@ -12,9 +12,13 @@ a {
     color: #000000;
 }
 
+div#rooter{
+    width: 100%;
+}
+
 div#top{
     background-color: rgba(255,204,0,1);
-    height: 430px;
+    height: 300px;
     position: relative;
 }
 
@@ -53,7 +57,7 @@ div#top div.cover p input{
     font-size: 22px;
 }
 
-div#top div.cover p span:nth-of-type(2){
+div#top div.cover p span.design{
     width: 150px;
     height: 55px;
     line-height: 55px;
@@ -67,63 +71,158 @@ div#top div.cover p span:nth-of-type(2){
     cursor: pointer;
 }
 
-div#top div.cover p span:nth-of-type(2):hover{
+div#top div.cover p span.design:hover{
     background-color: #ff3724;
 }
 
 div#top div.cover p span:nth-of-type(3){
+     font-size: 16px;
+     position: absolute;
+     left: 485px;
+     top: 132px;
+     color: #777777;
+ }
+
+div#top div.cover p span:nth-of-type(4){
     font-size: 16px;
     position: absolute;
     left: 485px;
-    top: 132px;
+    top: 167px;
     color: #777777;
 }
 
-div#rooter{
-    width: 100%;
+div#top div.cover p span:nth-of-type(5){
+    font-size: 16px;
+    position: absolute;
+    left: 485px;
+    top: 197px;
+    color: #777777;
 }
 
-div#rooter p{
-    text-align: center;
+div.content{
+    width: 1600px;
+    margin: 0 auto;
+    position: relative;
 }
 
-div#rooter ul.flex{
-    width: 1000px;
-    height: 50px;
+div.icon{
+    width: 0;
+    height: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+div.icon ul{
     display: flex;
-    margin: 30px auto;
+    color: #FFFFFF;
 }
 
-div#rooter ul.flex li{
+div.icon h1{
+   text-align: center;
+}
+
+div.icon ul li{
     flex: 1;
     height: 50px;
     line-height: 50px;
     text-align: center;
     cursor: pointer;
-    background-color: #6b6b6b;
-    color: #FFFFFF;
 }
 
-div#rooter ul.flex li:hover{
-    background-color: #3385ff;
-    color: #6ce26c;
+div.icon ul li:hover,div.icon ul li.focus{
+    border: 3px solid rgba(255,204,0,1);
 }
 
-div#rooter ul.flex li.focus{
-    background-color: #ff3724;
-    color: #c2d2ff;
+div.ziti{
+    height: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    transition: all 0.5s;
+    opacity: 0;
 }
 
-div#rooter p span{
-    font-size: 36px;
-    font-weight: bolder;
+div.ziti ul{
+    text-align: center;
 }
 
+div.ziti ul li{
+    display: inline-block;
+    cursor: pointer;
+}
 
-div#rooter ul.sucai li{
+div.ziti ul li:hover,div.ziti ul li.focus{
+    border: 3px solid rgba(255,204,0,1);
+}
+
+div.images{
+    width: 1600px;
+    margin: 30px auto;
+}
+
+div.images ul{
+    overflow: hidden;
+}
+
+div.images ul li{
     float: left;
+    margin: 10px;
 }
 
-div#rooter ul.sucai li img{
-    height: 86px;
+ul.selection{
+    width: 1200px;
+    margin: 10px auto;
+    display: flex;
+    height: 50px;
+    line-height: 50px;
 }
+
+ul.selection li{
+    flex: 1;
+    text-align: center;
+    height: 50px;
+    font-size: 22px;
+    margin: 10px;
+    background-color: #9cb945;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+div.color{
+    height: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,.6);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+div.color table.reference{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+div.color table.reference tr{
+    text-align: center;
+}
+
+div.color table.reference td{
+    position: relative;
+}
+
+div.color table.reference input[type=range]{
+    width: 100%;
+}
+
+

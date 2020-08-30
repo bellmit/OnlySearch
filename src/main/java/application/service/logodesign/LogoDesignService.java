@@ -2,32 +2,27 @@ package application.service.logodesign;
 
 import application.filter.SysContext;
 import application.mybatis.mappers.LogoSuCaiMapper;
-import application.mybatis.model.Sucai;
 import application.service.feign.logodesign.LogoDesignFeign;
-import net.lightbody.bmp.BrowserMobProxy;
-import net.lightbody.bmp.BrowserMobProxyServer;
-import net.lightbody.bmp.client.ClientUtil;
-import net.lightbody.bmp.core.har.Har;
-import net.lightbody.bmp.core.har.HarEntry;
-import net.lightbody.bmp.proxy.CaptureType;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Proxy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import feign.Response;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-
+/**
+ * @author wtl
+ */
 @Service
 public class LogoDesignService {
 
@@ -37,146 +32,106 @@ public class LogoDesignService {
     @Resource
     private LogoSuCaiMapper logoSuCaiMapper;
 
-    private final static String SUB_PATH = "logo/";
-
-    private final static String BASE_URL = "http://www.uugai.com/";
-
-    private final static String []urls = {
-            "logo.php",
-            "logozm.php",
-            "logodw.php",
-            "logorw.php",
-            "logojz.php",
-            "logozw.php",
-            "logoyu.php",
-            "logokc.php"
-    };
-    /**
-     * 设计字体组合
-     */
-    public List<String> designZitiAndPic() throws Exception {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(SysContext.UPLOAD_FILE_PATH + SUB_PATH + "zitis.dat")));
-        String line = null;
-
-        List<String> list = new ArrayList<String>();
-        while (null != (line = bufferedReader.readLine())){
-            list.add(line);
-        }
-        return list;
-    }
+    private static final String BASE_URL = "http://www.uugai.com/";
 
     /**
-     * 获取所有image模板
-     * @return
-     */
-    public Map<String,Object> getImageMap(){
-        Map<String,Object> map = new HashMap<String, Object>();
-        File dir = new File(SysContext.UPLOAD_FILE_PATH + SUB_PATH);
-
-        File[] listFiles = dir.listFiles();
-        List<String> list = new ArrayList<String>();
-        map.put("sucais",list);
-        for (int i=0;i<listFiles.length;i++){
-            if (listFiles[i].isFile()){
-                list.add(listFiles[i].getName());
-            }
-        }
-        return map;
-    }
-
-
-    /**
-     * 分析出首页的图片链接
-     * @return
+     * 获取首页图片列表
+     * @return List<String>
      */
     public List<String> analysisIndex(){
-        List<String> list = new ArrayList<String>();
-        BrowserMobProxy browserMobProxy = null;
-        WebDriver webDriver = null;
-        try {
-            browserMobProxy = new BrowserMobProxyServer();
-            browserMobProxy.start(0);
+        List<String> imgList = new ArrayList<>();
 
-            Proxy seleniumProxy = ClientUtil.createSeleniumProxy(browserMobProxy);
+        String html = logoDesignFeign.index();
+        Document document = Jsoup.parse(html);
+        Elements imgElements = document.select("div.cc.mb20 > a > img");
 
-            ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.setHeadless(true);
-            chromeOptions.addArguments("--no-sandbox",
-                    "--disable-gpu",
-                    "--disable-dev-shm-usage");
-            chromeOptions.setProxy(seleniumProxy);
-            webDriver = new ChromeDriver(chromeOptions);
-
-            browserMobProxy.enableHarCaptureTypes(CaptureType.REQUEST_CONTENT, CaptureType.RESPONSE_CONTENT);
-            browserMobProxy.setHarCaptureTypes(CaptureType.RESPONSE_CONTENT);
-
-            browserMobProxy.newHar("logo");
-            webDriver.get(BASE_URL);
-            WebDriverWait webDriverWait = new WebDriverWait(webDriver, 10);
-            webDriverWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("div.cc.mb20 a img")));
-
-            Har har = browserMobProxy.getHar();
-            List<HarEntry> entries = har.getLog().getEntries();
-            for (HarEntry harEntry : entries){
-                String url = harEntry.getRequest().getUrl();
-                if (url.contains("http://www.uugai.com/img/index_img")
-                && url.contains("jpg")){
-                    list.add(url);
-                }
-            }
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            if (null != browserMobProxy){
-                browserMobProxy.stop();
-            }
-            if (null != webDriver){
-                webDriver.quit();
-            }
-        }
-        return list;
+        imgElements.forEach(element -> {
+            imgList.add(BASE_URL + element.attr("src"));
+        });
+        return imgList;
     }
 
     /**
-     * 分类logo
-     * @return
+     * 获取分页的文字类型
+     * @param pageIndex 页码
+     * @return List<String>
      */
-    public List<String> classfyLogo(){
-        List<String> list = new ArrayList<String>();
-        for (int i=0;i<urls.length;i++){
-            list.add(urls[i].split("\\.")[0]);
-        }
-        return list;
+    public List<String> getZitiListByPage(int pageIndex){
+
+        List<String> ziTiList = new ArrayList<>();
+
+        String html = logoDesignFeign.getWenziListByPage(pageIndex);
+        Document document = Jsoup.parse(html);
+        Elements elements = document.select("div.wt_zitiboy button");
+
+        elements.forEach(element -> {
+            ziTiList.add(element.attr("value"));
+        });
+
+        return ziTiList;
     }
 
-    public List<Sucai> getClassfySucaisByLimit(String type,
-                                               int offset, int size){
-        return logoSuCaiMapper.selectLikeType(type,offset,size);
-    }
 
-    public void getSucaiImage(String path,HttpServletResponse httpServletResponse) throws Exception {
-        BufferedInputStream bufferedInputStream = null;
-        BufferedOutputStream bufferedOutputStream = null;
-        try {
-            bufferedInputStream = new BufferedInputStream(new FileInputStream(path));
-            bufferedOutputStream = new BufferedOutputStream(httpServletResponse.getOutputStream());
+    /**
+     * 获取所有字体样式
+     * @return List<String>
+     */
+    public List<String> getAllZitiList(){
+        List<String> zitiList = new ArrayList<>();
 
-            int length = -1;
-            byte[] buffer = new byte[1024];
-
-            while ((length = bufferedInputStream.read(buffer)) != -1) {
-                bufferedOutputStream.write(buffer, 0, length);
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            List<String> zitiListByPage = getZitiListByPage(i + 1);
+            if (zitiListByPage.size() == 0){
+                break;
             }
-        } finally {
-            if (null != bufferedInputStream) {
-                bufferedInputStream.close();
-            }
-            if (null != bufferedOutputStream) {
-                bufferedOutputStream.close();
+            else{
+                zitiList.addAll(zitiListByPage);
             }
         }
 
+        return zitiList;
+    }
+
+    /**
+     * 获取图片根据logo类型
+     * @param ziti 字体
+     * @param logodw logo类型
+     * @param pageIndex 页码
+     * @return List<String>
+     */
+    public List<String> getImagesByLogoStyle(String ziti,String logodw,int pageIndex){
+        List<String> imageList = new ArrayList<>();
+        String html = logoDesignFeign.getImagesByLogoStyle("zitia=" + ziti + ";", logodw, pageIndex);
+        Document document = Jsoup.parse(html);
+
+        Elements elements = document.select("div.ysh_a > a");
+
+        if (elements.size() == 0){
+            elements = document.select("div.yshiii > a");
+        }
+
+
+        elements.forEach(element -> {
+            imageList.add(element.attr("href"));
+        });
+
+        return imageList;
+    }
+
+    /**
+     * 获取log_img_sc
+     * @param ziti 字体
+     * @param tu 图片
+     * @param textColor 颜色
+     * @param txt 文字
+     * @return byte[]
+     */
+    public byte[] getLogImageSrc(String ziti,String tu,String textColor,String txt) throws Exception {
+        return logoDesignFeign.getLogImageSrc(
+                SysContext.LOGO_DESIGN_COOKIE.replaceAll("TU",tu)
+                .replaceAll("TXT",txt)
+                .replaceAll("TTF",ziti)
+                .replaceAll("TEXTCOLOR",textColor)
+        );
     }
 }

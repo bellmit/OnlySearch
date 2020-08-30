@@ -8,6 +8,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author wtl
@@ -20,6 +21,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableAutoDataSourceProxy
 @MapperScan(basePackages = "application.mybatis.mappers")
 @ServletComponentScan(basePackages = "application")
+@EnableScheduling
 public class AppSpringBootMain extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication.run(AppSpringBootMain.class,args);
