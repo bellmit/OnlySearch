@@ -117,6 +117,6 @@ public interface BiliBiliVideoFeign {
      * @param bVid
      * @return
      */
-    @GetMapping("/x/player/playurl?cid={cid}&bvid={bVid}&qn=116&type=mp4")
+    @GetMapping("/x/player/playurl?cid={cid}&bvid={bVid}&qn=116&type=flv")
     String getBiliBiliVideo(@PathVariable String cid, @PathVariable String bVid);
 }

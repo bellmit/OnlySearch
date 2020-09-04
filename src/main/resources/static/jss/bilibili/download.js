@@ -16,7 +16,7 @@ $(function () {
                     let videoList = data.data;
                     rooter.videoList = [];
                     for (let i=0;i<videoList.length;i++){
-                        rooter.videoList.push(["/bilibili/getVideoStream?cid=" + videoList[i].cid + "&bVid=" + bVid,videoList[i].part + ".mp4"]);
+                        rooter.videoList.push(["/bilibili/getVideoStream?cid=" + videoList[i].cid + "&bVid=" + bVid,videoList[i].part + ".flv"]);
                     }
                 }
             });

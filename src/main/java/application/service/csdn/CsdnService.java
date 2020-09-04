@@ -49,7 +49,7 @@ public class CsdnService {
         urls = Arrays.asList(split);
     }
 
-    @PostConstruct
+    //@PostConstruct
     public void run(){
         THREAD_POOL_EXECUTOR.execute(()->{
             while (true){

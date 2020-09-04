@@ -12,8 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/css/bilibili/redirectVideoPage.css"/>
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/jss/vue.js"></script>
-    <script type="text/javascript" src="/jss/bilibili/flvplayer.js"></script>
-    <script type="text/javascript" src="/jss/bilibili/flvplayer-decoder-baseline.js"></script>
+    <script type="text/javascript" src="/jss/flv.js"></script>
     <script type="text/javascript" src="/jss/bilibili/redirectVideoPage.js"></script>
 </head>
 
@@ -21,7 +20,7 @@
 <div id="rooter">
     <h3 v-html="title"></h3>
     <h5 v-html="description"></h5>
-    <video autoplay controls :src="playUrl"></video>
+    <video autoplay controls></video>
     <div class="rightArea">
         <ul>
             <li class="item" v-for="(item,index) in pageList" :cid="item.cid" :page="item.page" :part="item.part" v-html="item.part"

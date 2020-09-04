@@ -85,6 +85,6 @@
             </div>
         </div>
     </div>
-<input class="keyword" style="display: none;" th:title="${keyword}"/>
+<input class="keyword" style="display: none;" title="${keyword}"/>
 </body>
 </html>

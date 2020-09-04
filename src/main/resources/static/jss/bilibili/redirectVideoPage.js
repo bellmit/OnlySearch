@@ -29,8 +29,18 @@ $(function () {
 
     rooter.$watch("pageList",function () {
         let pageList = rooter.pageList;
-        console.dir(pageList)
         rooter.playUrl = "/bilibili/getVideoStream?cid=" + rooter.pageList[0].cid + "&bVid=" + bVid;
+
+        if (flvjs.isSupported()) {
+            let videoElement = $("video").get(0);
+            let flvPlayer = flvjs.createPlayer({
+                type: 'flv',
+                url: "/bilibili/getVideoStream?cid=" + rooter.pageList[0].cid + "&bVid=" + bVid
+            });
+            flvPlayer.attachMediaElement(videoElement);
+            flvPlayer.load();
+            flvPlayer.play();
+        }
 
         let lis = $("#rooter ul li.item");
         for (let i = 0; i < lis.length; i++) {
@@ -46,5 +56,4 @@ $(function () {
 
         $("p > a").attr("href","/bilibili/downloadVideos/" + bVid + "/" + aid);
     });
-
 });
