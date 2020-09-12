@@ -1,5 +1,11 @@
 $(function () {
     let keyword = $("input#keyword").attr("title");
+
+    Vue.use(VueLazyload, {
+        error: '/images/bg.gif',
+        loading: '/images/bg.gif'
+    });
+
     let pageIndex = 0;
     let channelIds = [
         2, 1, 4, 3, 25, 7, 16, 10, 5, 28, 12, 17, 15, 13, 21, 26, 20, 27

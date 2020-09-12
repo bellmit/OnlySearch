@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>祥龙检索-酷我音乐</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta name="keywords" content="酷我音乐,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="description" content="酷我音乐,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/kuwo/tagPlayList.css"/>
+    <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/jss/vue.js"></script>
+    <script type="text/javascript" src="/jss/kuwo/tagPlayList.js"></script>
+    <script type="text/javascript" src="/jss/kuwo/common.js"></script>
+</head>
+
+<body>
+<div class="top">
+    <div class="innerArea">
+        <a href="/kuwo/index" target="_blank">
+            <img src="/images/kuwo/index.png"/>
+        </a>
+        <a href="/kuwo/hotTop"><span>排行榜</span></a>
+        <a href="/kuwo/singer/0/1/100/100/100?prefix="><span>歌手</span></a>
+        <a href="/kuwo/tagPlayListPage/37"><span>歌单</span></a>
+        <a href="/kuwo/mvListPage/236682871"><span>MV</span></a>
+
+        <input type="text" placeholder="搜索音乐/MV/歌单/歌手" maxlength="128"/>
+    </div>
+</div>
+
+<div id="rooter">
+    <ul class="types">
+        <li v-for="item,index in types">
+            <p>
+                <a target="_blank"><span v-for="item2,index2 in item" v-html="item2[0]" :id="item2[1]" :class="item2[1] === id ? 'focus' : ''"></span></a>
+            </p>
+        </li>
+    </ul>
+
+    <ul class="songList">
+        <li v-for="item,index in songList">
+            <img :src="item.img"/>
+            <span v-html="item.name"></span>
+            <span v-html="item.uname"></span>
+            <a :href="'/kuwo/playListInfo/' + item.id" target="_blank">
+                <img :id="item.id" src="/images/kuwo/play.png" class="playVideoBtn"/>
+            </a>
+        </li>
+    </ul>
+</div>
+<input style="display: none;" th:title="${id}" id="id"/>
+</body>
+</html>

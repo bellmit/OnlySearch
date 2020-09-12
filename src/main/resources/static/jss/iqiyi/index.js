@@ -2,6 +2,11 @@ $(function () {
 
     let pageIndex = 1;
 
+    Vue.use(VueLazyload, {
+        error: '/images/bg.gif',
+        loading: '/images/bg.gif'
+    });
+
     window.rooter = new Vue({
         el: "#rooter",
         data: function () {

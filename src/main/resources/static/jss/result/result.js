@@ -115,7 +115,7 @@ $(function () {
                 window.location = "musicResult?keyword=音乐&pageIndex=1&pageSize=60";
             }
             else{
-                window.location = "../../../templates/error/error.ftl";
+                window.location = "../../../templates/error/error.html";
             }
 
         }

@@ -134,4 +134,9 @@ public class SysContext {
 	public static final String SET_COOKIE = "Set-Cookie";
 	public static final String LOGO_DESIGN_COOKIE = "tu=TU.png; txt=TXT; zitia=TTF; miniziti=xihei.ttf; txtcolor=TEXTCOLOR; minicolor=555555; txtcolora=444444; leixing=logo; mt_a=%E8%BE%93%E5%85%A5%E6%96%87%E5%AD%97%E7%9C%8B%E7%9C%8Bs003.ttfxihei.ttf; went=logo%2Ft20200830%2F159875246737086.png; went_z=logo%2Ft20200830%2F159875246743602z.png";
 
+	public static final String PROTOCOL_HTTPS = "https";
+	public static final String MAO_HAO = ":";
+
+	public static final String TEXT_HTML_MIME_TYPE = "text/html";
+
 }
