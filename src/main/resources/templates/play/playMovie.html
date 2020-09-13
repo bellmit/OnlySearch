@@ -1,11 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title text="祥龙检索，千度寻---${name}"></title>
+    <title th:text="${name}"></title>
     <meta charset="UTF-8"/>
-    <meta http-equiv="pragma" content="no-cache"/>
-    <meta http-equiv="cache-control" content="no-cache"/>
-    <meta http-equiv="expires" content="0"/>
     <meta name="keywords" content="千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <meta name="description" content="千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
@@ -31,7 +28,7 @@
 <iframe></iframe>
 <script type="text/javascript">
     $(function () {
-        $("iframe").attr("src","https://jx.elwtc.com/vip/?url=" + $("#input").attr("url"));
+        $("iframe").attr("src","https://www.2ajx.com/vip.php?url=" + $("#input").attr("url"));
     });
 </script>
 </body>

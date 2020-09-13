@@ -31,8 +31,8 @@ public interface TenXunFeign {
      * @param characteristic 特色
      * @return String html part
      */
-    @GetMapping("/x/bu/pagesheet/list?append=1&channel={channel}&offset={offset}&pagesize={pageSize}&feature={feature}&iarea={iarea}&pay={pay}&sort={sort}&year={year}&charge={charge}&itype={itype}&characteristic={characteristic}&ipay={ipay}&iyear={iyear}&source={source}&exclusive={exclusive}&plot_aspect={plot_aspect}&language={language}&anime_status={anime_status}&itrailer={itrailer}&cuisine_style={cuisine_style}&food_itype={food_itype}")
+    @GetMapping("/x/bu/pagesheet/list?append=1&channel={channel}&offset={offset}&pagesize={pageSize}&feature={feature}&iarea={iarea}&pay={pay}&sort={sort}&year={year}&charge={charge}&itype={itype}&characteristic={characteristic}&ipay={ipay}&iyear={iyear}&source={source}&exclusive={exclusive}&plot_aspect={plot_aspect}&language={language}&anime_status={anime_status}&itrailer={itrailer}&cuisine_style={cuisine_style}&food_itype={food_itype}&iaspect={iaspect}&icolumn={icolumn}&icelebrity={icelebrity}")
     String pageList(@PathVariable String channel, @PathVariable int offset, @PathVariable int pageSize, @PathVariable String feature, @PathVariable String iarea, @PathVariable String pay, @PathVariable String sort, @PathVariable String year, @PathVariable String charge, @PathVariable String itype, @PathVariable String characteristic, @PathVariable String ipay, @PathVariable String iyear, @PathVariable String source, @PathVariable String exclusive,
-                    @PathVariable String plot_aspect,@PathVariable String language,@PathVariable String anime_status,@PathVariable String itrailer,@PathVariable String cuisine_style,@PathVariable String food_itype);
+                    @PathVariable String plot_aspect,@PathVariable String language,@PathVariable String anime_status,@PathVariable String itrailer,@PathVariable String cuisine_style,@PathVariable String food_itype,@PathVariable String iaspect,@PathVariable String icolumn,@PathVariable String icelebrity);
 
 }

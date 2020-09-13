@@ -38,7 +38,7 @@ public class TenXunController {
             @RequestParam("pageSize") int pageSize,
             PageParams pageParams
             ){
-        return tenXunService.pageList(pageParams.getChannel(),(pageIndex -1) * pageSize,pageSize,pageParams.getFeature(),pageParams.getIarea(),pageParams.getPay(),pageParams.getSort(),pageParams.getYear(),pageParams.getCharge(),pageParams.getItype(),pageParams.getCharacteristic(),pageParams.getIpay(),pageParams.getIyear(),pageParams.getSource(),pageParams.getExclusive(),pageParams.getPlot_aspect(),pageParams.getLanguage(),pageParams.getAnime_status(),pageParams.getItrailer(),pageParams.getCuisine_style(),pageParams.getFood_itype());
+        return tenXunService.pageList(pageParams.getChannel(),(pageIndex -1) * pageSize,pageSize,pageParams.getFeature(),pageParams.getIarea(),pageParams.getPay(),pageParams.getSort(),pageParams.getYear(),pageParams.getCharge(),pageParams.getItype(),pageParams.getCharacteristic(),pageParams.getIpay(),pageParams.getIyear(),pageParams.getSource(),pageParams.getExclusive(),pageParams.getPlot_aspect(),pageParams.getLanguage(),pageParams.getAnime_status(),pageParams.getItrailer(),pageParams.getCuisine_style(),pageParams.getFood_itype(),pageParams.getIaspect(),pageParams.getIcolumn(),pageParams.getIcelebrity());
     }
 
     @GetMapping("/pageIndex")

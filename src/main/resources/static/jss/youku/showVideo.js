@@ -32,11 +32,11 @@ $(function () {
 
             $(this).addClass("focus");
 
-            iframe.attr("src","https://jiexi.bm6ig.cn/?url="+$(this).attr("url"));
+            iframe.attr("src","https://www.2ajx.com/vip.php?url="+$(this).attr("url"));
         });
 
         //初始化
-        iframe.attr("src","https://jiexi.bm6ig.cn/?url="+lis.eq(0).attr("url"));
+        iframe.attr("src","https://www.2ajx.com/vip.php?url="+lis.eq(0).attr("url"));
         lis.eq(0).addClass("focus");
     });
 

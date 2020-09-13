@@ -18,6 +18,7 @@ $(function () {
                 child: null,
                 documentary: null,
                 life: null,
+                funny: null,
                 pageIndex: pageIndex,
                 pageSize: 30,
                 feature: -1,
@@ -38,6 +39,9 @@ $(function () {
                 itrailer: -1,
                 cuisine_style: -1,
                 food_itype: 2887,
+                iaspect: -1,
+                icolumn: -1,
+                icelebrity: -1,
                 tvFeature: null,
                 tvFeatureCurrentIndex: 1,
                 tvSort: null,
@@ -114,6 +118,16 @@ $(function () {
                 lifeCuisine_styleCurrentIndex: 1,
                 lifeFood_itype: null,
                 lifeFood_itypeCurrentIndex: 1,
+                funnySort: null,
+                funnySortCurrentIndex: 1,
+                funnyItype: null,
+                funnyItypeCurrentIndex: 1,
+                funnyIaspect: null,
+                funnyIaspectCurrentIndex: 1,
+                funnyIcolumn: null,
+                funnyIcolumnCurrentIndex: 1,
+                funnyIcelebrity: null,
+                funnyIcelebrityCurrentIndex: 1,
                 videoList: null
             };
         },
@@ -535,11 +549,66 @@ $(function () {
 
     });
 
+    rooter.$watch("funny", function () {
+        rooter.currentChannel = "fun";
+        commonAjax();
+
+        let funnySortLis = $("ul.funny-sort li");
+        funnySortLis.unbind().click(function () {
+            rooter.currentChannel = "fun";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            funnySortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let funnyItypeLis = $("ul.funny-itype li");
+        funnyItypeLis.unbind().click(function () {
+            rooter.currentChannel = "fun";
+            rooter.pageIndex = 1;
+            rooter.itype = $(this).find("span").attr("itype");
+            funnyItypeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let funnyIaspectLis = $("ul.funny-iaspect li");
+        funnyIaspectLis.unbind().click(function () {
+            rooter.currentChannel = "fun";
+            rooter.pageIndex = 1;
+            rooter.iaspect = $(this).find("span").attr("iaspect");
+            funnyIaspectLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let funnyIcolumnLis = $("ul.funny-icolumn li");
+        funnyIcolumnLis.unbind().click(function () {
+            rooter.currentChannel = "fun";
+            rooter.pageIndex = 1;
+            rooter.icolumn = $(this).find("span").attr("icolumn");
+            funnyIcolumnLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let funnyIcelebrityLis = $("ul.funny-icelebrity li");
+        funnyIcelebrityLis.unbind().click(function () {
+            rooter.currentChannel = "fun";
+            rooter.pageIndex = 1;
+            rooter.icelebrity = $(this).find("span").attr("icelebrity");
+            funnyIcelebrityLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+    });
+
 
     function commonAjax() {
         $.ajax({
             type: "GET",
-            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype,
+            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity,
             dataType: "json",
             success: function (data) {
                 rooter.videoList = data;
@@ -556,7 +625,7 @@ $(function () {
                 rooter.pageIndex++;
                 $.ajax({
                     type: "GET",
-                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype,
+                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity,
                     dataType: "json",
                     success: function (data) {
                         let videoList = data;
@@ -604,6 +673,10 @@ $(function () {
             case "生活":
                 rooter.currentChannel = "life";
                 readLifeConfig();
+                break;
+            case "搞笑":
+                rooter.currentChannel = "fun";
+                readFunnyConfig();
                 break;
             default:
                 break;
@@ -732,6 +805,24 @@ $(function () {
                 rooter.lifeSort = data["排序|sort"];
                 rooter.lifeCuisine_style = data["料理风格|cuisine_style"];
                 rooter.lifeFood_itype = data["食物类型|food_itype"];
+                commonAjax();
+            }
+        });
+    }
+
+
+    function readFunnyConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/funny.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.funny = data;
+                rooter.funnySort = data["排序|sort"];
+                rooter.funnyItype = data["类型|itype"];
+                rooter.funnyIaspect = data["看点|iaspect"];
+                rooter.funnyIcolumn = data["食栏目|icolumn"];
+                rooter.funnyIcelebrity = data["名人|icelebrity"];
                 commonAjax();
             }
         });

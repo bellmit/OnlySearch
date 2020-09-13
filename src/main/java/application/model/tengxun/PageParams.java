@@ -37,4 +37,7 @@ public class PageParams {
     private String itrailer = "-1";
     private String cuisine_style = "-1";
     private String food_itype = "2887";
+    private String iaspect = "-1";
+    private String icolumn = "-1";
+    private String icelebrity = "-1";
 }
