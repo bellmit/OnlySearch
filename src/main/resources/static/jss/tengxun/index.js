@@ -17,6 +17,7 @@ $(function () {
                 anime: null,
                 child: null,
                 documentary: null,
+                life: null,
                 pageIndex: pageIndex,
                 pageSize: 30,
                 feature: -1,
@@ -35,6 +36,8 @@ $(function () {
                 language: -1,
                 anime_status: -1,
                 itrailer: -1,
+                cuisine_style: -1,
+                food_itype: 2887,
                 tvFeature: null,
                 tvFeatureCurrentIndex: 1,
                 tvSort: null,
@@ -103,6 +106,14 @@ $(function () {
                 documentaryItrailerCurrentIndex: 1,
                 documentaryPay: null,
                 documentaryPayCurrentIndex: 1,
+                lifeItype: null,
+                lifeItypeCurrentIndex: 1,
+                lifeSort: null,
+                lifeSortCurrentIndex: 1,
+                lifeCuisine_style: null,
+                lifeCuisine_styleCurrentIndex: 1,
+                lifeFood_itype: null,
+                lifeFood_itypeCurrentIndex: 1,
                 videoList: null
             };
         },
@@ -478,11 +489,57 @@ $(function () {
         });
     });
 
+    rooter.$watch("life", function () {
+        rooter.currentChannel = "life";
+        commonAjax();
+
+        let lifeItypeLis = $("ul.life-itype li");
+        lifeItypeLis.unbind().click(function () {
+            rooter.currentChannel = "life";
+            rooter.pageIndex = 1;
+            rooter.itype = $(this).find("span").attr("itype");
+            lifeItypeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let lifeSortLis = $("ul.life-sort li");
+        lifeSortLis.unbind().click(function () {
+            rooter.currentChannel = "life";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            lifeSortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let lifeCuisine_styleLis = $("ul.life-cuisine_style li");
+        lifeCuisine_styleLis.unbind().click(function () {
+            rooter.currentChannel = "life";
+            rooter.pageIndex = 1;
+            rooter.cuisine_style = $(this).find("span").attr("cuisine_style");
+            lifeCuisine_styleLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let lifeFood_itypeLis = $("ul.life-food_itype li");
+        lifeFood_itypeLis.unbind().click(function () {
+            rooter.currentChannel = "life";
+            rooter.pageIndex = 1;
+            rooter.food_itype = $(this).find("span").attr("food_itype");
+            lifeFood_itypeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+    });
+
 
     function commonAjax() {
         $.ajax({
             type: "GET",
-            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer,
+            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype,
             dataType: "json",
             success: function (data) {
                 rooter.videoList = data;
@@ -499,7 +556,7 @@ $(function () {
                 rooter.pageIndex++;
                 $.ajax({
                     type: "GET",
-                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer,
+                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype,
                     dataType: "json",
                     success: function (data) {
                         let videoList = data;
@@ -543,6 +600,10 @@ $(function () {
             case "纪录片":
                 rooter.currentChannel = "doco";
                 readDocumentaryConfig();
+                break;
+            case "生活":
+                rooter.currentChannel = "life";
+                readLifeConfig();
                 break;
             default:
                 break;
@@ -654,6 +715,23 @@ $(function () {
                 rooter.documentarySort = data["排序|sort"];
                 rooter.documentaryItrailer = data["出品机构|itrailer"];
                 rooter.documentaryPay = data["资费|pay"];
+                commonAjax();
+            }
+        });
+    }
+
+
+    function readLifeConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/life.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.life = data;
+                rooter.lifeItype = data["类型|itype"];
+                rooter.lifeSort = data["排序|sort"];
+                rooter.lifeCuisine_style = data["料理风格|cuisine_style"];
+                rooter.lifeFood_itype = data["食物类型|food_itype"];
                 commonAjax();
             }
         });

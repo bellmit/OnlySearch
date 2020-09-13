@@ -93,7 +93,7 @@ div.items ul {
 
 div.items ul li {
     float: left;
-    width: 80px;
+    min-width: 90px;
     height: 30px;
     line-height: 30px;
     text-align: center;

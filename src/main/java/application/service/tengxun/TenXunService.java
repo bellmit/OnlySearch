@@ -42,10 +42,10 @@ public class TenXunService {
      * @return List<PageResult>
      */
     public List<PageResult> pageList(
-            String channel, int offset, int pageSize, String feature, String iarea, String pay, String sort, String year, String charge, String itype, String characteristic,String ipay,String iyear,String source,String exclusive,String plot_aspect,String language,String anime_status,String itrailer
+            String channel, int offset, int pageSize, String feature, String iarea, String pay, String sort, String year, String charge, String itype, String characteristic,String ipay,String iyear,String source,String exclusive,String plot_aspect,String language,String anime_status,String itrailer,String cuisine_style,String food_itype
     ) {
         List<PageResult> pageResults = new ArrayList<>();
-        String htmlPart = tenXunFeign.pageList(channel, offset, pageSize, feature, iarea, pay, sort, year, charge, itype, characteristic, ipay, iyear, source, exclusive, plot_aspect, language, anime_status, itrailer);
+        String htmlPart = tenXunFeign.pageList(channel, offset, pageSize, feature, iarea, pay, sort, year, charge, itype, characteristic, ipay, iyear, source, exclusive, plot_aspect, language, anime_status, itrailer, cuisine_style, food_itype);
 
         Document document = Jsoup.parse(htmlPart);
         Elements listItems = document.select("div.list_item");

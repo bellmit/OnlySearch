@@ -35,4 +35,6 @@ public class PageParams {
     private String language = "-1";
     private String anime_status = "-1";
     private String itrailer = "-1";
+    private String cuisine_style = "-1";
+    private String food_itype = "2887";
 }

@@ -29,6 +29,7 @@
         <li>动漫</li>
         <li>少儿</li>
         <li>纪录片</li>
+        <li>生活</li>
     </ul>
 
     <div v-if="currentChannel === 'tv'">
@@ -291,6 +292,44 @@
         <ul class="content">
             <li v-for="(item,index) in videoList">
                 <a target="_blank" :href="'/tengxun/showTenXunVariety?url=' + encodeURIComponent(item.url) + '&platform=tengxun&varietyName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'life'" class="life">
+        <ul class="life-itype">
+            <li v-for="(item,index) in lifeItype" :class="index+1 === lifeItypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="life-sort">
+            <li v-for="(item,index) in lifeSort" :class="index+1 === lifeSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="life-cuisine_style">
+            <li v-for="(item,index) in lifeCuisine_style" :class="index+1 === lifeCuisine_styleCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :cuisine_style="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="life-food_itype">
+            <li v-for="(item,index) in lifeFood_itype" :class="index+1 === lifeFood_itypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :food_itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
                     <img v-lazy="item.picUrl">
                 </a>
                 <span class="jiNumber" v-html="item.jiNumber"></span>
