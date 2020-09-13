@@ -3,8 +3,10 @@ package application.service.fiction;
 import application.model.fiction.Fiction;
 import application.mybatis.mappers.FictionMapper;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,8 +30,8 @@ public class FictionScheduler {
     @Resource
     private FictionService fictionService;
 
-    //@Async
-    //@Scheduled(initialDelay = 5000,fixedRate = 1000 * 60 * 60 * 24)
+    @Async
+    @Scheduled(cron = "0 0 0/24 * * *")
     public void schedule(){
         //删除记录
         fictionMapper.deleteAll();

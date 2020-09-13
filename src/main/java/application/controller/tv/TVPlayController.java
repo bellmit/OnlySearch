@@ -71,5 +71,4 @@ public class TVPlayController {
         model.addAttribute("tvName", tvName);
         return "tv/showTv";
     }
-
 }

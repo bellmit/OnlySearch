@@ -18,15 +18,8 @@ public class GetAllMovieService {
     @Resource
     private List<MovieSearchServiceInterface> movieSearchServiceInterfaces;
 
-    //@Async
-    //@Scheduled(initialDelay = 5000,fixedRate = 1000 * 60 * 60 * 24)
-    public void schedule() {
-    }
-
-
-
     public Map<String,Object> getAllResults(int pageIndex){
-        Map<String,Object> map = new HashMap<String, Object>();
+        Map<String,Object> map = new HashMap<>(1);
         List<Map<String,Object>> list = new ArrayList<Map<String, Object>>();
         map.put("movieList",list);
 

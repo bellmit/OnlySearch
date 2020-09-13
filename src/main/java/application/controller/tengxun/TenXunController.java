@@ -3,8 +3,8 @@ package application.controller.tengxun;
 import application.model.tengxun.PageParams;
 import application.model.tengxun.PageResult;
 import application.service.tengxun.TenXunService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -31,14 +31,14 @@ public class TenXunController {
      * @param pageParams PageParams
      * @return List<PageResult>
      */
-    @GetMapping("/pageTvList")
+    @GetMapping("/pageList")
     public @ResponseBody
-    List<PageResult> pageTvList(
+    List<PageResult> pageList(
             @RequestParam("pageIndex") int pageIndex,
             @RequestParam("pageSize") int pageSize,
             PageParams pageParams
             ){
-        return tenXunService.pageTvList(pageIndex,pageSize,pageParams.getFeature(),pageParams.getIarea(),pageParams.getPay(),pageParams.getSort(),pageParams.getYear());
+        return tenXunService.pageList(pageParams.getChannel(),(pageIndex -1) * pageSize,pageSize,pageParams.getFeature(),pageParams.getIarea(),pageParams.getPay(),pageParams.getSort(),pageParams.getYear(),pageParams.getCharge(),pageParams.getItype(),pageParams.getCharacteristic(),pageParams.getIpay(),pageParams.getIyear(),pageParams.getSource(),pageParams.getExclusive(),pageParams.getPlot_aspect(),pageParams.getLanguage(),pageParams.getAnime_status(),pageParams.getItrailer());
     }
 
     @GetMapping("/pageIndex")
@@ -54,5 +54,31 @@ public class TenXunController {
     @GetMapping("/analysisPageToList")
     public @ResponseBody List<String> analysisPageToList(@RequestParam("url") String url){
         return tenXunService.analysisPageToList(url);
+    }
+
+    @GetMapping("/showTenXunTv")
+    public String showTenXunTv(String url, String platform, String tvName, Model model){
+        model.addAttribute("url", url);
+        model.addAttribute("platform", platform);
+        model.addAttribute("tvName", tvName);
+        return "tengxun/showTenXunTv";
+    }
+
+    /**
+     * 根据指定的url进行分析出综艺节目的剧集列表
+     * @param url url
+     * @return List<String>
+     */
+    @GetMapping("/analysisVarietyShowPageToVideoList")
+    public @ResponseBody List<Map<String,Object>> analysisVarietyShowPageToVideoList(@RequestParam String url){
+        return tenXunService.analysisVarietyShowPageToVideoList(url);
+    }
+
+    @GetMapping("/showTenXunVariety")
+    public String showTenXunVariety(String url, String platform, String varietyName, Model model){
+        model.addAttribute("url", url);
+        model.addAttribute("platform", platform);
+        model.addAttribute("varietyName", varietyName);
+        return "tengxun/showTenXunVariety";
     }
 }

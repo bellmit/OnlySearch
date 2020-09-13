@@ -139,4 +139,6 @@ public class SysContext {
 
 	public static final String TEXT_HTML_MIME_TYPE = "text/html";
 
+	public static final String V_QQ_COM = "https://v.qq.com";
+
 }

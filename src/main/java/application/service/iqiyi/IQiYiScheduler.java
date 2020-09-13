@@ -7,8 +7,10 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -53,8 +55,8 @@ public class IQiYiScheduler {
             1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1
     };
 
-    //@Async
-    //@Scheduled(initialDelay = 5000,fixedRate = 1000 * 60 * 60 * 24)
+    @Async
+    @Scheduled(cron = "0 0 0/24 * * *")
     public void schedule() {
 
         //删除所有记录

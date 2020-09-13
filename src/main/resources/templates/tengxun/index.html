@@ -15,5 +15,290 @@
 </head>
 
 <body>
+<div id="rooter">
+    <div class="searchArea">
+        <a target="_blank" class="logo" title="祥龙检索，千度一下"><img src="/images/index/homelogo.png"></a>
+        <input type="text" placeholder="请入要查询的内容">
+        <a target="_blank" class="searchButton">千度一下</a>
+    </div>
+
+    <ul class="main">
+        <li class="focus">电视剧</li>
+        <li>电影</li>
+        <li>综艺</li>
+        <li>动漫</li>
+        <li>少儿</li>
+        <li>纪录片</li>
+    </ul>
+
+    <div v-if="currentChannel === 'tv'">
+        <ul class="tv-feature">
+            <li v-for="(item,index) in tvFeature" :class="index+1 === tvFeatureCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :feature="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="tv-year">
+            <li v-for="(item,index) in tvYear" :class="index+1 === tvYearCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :year="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="tv-iarea">
+            <li v-for="(item,index) in tvIarea" :class="index+1 === tvIareaCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iarea="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="tv-pay">
+            <li v-for="(item,index) in tvPay" :class="index+1 === tvPayCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :pay="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/tengxun/showTenXunTv?url=' + encodeURIComponent(item.url) + '&platform=tengxu&tvName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+    <div v-if="currentChannel === 'movie'">
+        <ul class="movie-sort">
+            <li v-for="(item,index) in movieSort" :class="index+1 === movieSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="movie-iarea">
+            <li v-for="(item,index) in movieIarea" :class="index+1 === movieIareaCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iarea="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="movie-characteristic">
+            <li v-for="(item,index) in movieCharacteristic" :class="index+1 === movieCharacteristicCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :characteristic="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="movie-year">
+            <li v-for="(item,index) in movieYear" :class="index+1 === movieYearCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :year="item[1]"></span>
+            </li>
+        </ul>
+
+
+        <ul class="movie-charge">
+            <li v-for="(item,index) in movieCharge" :class="index+1 === movieChargeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :charge="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'variety'">
+        <ul class="variety-sort">
+            <li v-for="(item,index) in varietySort" :class="index+1 === varietySortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="variety-exclusive">
+            <li v-for="(item,index) in varietyExclusive" :class="index+1 === varietyExclusiveCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :exclusive="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="variety-iarea">
+            <li v-for="(item,index) in varietyIarea" :class="index+1 === varietyIareaCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iarea="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="variety-iyear">
+            <li v-for="(item,index) in varietyIyear" :class="index+1 === varietyIyearCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iyear="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="variety-ipay">
+            <li v-for="(item,index) in varietyIpay" :class="index+1 === varietyIpayCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :ipay="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/tengxun/showTenXunVariety?url=' + encodeURIComponent(item.url) + '&platform=tengxun&varietyName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'cartoon'">
+        <ul class="anime-sort">
+            <li v-for="(item,index) in animeSort" :class="index+1 === animeSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-iarea">
+            <li v-for="(item,index) in animeIarea" :class="index+1 === animeIareaCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iarea="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-itype">
+            <li v-for="(item,index) in animeItype" :class="index+1 === animeItypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-plot_aspect">
+            <li v-for="(item,index) in animePlot_aspect" :class="index+1 === animePlot_aspectCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :plot_aspect="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-language">
+            <li v-for="(item,index) in animeLanguage" :class="index+1 === animeLanguageCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :language="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-iyear">
+            <li v-for="(item,index) in animeIyear" :class="index+1 === animeIyearCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iyear="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-ipay">
+            <li v-for="(item,index) in animeIpay" :class="index+1 === animeIpayCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :ipay="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="anime-anime_status">
+            <li v-for="(item,index) in animeAnime_status" :class="index+1 === animeAnime_statusCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :anime_status="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/tengxun/showTenXunTv?url=' + encodeURIComponent(item.url) + '&platform=tengxu&tvName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'child'">
+        <ul class="child-sort">
+            <li v-for="(item,index) in childSort" :class="index+1 === childSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="child-iarea">
+            <li v-for="(item,index) in childIarea" :class="index+1 === childIareaCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iarea="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="child-iyear">
+            <li v-for="(item,index) in childIyear" :class="index+1 === childIyearCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :iyear="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="child-gender">
+            <li v-for="(item,index) in childGender" :class="index+1 === childGenderCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :gender="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="child-ipay">
+            <li v-for="(item,index) in childIpay" :class="index+1 === childIpayCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :ipay="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/tengxun/showTenXunTv?url=' + encodeURIComponent(item.url) + '&platform=tengxu&tvName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'doco'">
+        <ul class="documentary-itype">
+            <li v-for="(item,index) in documentaryItype" :class="index+1 === documentaryItypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="documentary-sort">
+            <li v-for="(item,index) in documentarySort" :class="index+1 === documentarySortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="documentary-itrailer">
+            <li v-for="(item,index) in documentaryItrailer" :class="index+1 === documentaryItrailerCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itrailer="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="documentary-pay">
+            <li v-for="(item,index) in documentaryPay" :class="index+1 === documentaryPayCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :pay="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/tengxun/showTenXunVariety?url=' + encodeURIComponent(item.url) + '&platform=tengxun&varietyName=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>

@@ -18,9 +18,21 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class PageParams {
+    private String channel = "tv";
     private String feature = "-1";
     private String iarea = "-1";
     private String pay = "-1";
     private String sort = "-1";
     private String year = "-1";
+    private String charge = "-1";
+    private String itype = "-1";
+    private String characteristic = "-1";
+    private String ipay = "-1";
+    private String iyear = "-1";
+    private String source = "1";
+    private String exclusive = "1";
+    private String plot_aspect = "-1";
+    private String language = "-1";
+    private String anime_status = "-1";
+    private String itrailer = "-1";
 }

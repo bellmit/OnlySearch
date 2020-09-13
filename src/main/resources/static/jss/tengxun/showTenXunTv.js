@@ -1,5 +1,5 @@
 $(function () {
-    var rooter = new Vue({
+    let rooter = new Vue({
         el : "#rooter",
         data : function () {
             return {
@@ -7,13 +7,11 @@ $(function () {
             };
         },
         created : function () {
-            var rooter = this;
-            var url = $("#url").attr("title");
-            var platform = $("#platform").attr("title");
-            var aid = $("#aid").attr("title");
+            let rooter = this;
+            let url = $("#url").attr("title");
             $.ajax({
                 type: "GET",
-                url: "/showTvMaps?url=" + url + "&platform=" + platform + "&aid=" + aid,
+                url: "/tengxun/analysisPageToList?url=" + window.encodeURIComponent(url),
                 dataType: "json",
                 success: function (data) {
                     rooter.tvPlayList = data;
