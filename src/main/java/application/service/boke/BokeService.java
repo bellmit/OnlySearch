@@ -40,7 +40,8 @@ public class BokeService {
                 String html = getBokeHtmlById(boke.getId());
                 boke.setHtml(html);
                 boke.setUpdateDate(simpleDateFormat.format(boke.getUpdateTime().getTime()));
-                boke.setHtmlSmall(Jsoup.parse(html).text().substring(0,200) + "...");
+                String text = Jsoup.parse(html).text();
+                boke.setHtmlSmall(text.length() >= 261 ? text.substring(0,260) + "..." : text + "...");
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -40,4 +40,7 @@ public class PageParams {
     private String iaspect = "-1";
     private String icolumn = "-1";
     private String icelebrity = "-1";
+    private String category = "-1";
+    private String time = "-1";
+    private String class_type = "-1";
 }

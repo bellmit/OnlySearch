@@ -31,6 +31,8 @@
         <li>纪录片</li>
         <li>生活</li>
         <li>搞笑</li>
+        <li>教育</li>
+        <li>高考</li>
     </ul>
 
     <div v-if="currentChannel === 'tv'">
@@ -368,6 +370,70 @@
         <ul class="funny-icelebrity">
             <li v-for="(item,index) in funnyIcelebrity" :class="index+1 === funnyIcelebrityCurrentIndex ? 'focus' : ''" :index="index + 1">
                 <span v-html="item[0]" :icelebrity="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'education'" class="education">
+        <ul class="education-sort">
+            <li v-for="(item,index) in educationSort" :class="index+1 === educationSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="education-category">
+            <li v-for="(item,index) in educationCategory" :class="index+1 === educationCategoryCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :category="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'gaokao'" class="examination">
+        <ul class="examination-sort">
+            <li v-for="(item,index) in examinationSort" :class="index+1 === examinationSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="examination-class_type">
+            <li v-for="(item,index) in examinationClass_type" :class="index+1 === examinationClass_typeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :class_type="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="examination-time">
+            <li v-for="(item,index) in examinationTime" :class="index+1 === examinationTimeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :time="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="examination-category">
+            <li v-for="(item,index) in examinationCategory" :class="index+1 === examinationCategoryCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :category="item[1]"></span>
             </li>
         </ul>
 

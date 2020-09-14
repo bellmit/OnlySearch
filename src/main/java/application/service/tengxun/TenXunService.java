@@ -42,10 +42,10 @@ public class TenXunService {
      * @return List<PageResult>
      */
     public List<PageResult> pageList(
-            String channel, int offset, int pageSize, String feature, String iarea, String pay, String sort, String year, String charge, String itype, String characteristic,String ipay,String iyear,String source,String exclusive,String plot_aspect,String language,String anime_status,String itrailer,String cuisine_style,String food_itype,String iaspect,String icolumn,String icelebrity
+            String channel, int offset, int pageSize, String feature, String iarea, String pay, String sort, String year, String charge, String itype, String characteristic,String ipay,String iyear,String source,String exclusive,String plot_aspect,String language,String anime_status,String itrailer,String cuisine_style,String food_itype,String iaspect,String icolumn,String icelebrity,String category,String time,String class_type
     ) {
         List<PageResult> pageResults = new ArrayList<>();
-        String htmlPart = tenXunFeign.pageList(channel, offset, pageSize, feature, iarea, pay, sort, year, charge, itype, characteristic, ipay, iyear, source, exclusive, plot_aspect, language, anime_status, itrailer, cuisine_style, food_itype, iaspect, icolumn, icelebrity);
+        String htmlPart = tenXunFeign.pageList(channel, offset, pageSize, feature, iarea, pay, sort, year, charge, itype, characteristic, ipay, iyear, source, exclusive, plot_aspect, language, anime_status, itrailer, cuisine_style, food_itype, iaspect, icolumn, icelebrity, category, time, class_type);
 
         Document document = Jsoup.parse(htmlPart);
         Elements listItems = document.select("div.list_item");

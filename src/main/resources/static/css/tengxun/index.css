@@ -143,27 +143,55 @@ div.searchArea a.searchButton:hover {
 }
 
 #rooter div.life ul.content li{
-    height: 160px;
+    height: 230px;
 }
 
 #rooter div.life ul.content li a img{
     width: auto;
-    height: 100px;
+    height: 130px;
 }
 
 #rooter div.life ul.content li span.jiNumber{
-    bottom: 66px;
+    bottom: 100px;
 }
 
 #rooter div.funny ul.content li{
-    height: 160px;
+    height: 230px;
 }
 
 #rooter div.funny ul.content li a img{
     width: auto;
-    height: 100px;
+    height: 130px;
 }
 
 #rooter div.funny ul.content li span.jiNumber{
-    bottom: 66px;
+    bottom: 100px;
+}
+
+
+#rooter div.education ul.content li{
+    height: 230px;
+}
+
+#rooter div.education ul.content li a img{
+    width: auto;
+    height: 130px;
+}
+
+#rooter div.education ul.content li span.jiNumber{
+    bottom: 100px;
+}
+
+
+#rooter div.examination ul.content li{
+    height: 230px;
+}
+
+#rooter div.examination ul.content li a img{
+    width: auto;
+    height: 130px;
+}
+
+#rooter div.examination ul.content li span.jiNumber{
+    bottom: 100px;
 }

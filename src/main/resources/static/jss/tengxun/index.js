@@ -19,6 +19,8 @@ $(function () {
                 documentary: null,
                 life: null,
                 funny: null,
+                education: null,
+                examination: null,
                 pageIndex: pageIndex,
                 pageSize: 30,
                 feature: -1,
@@ -42,6 +44,9 @@ $(function () {
                 iaspect: -1,
                 icolumn: -1,
                 icelebrity: -1,
+                category: -1,
+                time: -1,
+                class_type: -1,
                 tvFeature: null,
                 tvFeatureCurrentIndex: 1,
                 tvSort: null,
@@ -128,6 +133,18 @@ $(function () {
                 funnyIcolumnCurrentIndex: 1,
                 funnyIcelebrity: null,
                 funnyIcelebrityCurrentIndex: 1,
+                educationSort: null,
+                educationSortCurrentIndex: 1,
+                educationCategory: null,
+                educationCategoryCurrentIndex: 1,
+                examinationSort: null,
+                examinationSortCurrentIndex: 1,
+                examinationClass_type: null,
+                examinationClass_typeCurrentIndex: 1,
+                examinationTime: null,
+                examinationTimeCurrentIndex: 1,
+                examinationCategory: null,
+                examinationCategoryCurrentIndex: 1,
                 videoList: null
             };
         },
@@ -605,10 +622,81 @@ $(function () {
     });
 
 
+    rooter.$watch("education", function () {
+        rooter.currentChannel = "education";
+        commonAjax();
+
+        let educationSortLis = $("ul.education-sort li");
+        educationSortLis.unbind().click(function () {
+            rooter.currentChannel = "education";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            educationSortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let educationCategoryLis = $("ul.education-category li");
+        educationCategoryLis.unbind().click(function () {
+            rooter.currentChannel = "education";
+            rooter.pageIndex = 1;
+            rooter.category = $(this).find("span").attr("category");
+            educationCategoryLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+    });
+
+    rooter.$watch("examination", function () {
+        rooter.currentChannel = "gaokao";
+        commonAjax();
+
+        let examinationSortLis = $("ul.examination-sort li");
+        examinationSortLis.unbind().click(function () {
+            rooter.currentChannel = "gaokao";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            examinationSortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let examinationClass_typeLis = $("ul.examination-class_type li");
+        examinationClass_typeLis.unbind().click(function () {
+            rooter.currentChannel = "gaokao";
+            rooter.pageIndex = 1;
+            rooter.class_type = $(this).find("span").attr("class_type");
+            examinationClass_typeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let examinationTimeLis = $("ul.examination-time li");
+        examinationTimeLis.unbind().click(function () {
+            rooter.currentChannel = "gaokao";
+            rooter.pageIndex = 1;
+            rooter.time = $(this).find("span").attr("time");
+            examinationTimeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let examinationCategoryLis = $("ul.examination-category li");
+        examinationCategoryLis.unbind().click(function () {
+            rooter.currentChannel = "gaokao";
+            rooter.pageIndex = 1;
+            rooter.category = $(this).find("span").attr("category");
+            examinationCategoryLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+    });
+
+
     function commonAjax() {
         $.ajax({
             type: "GET",
-            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity,
+            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type,
             dataType: "json",
             success: function (data) {
                 rooter.videoList = data;
@@ -625,7 +713,7 @@ $(function () {
                 rooter.pageIndex++;
                 $.ajax({
                     type: "GET",
-                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity,
+                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type,
                     dataType: "json",
                     success: function (data) {
                         let videoList = data;
@@ -677,6 +765,14 @@ $(function () {
             case "搞笑":
                 rooter.currentChannel = "fun";
                 readFunnyConfig();
+                break;
+            case "教育":
+                rooter.currentChannel = "education";
+                readEducationConfig();
+                break;
+            case "高考":
+                rooter.currentChannel = "gaokao";
+                readExaminationConfig();
                 break;
             default:
                 break;
@@ -823,6 +919,37 @@ $(function () {
                 rooter.funnyIaspect = data["看点|iaspect"];
                 rooter.funnyIcolumn = data["食栏目|icolumn"];
                 rooter.funnyIcelebrity = data["名人|icelebrity"];
+                commonAjax();
+            }
+        });
+    }
+
+
+    function readEducationConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/education.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.education = data;
+                rooter.educationSort = data["排序|sort"];
+                rooter.educationCategory = data["内容类型|category"];
+                commonAjax();
+            }
+        });
+    }
+
+    function readExaminationConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/examination.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.examination = data;
+                rooter.examinationSort = data["排序|sort"];
+                rooter.examinationClass_type = data["类型|class_type"];
+                rooter.examinationTime = data["类型|time"];
+                rooter.examinationCategory = data["课程类别|category"];
                 commonAjax();
             }
         });
