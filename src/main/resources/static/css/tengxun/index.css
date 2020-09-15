@@ -195,3 +195,30 @@ div.searchArea a.searchButton:hover {
 #rooter div.examination ul.content li span.jiNumber{
     bottom: 100px;
 }
+
+#rooter div.news ul.content li{
+    height: 230px;
+}
+
+#rooter div.news ul.content li a img{
+    width: auto;
+    height: 130px;
+}
+
+#rooter div.news ul.content li span.jiNumber{
+    bottom: 100px;
+}
+
+
+#rooter div.technology ul.content li{
+    height: 230px;
+}
+
+#rooter div.technology ul.content li a img{
+    width: auto;
+    height: 130px;
+}
+
+#rooter div.technology ul.content li span.jiNumber{
+    bottom: 100px;
+}

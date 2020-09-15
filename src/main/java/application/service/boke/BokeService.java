@@ -41,7 +41,7 @@ public class BokeService {
                 boke.setHtml(html);
                 boke.setUpdateDate(simpleDateFormat.format(boke.getUpdateTime().getTime()));
                 String text = Jsoup.parse(html).text();
-                boke.setHtmlSmall(text.length() >= 261 ? text.substring(0,260) + "..." : text + "...");
+                boke.setHtmlSmall(text.length() >= 201 ? text.substring(0,200) + "..." : text + "...");
             } catch (Exception e) {
                 e.printStackTrace();
             }

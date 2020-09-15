@@ -21,6 +21,8 @@ $(function () {
                 funny: null,
                 education: null,
                 examination: null,
+                news: null,
+                technology: null,
                 pageIndex: pageIndex,
                 pageSize: 30,
                 feature: -1,
@@ -47,6 +49,8 @@ $(function () {
                 category: -1,
                 time: -1,
                 class_type: -1,
+                column: -1,
+                icompany: -1,
                 tvFeature: null,
                 tvFeatureCurrentIndex: 1,
                 tvSort: null,
@@ -145,6 +149,22 @@ $(function () {
                 examinationTimeCurrentIndex: 1,
                 examinationCategory: null,
                 examinationCategoryCurrentIndex: 1,
+                newsSort: null,
+                newsSortCurrentIndex: 1,
+                newsItype: null,
+                newsItypeCurrentIndex: 1,
+                newsColumn: null,
+                newsColumnCurrentIndex: 1,
+                technologySort: null,
+                technologySortCurrentIndex: 1,
+                technologyItype: null,
+                technologyItypeCurrentIndex: 1,
+                technologyIcompany: null,
+                technologyIcompanyCurrentIndex: 1,
+                technologyIcelebrity: null,
+                technologyIcelebrityCurrentIndex: 1,
+                technologyIcolumn: null,
+                technologyIcolumnCurrentIndex: 1,
                 videoList: null
             };
         },
@@ -693,10 +713,101 @@ $(function () {
     });
 
 
+    rooter.$watch("news", function () {
+        rooter.currentChannel = "news";
+        commonAjax();
+
+        let newsSortLis = $("ul.news-sort li");
+        newsSortLis.unbind().click(function () {
+            rooter.currentChannel = "news";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            newsSortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let newsItypeLis = $("ul.news-itype li");
+        newsItypeLis.unbind().click(function () {
+            rooter.currentChannel = "news";
+            rooter.pageIndex = 1;
+            rooter.itype = $(this).find("span").attr("itype");
+            newsItypeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let newsColumnLis = $("ul.news-column li");
+        newsColumnLis.unbind().click(function () {
+            rooter.currentChannel = "news";
+            rooter.pageIndex = 1;
+            rooter.column = $(this).find("span").attr("column");
+            newsColumnLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+    });
+
+
+    rooter.$watch("technology", function () {
+        rooter.currentChannel = "tech";
+        commonAjax();
+
+        let technologySortLis = $("ul.technology-sort li");
+        technologySortLis.unbind().click(function () {
+            rooter.currentChannel = "tech";
+            rooter.pageIndex = 1;
+            rooter.sort = $(this).find("span").attr("sort");
+            technologySortLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let technologyItypeLis = $("ul.technology-itype li");
+        technologyItypeLis.unbind().click(function () {
+            rooter.currentChannel = "tech";
+            rooter.pageIndex = 1;
+            rooter.itype = $(this).find("span").attr("itype");
+            technologyItypeLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let technologyIcompanyLis = $("ul.technology-icompany li");
+        technologyIcompanyLis.unbind().click(function () {
+            rooter.currentChannel = "tech";
+            rooter.pageIndex = 1;
+            rooter.icompany = $(this).find("span").attr("icompany");
+            technologyIcompanyLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let technologyIcelebrityLis = $("ul.technology-icelebrity li");
+        technologyIcelebrityLis.unbind().click(function () {
+            rooter.currentChannel = "tech";
+            rooter.pageIndex = 1;
+            rooter.icelebrity = $(this).find("span").attr("icelebrity");
+            technologyIcelebrityLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+
+        let technologyIcolumnLis = $("ul.technology-icolumn li");
+        technologyIcolumnLis.unbind().click(function () {
+            rooter.currentChannel = "tech";
+            rooter.pageIndex = 1;
+            rooter.icolumn = $(this).find("span").attr("icolumn");
+            technologyIcolumnLis.removeClass("focus");
+            $(this).addClass("focus");
+            commonAjax();
+        });
+    });
+
     function commonAjax() {
         $.ajax({
             type: "GET",
-            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type,
+            url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type + "&column=" + rooter.column + "&icompany=" + rooter.icompany,
             dataType: "json",
             success: function (data) {
                 rooter.videoList = data;
@@ -713,7 +824,7 @@ $(function () {
                 rooter.pageIndex++;
                 $.ajax({
                     type: "GET",
-                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type,
+                    url: "/tengxun/pageList?channel=" + rooter.currentChannel + "&pageIndex=" + rooter.pageIndex + "&pageSize=" + rooter.pageSize + "&feature=" + rooter.feature + "&iarea=" + rooter.iarea + "&listpage=2&pay=" + rooter.pay + "&sort=" + rooter.sort + "&year=" + rooter.year + "&charge=" + rooter.charge + "&itype=" + rooter.itype + "&characteristic=" + rooter.characteristic + "&ipay=" + rooter.ipay + "&iyear=" + rooter.iyear + "&source=" + rooter.source + "&exclusive=" + rooter.exclusive + "&plot_aspect=" + rooter.plot_aspect + "&language=" + rooter.language + "&anime_status=" + rooter.anime_status + "&itrailer=" + rooter.itrailer + "&cuisine_style=" + rooter.cuisine_style + "&food_itype=" + rooter.food_itype + "&iaspect=" + rooter.iaspect + "&icolumn=" + rooter.icolumn + "&icelebrity=" + rooter.icelebrity + "&category=" + rooter.category + "&time=" + rooter.time + "&class_type=" + rooter.class_type + "&column=" + rooter.column + "&icompany=" + rooter.icompany,
                     dataType: "json",
                     success: function (data) {
                         let videoList = data;
@@ -773,6 +884,14 @@ $(function () {
             case "高考":
                 rooter.currentChannel = "gaokao";
                 readExaminationConfig();
+                break;
+            case "新闻":
+                rooter.currentChannel = "news";
+                readNewsConfig();
+                break;
+            case "科技":
+                rooter.currentChannel = "tech";
+                readTechnologyConfig();
                 break;
             default:
                 break;
@@ -950,6 +1069,38 @@ $(function () {
                 rooter.examinationClass_type = data["类型|class_type"];
                 rooter.examinationTime = data["类型|time"];
                 rooter.examinationCategory = data["课程类别|category"];
+                commonAjax();
+            }
+        });
+    }
+
+    function readNewsConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/news.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.news = data;
+                rooter.newsSort = data["排序|sort"];
+                rooter.newsItype = data["类型|itype"];
+                rooter.newsColumn = data["新闻栏目|column"];
+                commonAjax();
+            }
+        });
+    }
+
+    function readTechnologyConfig() {
+        $.ajax({
+            type: "GET",
+            url: "/htmls/tengxun/technology.json",
+            dataType: "json",
+            success: function (data) {
+                rooter.technology = data;
+                rooter.technologySort = data["排序|sort"];
+                rooter.technologyItype = data["类型|itype"];
+                rooter.technologyIcompany = data["公司|icompany"];
+                rooter.technologyIcelebrity = data["名人|icelebrity"];
+                rooter.technologyIcolumn = data["栏目|icolumn"];
                 commonAjax();
             }
         });

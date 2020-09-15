@@ -1,98 +1,102 @@
 /*
-Navicat MySQL Data Transfer
+ Navicat Premium Data Transfer
 
-Source Server         : 47.104.9.61
-Source Server Version : 50729
-Source Host           : 47.104.9.61:3306
-Source Database       : bigdata
+ Source Server         : 47.104.9.61
+ Source Server Type    : MySQL
+ Source Server Version : 50729
+ Source Host           : 47.104.9.61:3306
+ Source Schema         : bigdata
 
-Target Server Type    : MYSQL
-Target Server Version : 50729
-File Encoding         : 65001
+ Target Server Type    : MySQL
+ Target Server Version : 50729
+ File Encoding         : 65001
 
-Date: 2020-03-22 08:06:25
+ Date: 15/09/2020 05:49:40
 */
 
-SET FOREIGN_KEY_CHECKS=0;
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
 -- Table structure for boke
 -- ----------------------------
 DROP TABLE IF EXISTS `boke`;
-CREATE TABLE `boke` (
+CREATE TABLE `boke`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `uuid` varchar(64) NOT NULL COMMENT '文章的uuid标识',
-  `upload_date` datetime NOT NULL COMMENT '上传时间',
-  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
-  `title` varchar(1024) NOT NULL COMMENT '文章标题',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `uploadDate` datetime(0) NOT NULL COMMENT '上传时间',
+  `updateTime` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
+  `title` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '文章标题',
+  `html` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT 'html内容',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for bokePic
 -- ----------------------------
 DROP TABLE IF EXISTS `bokePic`;
-CREATE TABLE `bokePic` (
+CREATE TABLE `bokePic`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `article_id` int(11) DEFAULT NULL,
-  `picPath` varchar(1024) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `articleId` int(11) NULL DEFAULT NULL,
+  `picPath` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for fiction
 -- ----------------------------
 DROP TABLE IF EXISTS `fiction`;
-CREATE TABLE `fiction` (
+CREATE TABLE `fiction`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `imgSrc` varchar(1024) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `href` varchar(1024) NOT NULL,
-  `author` varchar(32) NOT NULL,
-  `updateTime` varchar(64) NOT NULL,
-  `introduction` varchar(10240) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `imgSrc` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `href` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `author` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `updateTime` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `introduction` varchar(10240) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3010301 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for iqiyi
 -- ----------------------------
 DROP TABLE IF EXISTS `iqiyi`;
-CREATE TABLE `iqiyi` (
+CREATE TABLE `iqiyi`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '唯一id',
-  `title` varchar(255) NOT NULL COMMENT '标题',
-  `href` varchar(1024) NOT NULL COMMENT '电视剧的链接',
-  `imgSrc` varchar(1024) NOT NULL COMMENT '电视剧图片的地址',
-  `jiNumber` varchar(32) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '标题',
+  `href` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '电视剧的链接',
+  `imgSrc` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '电视剧图片的地址',
+  `jiNumber` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `channelId` int(11) NOT NULL,
   `dataType` int(11) NOT NULL,
-  `aid` varchar(64) NOT NULL,
-  `json` varchar(10240) NOT NULL,
-  `stars` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `aid` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `json` varchar(10240) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `stars` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 19002 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for movie
 -- ----------------------------
 DROP TABLE IF EXISTS `movie`;
-CREATE TABLE `movie` (
+CREATE TABLE `movie`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(1024) DEFAULT NULL,
-  `href` varchar(1024) DEFAULT NULL,
-  `imgSrc` varchar(1024) DEFAULT NULL,
-  `jiNumber` varchar(1024) DEFAULT NULL,
-  `subTitle` varchar(1024) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `title` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `href` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `imgSrc` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `jiNumber` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `subTitle` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for sucai
 -- ----------------------------
 DROP TABLE IF EXISTS `sucai`;
-CREATE TABLE `sucai` (
+CREATE TABLE `sucai`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sucaiUrl` varchar(1024) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `sucaiUrl` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4667 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+SET FOREIGN_KEY_CHECKS = 1;

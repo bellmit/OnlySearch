@@ -22,7 +22,6 @@ import javax.annotation.Resource;
  * @date 2020-03-17 12:27:58
  */
 @Service
-@Configuration      // 1.主要用于标记配置类，兼备Component的效果。
 @EnableScheduling   // 2.开启定时任务
 @EnableAsync
 public class IQiYiScheduler {

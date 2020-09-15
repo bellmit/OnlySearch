@@ -43,4 +43,6 @@ public class PageParams {
     private String category = "-1";
     private String time = "-1";
     private String class_type = "-1";
+    private String column = "-1";
+    private String icompany = "-1";
 }

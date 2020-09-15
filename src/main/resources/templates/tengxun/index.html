@@ -33,6 +33,8 @@
         <li>搞笑</li>
         <li>教育</li>
         <li>高考</li>
+        <li>新闻</li>
+        <li>科技</li>
     </ul>
 
     <div v-if="currentChannel === 'tv'">
@@ -434,6 +436,82 @@
         <ul class="examination-category">
             <li v-for="(item,index) in examinationCategory" :class="index+1 === examinationCategoryCurrentIndex ? 'focus' : ''" :index="index + 1">
                 <span v-html="item[0]" :category="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'news'" class="news">
+        <ul class="news-sort">
+            <li v-for="(item,index) in newsSort" :class="index+1 === newsSortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="news-itype">
+            <li v-for="(item,index) in newsItype" :class="index+1 === newsItypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="news-column">
+            <li v-for="(item,index) in newsColumn" :class="index+1 === newsColumnCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :column="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="content">
+            <li v-for="(item,index) in videoList">
+                <a target="_blank" :href="'/playMovieWithThreePart?playUrl=' + item.url + '&name=' + item.name">
+                    <img v-lazy="item.picUrl">
+                </a>
+                <span class="jiNumber" v-html="item.jiNumber"></span>
+                <p v-html="item.name"></p>
+                <p v-html="item.introduction"></p>
+            </li>
+        </ul>
+    </div>
+
+
+    <div v-if="currentChannel === 'tech'" class="technology">
+        <ul class="technology-sort">
+            <li v-for="(item,index) in technologySort" :class="index+1 === technologySortCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :sort="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="technology-itype">
+            <li v-for="(item,index) in technologyItype" :class="index+1 === technologyItypeCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :itype="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="technology-icompany">
+            <li v-for="(item,index) in technologyIcompany" :class="index+1 === technologyIcompanyCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :icompany="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="technology-icelebrity">
+            <li v-for="(item,index) in technologyIcelebrity" :class="index+1 === technologyIcelebrityCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :icelebrity="item[1]"></span>
+            </li>
+        </ul>
+
+        <ul class="technology-icolumn">
+            <li v-for="(item,index) in technologyIcolumn" :class="index+1 === technologyIcolumnCurrentIndex ? 'focus' : ''" :index="index + 1">
+                <span v-html="item[0]" :icolumn="item[1]"></span>
             </li>
         </ul>
 
