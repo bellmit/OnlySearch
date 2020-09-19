@@ -22,8 +22,7 @@ public class TenXun {
     private String title;
     private String href;
     private String imgSrc;
+    private int channelId;
     private String jiNumber;
-    private String channel;
-    private String json;
     private String stars;
 }

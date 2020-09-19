@@ -2,10 +2,15 @@ package application.service.tengxun;
 
 import application.filter.SysContext;
 import application.model.tengxun.PageResult;
+import application.mybatis.mappers.TenXunMapper;
+import application.mybatis.model.IQiYi;
+import application.mybatis.model.TenXun;
 import application.service.feign.tengxun.TenXunFeign;
 import application.utils.HttpOrHttpsUrlValidatorRequestUtils;
+import org.apache.commons.lang.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +34,9 @@ public class TenXunService {
     @Resource
     private TenXunFeign tenXunFeign;
 
+    @Resource
+    private TenXunMapper tenXunMapper;
+
     /**
      * 获取腾讯视频电视剧的接口
      *
@@ -50,6 +58,8 @@ public class TenXunService {
         Document document = Jsoup.parse(htmlPart);
         Elements listItems = document.select("div.list_item");
 
+        System.out.println(listItems.get(0));
+
         listItems.forEach(element -> {
             try {
                 String url = element.selectFirst("a.figure").attr("href");
@@ -57,9 +67,10 @@ public class TenXunService {
                         element.selectFirst("img.figure_pic").attr("src");
                 String name = element.selectFirst("div.figure_detail.figure_detail_two_row a.figure_title").text();
                 String jiNumber = null != element.selectFirst("div.figure_caption") ?
-                        element.selectFirst("div.figure_caption").text() : "全1集";
+                        element.selectFirst("div.figure_caption").text() : SysContext.BLANK_STRING;
                 String introduction = null != element.selectFirst("div.figure_desc") ?
                         element.selectFirst("div.figure_desc").text() : "";
+
                 pageResults.add(PageResult.builder()
                         .url(url)
                         .picUrl(picUrl)
@@ -138,5 +149,18 @@ public class TenXunService {
             });
             return mapList;
         }
+    }
+
+
+    public List<TenXun> searchResult(String keyword, int offset, int size) {
+        return tenXunMapper.queryByKeyword(keyword, offset, size);
+    }
+
+    public List<TenXun> searchTvResult(String keyword, int offset, int size) {
+        return tenXunMapper.queryTvByKeyword(keyword, offset, size);
+    }
+
+    public List<TenXun> searchMovieResult(String keyword, int offset, int size) {
+        return tenXunMapper.queryMovieByKeyword(keyword, offset, size);
     }
 }

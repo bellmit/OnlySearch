@@ -2,6 +2,8 @@ package application.controller.tengxun;
 
 import application.model.tengxun.PageParams;
 import application.model.tengxun.PageResult;
+import application.mybatis.model.IQiYi;
+import application.mybatis.model.TenXun;
 import application.service.tengxun.TenXunService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,5 +82,20 @@ public class TenXunController {
         model.addAttribute("platform", platform);
         model.addAttribute("varietyName", varietyName);
         return "tengxun/showTenXunVariety";
+    }
+
+    @GetMapping("/searchResult/{keyword}/{offset}/{size}")
+    public @ResponseBody List<TenXun> searchResult(
+            @PathVariable("keyword") String keyword,
+            @PathVariable("offset") int offset,
+            @PathVariable("size") int size
+    ) {
+        return tenXunService.searchResult(keyword, offset, size);
+    }
+
+    @GetMapping("/searchPage/{keyword}")
+    public String searchPage(@PathVariable("keyword") String keyword,Model model){
+        model.addAttribute("keyword",keyword);
+        return "tengxun/searchPage";
     }
 }

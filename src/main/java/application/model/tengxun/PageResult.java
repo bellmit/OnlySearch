@@ -38,4 +38,12 @@ public class PageResult {
      * 简介
      */
     private String introduction;
+    /**
+     * json 包含主演信息
+     */
+    private String json;
+    /**
+     * channel
+     */
+    private String channel;
 }

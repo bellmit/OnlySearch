@@ -24,6 +24,7 @@ public class GetAllTvPlayService {
     private List<TVPlaySearchServiceInterface> tvPlaySearchServiceInterfaces;
 
     public Map<String, Object> getAllResults(int pageIndex) {
+        System.out.println(tvPlaySearchServiceInterfaces.size());
         Map<String, Object> map = new HashMap<String, Object>();
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         map.put("tvList", list);
