@@ -55,7 +55,7 @@ public class IQiYiScheduler {
     };
 
     @Async
-    @Scheduled(cron = "0 0 0/24 * * *")
+    @Scheduled(cron = "0 0 0 15 * ?")
     public void schedule() {
 
         //删除所有记录

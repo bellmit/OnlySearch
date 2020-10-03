@@ -35,20 +35,21 @@ public class FictionService {
         List<Fiction> fictions = new ArrayList<>(50);
         String html = fictionFeign.listFictions(pageIndex);
         Document document = Jsoup.parse(html);
-        Elements elements = document.select("div.store_collist div.bookbox");
+        Elements elements = document.select("ul.filter-ret.clear li.fl.clear");
         for (Element element : elements) {
-            Element bookImg = element.selectFirst("div.bookimg");
-            Element bookInfo = element.selectFirst("div.bookinfo");
-            Element bookLink = element.selectFirst("div.bookilnk");
-            Element bookIntro = element.selectFirst("div.bookintro");
+            Element bookImg = element.selectFirst("img");
+            Element bookInfo = element.selectFirst("div.info");
+            Element bookLink = element.selectFirst("a.cover");
+            Element bookIntro = element.selectFirst("div.info > div.d2");
+
             fictions.add(new Fiction(
-                    bookImg.selectFirst("a > img").attr("src"),
-                    bookInfo.selectFirst("div.bookname > a").text(),
-                    bookImg.selectFirst("a").attr("href"),
-                    bookLink.selectFirst("a").text(),
-                    bookLink.selectFirst("span:nth-of-type(2)").text(),
+                    bookImg.attr("src"),
+                    bookInfo.selectFirst("h3 > a").text(),
+                    bookLink.attr("href"),
+                    bookInfo.selectFirst("div.d1").text().split(" ")[1],
+                    bookInfo.selectFirst("div.d1 > a").text(),
                     bookIntro.text(),
-                    bookLink.selectFirst("span:nth-of-type(1)").text()
+                    Fiction.STATUS_SERIAL
             ));
         }
         return fictions;
@@ -62,15 +63,12 @@ public class FictionService {
         List<Map<String, Object>> list = new ArrayList<>();
         String html = fictionFeign.showChapter(id);
         Document document = Jsoup.parse(html);
-        Elements volumes = document.select("div.volume-list div.volume");
-        Elements chapterList = document.select("div.volume-list ul.chapter-list");
-        for (int i = 0; i < volumes.size(); i++) {
-            Element volume = volumes.get(i);
+        Elements chapterList = document.select("div.chapter-box ul.chapter li");
+        for (int i = 0; i < chapterList.size(); i++) {
             Element chapter = chapterList.get(i);
             Map<String, Object> map = new HashMap<>(2);
             list.add(map);
 
-            map.put("volume", volume.text().replaceAll("\\[分卷阅读] ", ""));
             Elements chapterElements = chapter.select("li");
             List<Chapter> chapters = new ArrayList<>();
             map.put("chapters", chapters);
@@ -85,20 +83,23 @@ public class FictionService {
         return list;
     }
 
-    public Map<String,Object> getChapterCatalog(String id, String chapterId) {
-        Map<String,Object> map = new HashMap<>(5);
+    public Map<String, Object> getChapterCatalog(String id, String chapterId) {
+        Map<String, Object> map = new HashMap<>(5);
         String html = fictionFeign.getChapter(id, chapterId);
         Document document = Jsoup.parse(html);
-        String title = document.selectFirst("div.title div.title_txtbox").text();
-        String content = document.selectFirst("div.content").html();
-        String author = document.selectFirst("div.bookinfo > a").text();
-        String wordCount = document.selectFirst("div.bookinfo span:nth-of-type(1)").text();
-        String updateTime = document.selectFirst("div.bookinfo span:nth-of-type(2)").text();
-        map.put("title",title);
-        map.put("content",content);
-        map.put("author",author);
-        map.put("wordCount",wordCount);
-        map.put("updateTime",updateTime);
+        Element element = document.selectFirst("div.paper-box.paper-article");
+        String title = element.selectFirst("h1").text();
+
+        String content = element.selectFirst("div#contentWp").html();
+        Element infoElement = element.selectFirst("div.info");
+        String author = infoElement.text().split(" ")[1].replace("作者：", "");
+        String wordCount = infoElement.text().split(" ")[2].replace("字数：", "");
+        String updateTime = infoElement.text().split(" ")[3].replace("更新时间：","");
+        map.put("title", title);
+        map.put("content", content);
+        map.put("author", author);
+        map.put("wordCount", wordCount);
+        map.put("updateTime", updateTime);
         return map;
     }
 }

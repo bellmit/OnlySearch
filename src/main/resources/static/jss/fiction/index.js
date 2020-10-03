@@ -16,7 +16,7 @@ $(function () {
                     rooter.fictionList = data;
                     for (let i=0;i<data.length;i++){
                         data[i].introduction = data[i].introduction.substring(0,150) + "...";
-                        data[i].id = data[i].href.split("/")[4].split("\.")[0];
+                        data[i].id = data[i].href.split("/")[2];
                     }
                 }
             });
@@ -37,7 +37,7 @@ $(function () {
                 success: function(data){
                     for (let i=0;i<data.length;i++){
                         data[i].introduction = data[i].introduction.substring(0,150) + "...";
-                        data[i].id = data[i].href.split("/")[4].split("\.")[0];
+                        data[i].id = data[i].href.split("/")[2];
                         rooter.fictionList.push(data[i]);
                     }
                 }

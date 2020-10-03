@@ -26,7 +26,7 @@ $(function () {
     rooter.$watch("chapterList",function () {
         $.ajax({
             type: "GET",
-            url: "/fiction/getChapterCatalog/" + id + "/" + rooter.chapterList[0].chapters[0].chapterUrl.split("/")[5].split("\.")[0],
+            url: "/fiction/getChapterCatalog/" + id + "/" + rooter.chapterList[0].chapters[0].chapterUrl.split("/")[2].split("_")[1],
             dataType: "json",
             success: function (data) {
                 rooter.currentChapters = [data];
@@ -41,14 +41,10 @@ $(function () {
                 pageIndex ++;
                 $.ajax({
                     type: "GET",
-                    url: "/fiction/getChapterCatalog/" + id + "/" + rooter.chapterList[pageNumber].chapters[pageIndex].chapterUrl.split("/")[5].split("\.")[0],
+                    url: "/fiction/getChapterCatalog/" + id + "/" + rooter.chapterList[pageIndex].chapters[0].chapterUrl.split("/")[2].split("_")[1],
                     dataType: "json",
                     success: function (data) {
                         rooter.currentChapters.push(data);
-                        if (pageIndex > rooter.chapterList[pageNumber].length){
-                            pageNumber ++;
-                            pageIndex = 0;
-                        }
                         flag = true;
                     }
                 });
