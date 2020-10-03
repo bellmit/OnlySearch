@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>祥龙检索，千度寻--迅雷</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="keywords" content="迅雷,迅雷下载,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <meta name="description" content="迅雷,迅雷下载,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+    <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
+    <link rel="stylesheet" type="text/css" href="/css/thunder/thunderResult.css"/>
+    <!--
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        -->
+    <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/jss/vue.js"></script>
+</head>
+
+<body>
+
+<div style="height: 366px;background-color: rgba(0,0,0,.6);z-index: 99999;">
+    <div class="oneLine">
+        <a title="祥龙检索，搜迅雷"><img src="/images/index/homelogo.png"/></a>
+    </div>
+    <p style="margin: 10px auto;text-align: center;
+position: relative;left: 0px;top: 64px;color: #FFFFFF;">可以搜索迅雷资源名字或者迅雷资源类别等，<a href="http://www.xunlei.com/" target="_blank" style="color: red;text-decoration: underline;">请先下载安装迅雷软件</a></p>
+    <div class="searchArea">
+        <p><input type="text" title="可以搜索迅雷资源名称等"/></p>
+        <a>千度迅雷资源</a>
+        <select>
+            <option value="1">电影</option>
+            <option value="2">电视剧</option>
+            <option value="99">综艺</option>
+            <option value="89">旧综艺</option>
+            <option value="19">游戏</option>
+            <option value="16">动漫</option>
+        </select>
+    </div>
+
+    <div id="fixed_top">
+        <div class="searchArea">
+            <p><input type="text" title="可以搜索迅雷资源名字或者迅雷资源类别等"/></p>
+            <a>千度迅雷资源</a>
+            <select>
+                <option value="1">电影</option>
+                <option value="2">电视剧</option>
+                <option value="99">综艺</option>
+                <option value="89">旧综艺</option>
+                <option value="19">游戏</option>
+                <option value="16">动漫</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="items">
+        <ul>
+            <li><a href="/">回首页</a></li>
+            <li><a href="/tvResult?pageIndex=1">电视剧</a></li>
+            <li><a href="/movieResult?pageIndex=1">电影</a></li>
+            <li><a href="/appResult?categoryId=-10&pageSize=60&pageContext=1">app</a></li>
+            <li><a href="/imageResult?keyword=美女&pageIndex=1&pageSize=60">图片</a></li>
+            <li><a href="/musicResult?keyword=音乐&pageIndex=1&pageSize=60">音乐</a></li>
+            <li><a href="/getThunderPagingResult?classify=最新影片&pageIndex=1">迅雷下载</a></li>
+            <li><a href="/baiduyunwangpanSearchResult?keyword=数据库&pageIndex=1">百度网盘</a></li>
+        </ul>
+    </div>
+
+    <div class="thunderPagingUl">
+        <ul></ul>
+    </div>
+</div>
+<div id="rooter">
+    <div class="list-view">
+        <div v-if="thunders.length > 0">
+            <ul class="thunderPagingUl">
+                <li v-for="(item,index) in thunders">
+                    <p class="title">
+                        <a :href="'getThunderDownloadResult?url=' + item.downloadPageUrl" v-html="item.title"></a>
+                    </p>
+                    <p class="date" v-html="item.date"></p>
+                    <p class="description" v-html="item.description"></p>
+                </li>
+            </ul>
+        </div>
+        <div v-else style="text-align: center;">
+            <img src="/images/multiMusic/loading.gif"/>
+        </div>
+
+        <ul class="list">
+            <li v-for="(item,index) in indexs" :class="index + 1 === pageIndex ? 'current' : ''">
+                <a :href="'getThunderPagingResult?classify=' + classify + '&pageIndex=' + (index+1)" v-html="index+1"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<i id="classify" style="display: none;" th:text="${classify}"></i>
+<i id="pageIndex" style="display: none;" th:text="${pageIndex}"></i>
+<script type="text/javascript" src="/jss/thunder/thunderResult.js"></script>
+</body>
+</html>

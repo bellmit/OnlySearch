@@ -1,0 +1,1435 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+div#topBigPic {
+    background-image: url("../images/bigDataBackground.png");
+    height: 665px;
+    padding-top: 65px;
+}
+
+div.lineBackground {
+    height: 68px;
+    background-color: #666;
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
+}
+
+div#multify {
+    width: 26%;
+    height: 100%;
+    line-height: 60px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+div#multify input {
+    height: 43px;
+    width: 70%;
+    outline: none;
+    padding-left: 13px;
+    border: none;
+    font-size: 18px;
+    border-radius: 19px 0 0 19px;
+}
+
+div#multify a {
+    display: inline-block;
+    background-color: #ff5c38;
+    height: 43px;
+    line-height: 43px;
+    width: 18%;
+    border: none;
+    border-radius: 0 19px 19px 0;
+    position: relative;
+    left: -5px;
+    top: 2px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+div#multify ul {
+    position: absolute;
+    left: -364px;
+    top: 0px;
+    width: 300px;
+    height: 100%;
+}
+
+div#multify ul li {
+    background-color: black;
+    color: #FFF;
+    font-size: 20px;
+    float: left;
+    width: 33.3333%;
+    height: 100%;
+    cursor: pointer;
+}
+
+div#multify ul li.focus {
+    border-bottom: 2px solid #ff5c38;
+    color: #ff5c38;
+    opacity: 0.7;
+}
+
+ul#tagChange {
+    padding-top: 68px;
+}
+
+div.vqqcom_top {
+    position: relative;
+}
+
+div.vqqcom_top ul.rightData {
+    height: 500px;
+    width: 348px;
+    background-color: rgba(17, 18, 38, .5);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    padding-top: 16px;
+    z-index: 100;
+}
+
+div.vqqcom_top ul.rightData li {
+    padding: 10px 5px;
+}
+
+div.vqqcom_top ul.rightData li a {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.5s;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.vqqcom_top ul.rightData li a:hover {
+    font-size: 23px;
+}
+
+div.vqqcom_top ul.rightData li a span.text {
+    color: #FFF;
+}
+
+div.vqqcom_top ul.rightData li a span.sub_text {
+    color: #ff5c38;
+}
+
+ul#tagChange div.vqqcom_top ul.topBar {
+    height: auto;
+    position: relative;
+}
+
+ul#tagChange div.vqqcom_top ul.topBar > li {
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transition: all 1s;
+}
+
+div.vqqcom_todayHot{
+    padding-top: 488px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_todayHot ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+p.bigTitle {
+    font-size: 30px;
+    border-bottom: 1px solid #CCC;
+}
+
+div.vqqcom_todayHot ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_todayHot ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_todayHot ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_todayHot ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_todayHot ul li a span.mainText{
+    position: absolute;
+    right: 40px;
+    bottom: -9px;
+}
+
+div.vqqcom_todayHot ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.vqqcom_original{
+    padding : 50px 100px 10px 100px;
+}
+
+div.vqqcom_original ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_original ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_original ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_original ul li a span.timeLength{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_original ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_original ul li a span.mainText{
+    position: absolute;
+    right: 40px;
+    bottom: -9px;
+}
+
+div.vqqcom_original ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_mighty{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_mighty ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_mighty ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_mighty ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_mighty ul li a span.index{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_mighty ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_mighty ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: -9px;
+}
+
+div.vqqcom_mighty ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_synchronous{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_synchronous ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_synchronous ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_synchronous ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_synchronous ul li a span.updateTo{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_synchronous ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_synchronous ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: -25px;
+}
+
+div.vqqcom_synchronous ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_trivia{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_trivia ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_trivia ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_trivia ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_trivia ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_trivia ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_trivia ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: 15px;
+}
+
+div.vqqcom_trivia ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_variety{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_variety ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_variety ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_variety ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_variety ul li a span.qiNumber{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_variety ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_variety ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: 15px;
+}
+
+div.vqqcom_variety ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_membership{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_membership ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_membership ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_membership ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_membership ul li a span.qiNumber{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_membership ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_membership ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: 15px;
+}
+
+div.vqqcom_membership ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_movie{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_movie ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_movie ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_movie ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_movie ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_movie ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_movie ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: -4px;
+}
+
+div.vqqcom_movie ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_moviePredict{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_moviePredict ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_moviePredict ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_moviePredict ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_moviePredict ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_moviePredict ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_moviePredict ul li a span.sub_text{
+    position: absolute;
+    right: 40px;
+    bottom: 20px;
+}
+
+div.vqqcom_moviePredict ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_comic{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_comic ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_comic ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_comic ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_comic ul li a span.updateTo{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_comic ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_comic ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_comic ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_children{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_children ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_children ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_children ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_children ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_children ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_children ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_children ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_documentary{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_documentary ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_documentary ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_documentary ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_documentary ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_documentary ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_documentary ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_documentary ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.vqqcom_britishAmericanDrama{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_britishAmericanDrama ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_britishAmericanDrama ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_britishAmericanDrama ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_britishAmericanDrama ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_britishAmericanDrama ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_britishAmericanDrama ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: -1px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_britishAmericanDrama ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.vqqcom_thaiDrama{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_thaiDrama ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_thaiDrama ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_thaiDrama ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_thaiDrama ul li a span.updateTo{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_thaiDrama ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_thaiDrama ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 32px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_thaiDrama ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_sports{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_sports ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_sports ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_sports ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_sports ul li a span.updateTo{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_sports ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_sports ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_sports ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_music{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_music ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_music ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_music ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_music ul li a span.updateTo{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_music ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_music ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_music ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_entertainment{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_entertainment ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_entertainment ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_entertainment ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_entertainment ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_entertainment ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_entertainment ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_entertainment ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_travel{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_travel ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_travel ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_travel ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_travel ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_travel ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_travel ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_travel ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_fashion{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_fashion ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_fashion ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_fashion ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_fashion ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_fashion ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_fashion ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_fashion ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_game{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_game ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_game ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_game ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_game ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_game ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_game ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_game ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_laugh{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_laugh ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_laugh ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_laugh ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_laugh ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_laugh ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_laugh ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_laugh ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_motherAndInfant{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_motherAndInfant ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_motherAndInfant ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_motherAndInfant ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_motherAndInfant ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_motherAndInfant ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_motherAndInfant ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_motherAndInfant ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_life{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_life ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_life ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_life ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_life ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_life ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_life ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_life ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_constellation{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_constellation ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_constellation ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_constellation ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_constellation ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_constellation ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_constellation ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_constellation ul li:hover img{
+    transform: scale(1.05);
+}
+
+div.vqqcom_car{
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.vqqcom_car ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.vqqcom_car ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 60px;
+    position: relative;
+    margin: 5px;
+}
+
+div.vqqcom_car ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.vqqcom_car ul li a span.timeLength{
+    position: absolute;
+    right: 8px;
+    bottom: 63px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.vqqcom_car ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.vqqcom_car ul li a span.sub_text{
+    position: absolute;
+    right: -7px;
+    bottom: 14px;
+    display: block;
+    width: 100%;
+}
+
+div.vqqcom_car ul li:hover img{
+    transform: scale(1.05);
+}

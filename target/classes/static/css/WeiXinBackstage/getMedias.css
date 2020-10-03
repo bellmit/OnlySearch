@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul,li{
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+body{
+    background-image: url("../../images/index_jsp/index_background.jpg");
+    background-size: cover;
+}
+
+
+div.container{
+    width: 1000px;
+    border: 1px dotted #CCCCCC;
+    margin: 20px auto;
+}
+
+
+div.container ul{
+    background: rebeccapurple;
+    overflow: hidden;
+}
+
+/*div.container ul > li{*/
+    /*border: 1px solid black;*/
+/*}*/
+
+div.container ul > li input{
+    width: 33.3333333%;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    background: rebeccapurple;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+h3{
+    text-align: center;
+    margin: 20px;
+}

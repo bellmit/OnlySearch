@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+
+body{
+    background-image: url("../../images/WeiXinBackstage/login-bg.jpg");
+    background-size: cover;
+}
+
+
+#login{
+    width: 1000px;
+    padding-top: 273px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+#login h1{
+    width: 240px;
+    height: 46px;
+    margin: 0 auto;
+    background: url("../../images/WeiXinBackstage/login-title.jpg") no-repeat;
+}
+
+#login form{
+    width: 325px;
+    height: 400px;
+    padding-top: 20px;
+    background: white;
+    float: right;
+    text-align: center;
+}
+
+#login input{
+    width: 172px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    outline: none;
+    margin: 16px 0;
+    padding-left: 6px;
+    font-size: 16px;
+    border-bottom: 1px solid #666;
+}
+
+#login input[type=password]{
+    position: relative;
+    left: 9px;
+}
+
+#login input[type=submit]{
+    width: 273px;
+    height: 49px;
+    border: none;
+    box-shadow: #666666;
+    color: #FFF;
+    background: url("../../images/WeiXinBackstage/login-btn.png");
+    cursor: pointer;
+}

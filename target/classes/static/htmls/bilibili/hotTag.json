@@ -1,0 +1,111 @@
+{
+  "动画": [
+    "https://www.bilibili.com/v/douga/mad/",
+    "https://www.bilibili.com/v/douga/mmd/",
+    "https://www.bilibili.com/v/douga/voice/",
+    "https://www.bilibili.com/v/douga/tokusatsu/",
+    "https://www.bilibili.com/v/douga/other/"
+  ],
+  "番剧": [
+    "https://www.bilibili.com/v/anime/serial/",
+    "https://www.bilibili.com/v/anime/finish/",
+    "https://www.bilibili.com/v/anime/information/",
+    "https://www.bilibili.com/v/anime/offical/",
+    "https://www.bilibili.com/anime/timeline/",
+    "https://www.bilibili.com/anime/index/#season_version=-1&area=-1&is_finish=-1&copyright=-1&season_status=-1&season_month=-1&year=-1&style_id=-1&order=3&st=1&sort=0&page=1"
+  ],
+  "国创": [
+    "https://www.bilibili.com/v/guochuang/chinese/",
+    "https://www.bilibili.com/v/guochuang/original/",
+    "https://www.bilibili.com/v/guochuang/puppetry/",
+    "https://www.bilibili.com/v/guochuang/motioncomic/",
+    "https://www.bilibili.com/v/guochuang/information/",
+    "https://www.bilibili.com/guochuang/timeline/",
+    "https://www.bilibili.com/guochuang/index/#season_version=-1&is_finish=-1&copyright=-1&season_status=-1&year=-1&style_id=-1&order=3&st=4&sort=0&page=1"
+  ],
+  "音乐": [
+    "https://www.bilibili.com/v/music/original/",
+    "https://www.bilibili.com/v/music/cover/",
+    "https://www.bilibili.com/v/music/vocaloid/",
+    "https://www.bilibili.com/v/music/electronic/",
+    "https://www.bilibili.com/v/music/perform/",
+    "https://www.bilibili.com/v/music/mv/",
+    "https://www.bilibili.com/v/music/live/",
+    "https://www.bilibili.com/v/music/other/",
+    "https://www.bilibili.com/audio/home?musicType=music&spm_id_from=333.6.b_7375626e6176.10"
+  ],
+  "舞蹈": [
+    "https://www.bilibili.com/v/dance/otaku/",
+    "https://www.bilibili.com/v/dance/hiphop/",
+    "https://www.bilibili.com/v/dance/star/",
+    "https://www.bilibili.com/v/dance/china/",
+    "https://www.bilibili.com/v/dance/three_d/",
+    "https://www.bilibili.com/v/dance/demo/"
+  ],
+  "游戏": [
+    "https://www.bilibili.com/v/game/stand_alone/",
+    "https://www.bilibili.com/v/game/esports/",
+    "https://www.bilibili.com/v/game/mobile/",
+    "https://www.bilibili.com/v/game/online/",
+    "https://www.bilibili.com/v/game/board/",
+    "https://www.bilibili.com/v/game/gmv/",
+    "https://www.bilibili.com/v/game/music/",
+    "https://www.bilibili.com/v/game/mugen/",
+    "https://www.bilibili.com/v/game/match"
+  ],
+  "科技": [
+    "https://www.bilibili.com/v/technology/fun/",
+    "https://www.bilibili.com/v/technology/wild/",
+    "https://www.bilibili.com/v/technology/speech_course/",
+    "https://www.bilibili.com/v/technology/military/",
+    "https://www.bilibili.com/v/technology/mechanical/",
+    "https://www.bilibili.com/v/technology/automobile/"
+  ],
+  "数码": [
+    "https://www.bilibili.com/v/digital/mobile/",
+    "https://www.bilibili.com/v/digital/pc/",
+    "https://www.bilibili.com/v/digital/photography/",
+    "https://www.bilibili.com/v/digital/intelligence_av/"
+  ],
+  "生活": [
+    "https://www.bilibili.com/v/life/funny/",
+    "https://www.bilibili.com/v/life/daily/",
+    "https://www.bilibili.com/v/life/food/",
+    "https://www.bilibili.com/v/life/animal/",
+    "https://www.bilibili.com/v/life/handmake/",
+    "https://www.bilibili.com/v/life/painting/",
+    "https://www.bilibili.com/v/life/sports/",
+    "https://www.bilibili.com/v/life/other/"
+  ],
+  "鬼畜": [
+    "https://www.bilibili.com/v/kichiku/guide/",
+    "https://www.bilibili.com/v/kichiku/mad/",
+    "https://www.bilibili.com/v/kichiku/manual_vocaloid/",
+    "https://www.bilibili.com/v/kichiku/course/"
+  ],
+  "时尚": [
+    "https://www.bilibili.com/v/fashion/makeup/",
+    "https://www.bilibili.com/v/fashion/clothing/",
+    "https://www.bilibili.com/v/fashion/aerobics/",
+    "https://www.bilibili.com/v/fashion/catwalk/",
+    "https://www.bilibili.com/v/fashion/trends/"
+  ],
+  "娱乐": [
+    "https://www.bilibili.com/v/ent/variety/",
+    "https://www.bilibili.com/v/ent/star/",
+    "https://www.bilibili.com/v/ent/korea/"
+  ],
+  "影视": [
+    "https://www.bilibili.com/v/cinephile/cinecism/",
+    "https://www.bilibili.com/v/cinephile/montage/",
+    "https://www.bilibili.com/v/cinephile/shortfilm/",
+    "https://www.bilibili.com/v/cinephile/trailer_info/"
+  ],
+  "放映厅": [
+    "https://www.bilibili.com/v/documentary/history/",
+    "https://www.bilibili.com/v/documentary/science/",
+    "https://www.bilibili.com/v/documentary/military/",
+    "https://www.bilibili.com/v/documentary/travel/",
+    ""
+  ]
+}

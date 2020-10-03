@@ -1,0 +1,556 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+
+div.youkucom_top{
+    position: relative;
+}
+
+div.youkucom_top ul.rightData {
+    height: 500px;
+    width: 348px;
+    background-color: rgba(17, 18, 38, .5);
+    position: absolute;
+    top: 30px;
+    right: 0;
+    padding-top: 16px;
+    z-index: 102;
+}
+
+div.youkucom_top ul.rightData li {
+    padding: 10px 5px;
+}
+
+div.youkucom_top ul.rightData li a {
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.5s;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.youkucom_top ul.rightData li a:hover {
+    font-size: 23px;
+}
+
+div.youkucom_top ul.rightData li a span.text {
+    color: #FFF;
+}
+
+div.youkucom_top ul.rightData li a span.sub_text {
+    color: #ff5c38;
+}
+
+
+ul#tagChange div.youkucom_top ul.topBar {
+    height: auto;
+    position: relative;
+}
+
+ul#tagChange div.youkucom_top ul.topBar > li {
+    text-align: center;
+    position: absolute;
+    background-color: rgba(0,0,0,.7);
+    left: 0;
+    top: 0;
+    padding: 30px 0;
+    width: 100%;
+    transition: all 1s;
+}
+
+
+
+div.youkucom_hoting{
+    padding-top: 600px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+div.youkucom_hoting ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+p.bigTitle {
+    font-size: 30px;
+    border-bottom: 1px solid #CCC;
+}
+
+div.youkucom_hoting ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 50px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_hoting ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_hoting ul li a span.time{
+    position: absolute;
+    right: 8px;
+    bottom: 54px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_hoting ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_hoting ul li a span.sub_text{
+    position: absolute;
+    right: -3px;
+    bottom: 9px;
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_hoting ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_episode{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_episode ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_episode ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_episode ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_episode ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_episode ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_episode ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_episode ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_superNet{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_superNet ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_superNet ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_superNet ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_superNet ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_superNet ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_superNet ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_superNet ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_variety{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_variety ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_variety ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_variety ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_variety ul li a span.time{
+    position: absolute;
+    right: 40px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_variety ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_variety ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_variety ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_movie{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_movie ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_movie ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_movie ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_movie ul li a span.time{
+    position: absolute;
+    right: 5px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_movie ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_movie ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_movie ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.youkucom_member{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_member ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_member ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_member ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_member ul li a span.time{
+    position: absolute;
+    right: 5px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_member ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_member ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_member ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+div.youkucom_comic{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_comic ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_comic ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_comic ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_comic ul li a span.time{
+    position: absolute;
+    right: 39px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_comic ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_comic ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_comic ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_bigFish{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_bigFish ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_bigFish ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_bigFish ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_bigFish ul li a span.time{
+    position: absolute;
+    right: 39px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_bigFish ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_bigFish ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_bigFish ul li:hover img{
+    transform: scale(1.05);
+}
+
+
+
+div.youkucom_entertainment{
+    padding : 50px 100px 10px 100px;
+}
+
+div.youkucom_entertainment ul {
+    padding-top: 10px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+
+div.youkucom_entertainment ul li {
+    height: 200px;
+    float: left;
+    padding-bottom: 36px;
+    position: relative;
+    margin: 5px;
+}
+
+div.youkucom_entertainment ul li a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+div.youkucom_entertainment ul li a span.time{
+    position: absolute;
+    right: 39px;
+    bottom: 44px;
+    z-index: 99999;
+    color: #FFF;
+    font-size: 16px;
+}
+div.youkucom_entertainment ul li a img {
+    height: 100%;
+    transition: all 0.5s;
+}
+
+div.youkucom_entertainment ul li a span.sub_text{
+    position: absolute;
+    right: 81px;
+    bottom: -6px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+}
+
+div.youkucom_entertainment ul li:hover img{
+    transform: scale(1.05);
+}
