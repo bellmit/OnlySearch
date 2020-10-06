@@ -15,12 +15,12 @@ $(function () {
         created : function () {
             $.ajax({
                 type: "GET",
-                url: "/fiction/queryByKeyword/?keyword=" + keyword + "&offset=" + ((pageIndex-1) * size) + "&size=" + size,
+                url: "/fiction/queryByKeyword/?keyword=" + keyword + "&pageIndex=" + pageIndex,
                 dataType: "json",
                 success: function(data){
                     for (let i=0;i<data.length;i++){
                         data[i].introduction = data[i].introduction.substring(0,150) + "...";
-                        data[i].id = data[i].href.split("/")[4].split("\.")[0];
+                        data[i].id = data[i].href.split("/")[2];
                     }
                     rooter.fictionList = data;
                 }
@@ -34,12 +34,12 @@ $(function () {
             //获取推荐列表
             $.ajax({
                 type: "GET",
-                url: "/fiction/queryByKeyword/?keyword=" + keyword + "&offset=" + ((pageIndex-1) * size) + "&size=" + size,
+                url: "/fiction/queryByKeyword/?keyword=" + keyword + "&pageIndex=" + pageIndex,
                 dataType: "json",
                 success: function(data){
                     for (let i=0;i<data.length;i++){
                         data[i].introduction = data[i].introduction.substring(0,150) + "...";
-                        data[i].id = data[i].href.split("/")[4].split("\.")[0];
+                        data[i].id = data[i].href.split("/")[2];
                         rooter.fictionList.push(data[i]);
                     }
                 }

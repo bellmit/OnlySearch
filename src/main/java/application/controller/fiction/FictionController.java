@@ -45,8 +45,8 @@ public class FictionController {
 
     @GetMapping("/queryByKeyword")
     public @ResponseBody
-    List<Fiction> queryByKeyword(String keyword, int offset, int size) {
-        return fictionService.queryByKeyword(keyword, offset, size);
+    List<Fiction> queryByKeyword(String keyword, int pageIndex) {
+        return fictionService.queryByKeyword(keyword, pageIndex);
     }
 
     @GetMapping("/showChapter/{id}")

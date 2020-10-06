@@ -2,7 +2,6 @@ package application.service.fiction;
 
 import application.model.fiction.Chapter;
 import application.model.fiction.Fiction;
-import application.mybatis.mappers.FictionMapper;
 import application.service.feign.fiction.FictionFeign;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -28,35 +27,14 @@ public class FictionService {
     @Resource
     private FictionFeign fictionFeign;
 
-    @Resource
-    private FictionMapper fictionMapper;
-
     public List<Fiction> listFictions(int pageIndex) {
-        List<Fiction> fictions = new ArrayList<>(50);
         String html = fictionFeign.listFictions(pageIndex);
-        Document document = Jsoup.parse(html);
-        Elements elements = document.select("ul.filter-ret.clear li.fl.clear");
-        for (Element element : elements) {
-            Element bookImg = element.selectFirst("img");
-            Element bookInfo = element.selectFirst("div.info");
-            Element bookLink = element.selectFirst("a.cover");
-            Element bookIntro = element.selectFirst("div.info > div.d2");
-
-            fictions.add(new Fiction(
-                    bookImg.attr("src"),
-                    bookInfo.selectFirst("h3 > a").text(),
-                    bookLink.attr("href"),
-                    bookInfo.selectFirst("div.d1").text().split(" ")[1],
-                    bookInfo.selectFirst("div.d1 > a").text(),
-                    bookIntro.text(),
-                    Fiction.STATUS_SERIAL
-            ));
-        }
-        return fictions;
+        return commonCode(html);
     }
 
-    public List<Fiction> queryByKeyword(String keyword, int offset, int size) {
-        return fictionMapper.queryByKeyword(keyword, offset, size);
+    public List<Fiction> queryByKeyword(String keyword, int pageIndex) {
+        String html = fictionFeign.queryKeywordToFiction(keyword, pageIndex);
+        return commonCode(html);
     }
 
     public List<Map<String, Object>> showChapter(String id) {
@@ -101,5 +79,29 @@ public class FictionService {
         map.put("wordCount", wordCount);
         map.put("updateTime", updateTime);
         return map;
+    }
+
+
+    public List<Fiction> commonCode(String html){
+        List<Fiction> fictions = new ArrayList<>(50);
+        Document document = Jsoup.parse(html);
+        Elements elements = document.select("ul.filter-ret.clear li.fl.clear");
+        for (Element element : elements) {
+            Element bookImg = element.selectFirst("img");
+            Element bookInfo = element.selectFirst("div.info");
+            Element bookLink = element.selectFirst("a.cover");
+            Element bookIntro = element.selectFirst("div.info > div.d2");
+
+            fictions.add(new Fiction(
+                    bookImg.attr("src"),
+                    bookInfo.selectFirst("h3 > a").text(),
+                    bookLink.attr("href"),
+                    bookInfo.selectFirst("div.d1").text().split(" ")[1],
+                    bookInfo.selectFirst("div.d1 > a").text(),
+                    bookIntro.text(),
+                    Fiction.STATUS_SERIAL
+            ));
+        }
+        return fictions;
     }
 }

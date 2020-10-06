@@ -47,4 +47,14 @@ public interface FictionFeign {
     String getChapter(
             @PathVariable String id,
             @PathVariable String chapterId);
+
+
+    /**
+     * 查询关键字匹配的fiction
+     * @param keyword 关键词
+     * @param pageIndex 页码
+     * @return String html
+     */
+    @GetMapping("/0_0_1_0_heat/?keyword={keyword}&pageNo={pageIndex}")
+    String queryKeywordToFiction(@PathVariable String keyword,@PathVariable int pageIndex);
 }
