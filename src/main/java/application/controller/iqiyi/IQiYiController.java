@@ -68,7 +68,7 @@ public class IQiYiController {
     public String show(String tVid, Model model) {
         String json = iQiYiService.getAid(tVid);
         model.addAttribute("aid", JSONObject.fromObject(json).getJSONObject("data").getString("aid"));
-        return "show.html";
+        return "computeXiGuaVideoUrl.html";
     }
 
     @GetMapping("/searchResult/{keyword}/{offset}/{size}")

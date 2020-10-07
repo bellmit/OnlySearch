@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>千度西瓜视频</title>
+	<meta charset="UTF-8"/>
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+	<meta name="referrer" content="no-referrer"/>
+	<meta name="keywords" content="千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<meta name="description" content="千度,千度一下,你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
+	<link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
+	<link rel="stylesheet" type="text/css" href="/css/xiguavideo/showVideo.css"/>
+	<script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/jss/vue.js"></script>
+	<script type="text/javascript" src="/jss/xiguavideo/showVideo.js"></script>
+</head>
+
+<body>
+
+<div id="rooter">
+	<div v-if="xiGuaVideoUrls !== null">
+		<h1>{{title}}</h1>
+		<h3>{{description}}</h3>
+		<ul>
+			<li v-for="(item,index) in xiGuaVideoUrls">
+				<span>分类：{{item.definition}}</span><br/>
+				<span v-html="item.url"></span>
+			</li>
+		</ul>
+	</div>
+	<div v-else style="text-align: center;">
+		<img src="/images/multiMusic/loading.gif"/>
+	</div>
+</div>
+<a id="xiGuaUrl" style="display: none" th:title="${xiGuaUrl}"></a>
+</body>
+</html>

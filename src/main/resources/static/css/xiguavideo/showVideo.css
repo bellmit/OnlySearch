@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+#rooter ul{
+    width: 800px;
+    background-color: #CCCCCC;
+    margin: 0 auto;
+}
+
+#rooter div{
+    margin-top: 100px;
+}
+
+#rooter ul li{
+    margin: 30px;
+}
+
+#rooter ul li span{
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+
+#rooter ul li span:nth-of-type(2){
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+h1,h3{
+    text-align: center;
+    color: darkred;
+}
