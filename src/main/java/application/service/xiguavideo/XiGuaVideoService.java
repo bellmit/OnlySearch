@@ -77,16 +77,4 @@ public class XiGuaVideoService {
         }
         return videoUrls;
     }
-
-
-    /**
-     * 获取详细的电视或电影的剧集列表和推荐列表
-     * @param albumId album id
-     * @return String json
-     */
-    public String detailPagesTvOrMovie(String albumId){
-        String result = xiGuaVideoFeign.detailPagesTvOrMovie(albumId);
-        System.out.println(result);
-        return null;
-    }
 }

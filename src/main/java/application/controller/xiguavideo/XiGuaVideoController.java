@@ -53,15 +53,4 @@ public class XiGuaVideoController {
     public String computeXiGuaVideoUrl(){
         return "xiguavideo/computeXiGuaVideoUrl";
     }
-
-    /**
-     * 获取详细的电视或电影的剧集列表和推荐列表
-     * @param albumId album id
-     * @return String json
-     */
-    @GetMapping("/detailPagesTvOrMovie/{albumId}")
-    public @ResponseBody String detailPagesTvOrMovie(@PathVariable String albumId){
-        xiGuaVideoService.detailPagesTvOrMovie(albumId);
-        return null;
-    }
 }
