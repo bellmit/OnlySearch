@@ -53,7 +53,6 @@ public class XiGuaVideoService {
 
             List<WebElement> elements = firefoxDriver.findElementsByCssSelector("xg-definition.xgplayer-definition > ul li");
 
-            System.out.println(firefoxDriver.findElementByCssSelector("html").get);
             elements.forEach(webElement->{
                 Map<String,Object> map = new HashMap<>(2);
                 map.put("url",webElement.getAttribute("url"));
