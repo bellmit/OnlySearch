@@ -32,17 +32,14 @@
 </div>
 <ul class="hot">
     <li class="title">热门</li>
-    <#list hotList as item>
-    <li class="${prefix} == ${item} ? 'focus item' : 'item'" index="${item_index}">
-        <a target="_blank">${item}</a>
+    <li th:each="item,index : ${hotList}" th:class="${prefix} == ${item} ? 'focus item' : 'item'" th:index="${index.index}">
+        <a target="_blank" th:text="${item}"></a>
     </li>
-</
-#list>
 </ul>
 
 <ul class="category">
     <li class="title">分类</li>
-    <li th:each="item,index : ${categoryList}" class="${category} == ${index.index + 1} ? 'focus item' : 'item'"
+    <li th:each="item,index : ${categoryList}" th:class="${category} == ${index.index} ? 'focus item' : 'item'"
         th:index="${index.index}">
         <a target="_blank" th:text="${item}"></a>
     </li>
@@ -51,7 +48,7 @@
 <div id="rooter">
     <div v-if="indexList.length > 0">
         <ul>
-            <li v-for="item,index in top10">
+            <li v-for="(item,index) in top10">
                 <a :href="'/kuwo/singerDetailInfo/' + item.id" target="_blank">
                     <img :src="item.pic"/>
                 </a>
@@ -61,7 +58,7 @@
         </ul>
 
         <ul class="other">
-            <li v-for="item,index in otherList">
+            <li v-for="(item,index) in otherList">
                 <a :href="'/kuwo/singerDetailInfo/' + item.id" target="_blank">
                     <img :src="item.pic"/>
                 </a>
@@ -70,7 +67,7 @@
         </ul>
 
         <ul class="index">
-            <li v-for="item,index in indexList" :class="index + 1 === pageIndex ? 'focus' : ''">
+            <li v-for="(item,index) in indexList" :class="index + 1 === pageIndex ? 'focus' : ''">
                 <a :href="item" v-html="index + 1"></a>
             </li>
         </ul>

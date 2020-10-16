@@ -61,9 +61,9 @@
     <a href="/kuwo/hotTop"><span>更多 &gt;</span></a>
 
     <div class="item">
-    <ul th:each="leaderBoard : ${leaderBoards}">
+    <ul th:each="leaderBoard,index : ${leaderBoards}">
         <li class="leaderBoardBack">
-            <img src="/images/kuwo/song${leaderBoard_index + 1}.png"/>
+            <img th:src="'/images/kuwo/song' + ${index.index + 1} + '.png'"/>
         </li>
         <li th:each="item : ${leaderBoard[1]}" th:rid="${item.rid}" class="itemLi">
             <a>
