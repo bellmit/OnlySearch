@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: https://ljxwtl.cn/sitemap.xml
-Sitemap: https://ljxwtl.cn/sitemap.txt
