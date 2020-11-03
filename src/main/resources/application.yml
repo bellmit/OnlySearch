@@ -7,11 +7,9 @@ spring:
   profiles:
     active: dev
 
-
-
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://47.104.9.61:3306/bigdata?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://47.104.9.61:3306/bigdata?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=UTC&useSSL=false&connectTimeout=60000000&socketTimeout=60000000
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: wtl199201180271

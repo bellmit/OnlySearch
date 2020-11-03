@@ -57,6 +57,7 @@ public class MovieController {
     @GetMapping("/selectByMovieLikeTitle")
     public @ResponseBody
     List<IQiYi> selectByMovieLikeTitle(String keyword) {
+        System.out.println(iQiYiService.searchMovieResult(keyword, 0,Integer.MAX_VALUE));
         return iQiYiService.searchMovieResult(keyword, 0,Integer.MAX_VALUE);
     }
 }
