@@ -1,5 +1,6 @@
 package application.service.feign.dianyingtiantang;
 
+import feign.Response;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,7 @@ public interface DianYingTianTangSearchResultFeign {
      * @return String
      */
     @GetMapping("/plus/so1.php?keyword={keyword}&searchtype=titlekeyword&channeltype=0&orderby=&kwtype=0&pagesize=10&typeid={typeId}&PageNo={pageIndex}")
-    String getSearchPagingResult(@PathVariable("keyword") String keyword,
-                                 @PathVariable("typeId") int typeId,
-                                 @PathVariable("pageIndex") int pageIndex);
+    Response getSearchPagingResult(@PathVariable("keyword") String keyword,
+                                   @PathVariable("typeId") int typeId,
+                                   @PathVariable("pageIndex") int pageIndex);
 }

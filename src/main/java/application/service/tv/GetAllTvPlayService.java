@@ -2,6 +2,7 @@ package application.service.tv;
 
 import application.model.tv.TvCls;
 import application.service.feign.tv.AiqiyiTvFeign;
+import application.service.tengxun.TenXunService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,9 @@ public class GetAllTvPlayService {
 
     @Resource
     private AiqiyiTvFeign aiqiyiTvFeign;
+
+    @Resource
+    private TenXunService tenXunService;
 
     @Resource
     private List<TVPlaySearchServiceInterface> tvPlaySearchServiceInterfaces;
@@ -39,19 +43,29 @@ public class GetAllTvPlayService {
     /**
      * 展示TV
      *
-     * @param url
-     * @param platform
-     * @return
+     * @param url url
+     * @param aid aid（爱奇艺）
+     * @param platform 平台
+     * @param name tv名称
+     * @return Set<TvCls>
      */
-    public Set<TvCls> showTv(String url, String aid, String platform) {
-        return dealAqiyiTv(url,aid);
+    public Set<TvCls> showTv(String url, String aid, String platform,String name) {
+        switch (platform){
+            case "tengxun":
+                return dealTenXunTv(url,name);
+            case "iqiyi":
+                return dealAqiyiTv(url,aid);
+            default:
+                break;
+        }
+        return null;
     }
 
     /**
      * 处理aqiyi的tv
-     * @param url
-     * @param aId
-     * @return
+     * @param url url
+     * @param aId aid（爱奇艺）
+     * @return Set<TvCls>
      */
     private Set<TvCls> dealAqiyiTv(String url, String aId) {
         String result = aiqiyiTvFeign.showTv(aId, 1,Integer.MAX_VALUE);
@@ -69,5 +83,24 @@ public class GetAllTvPlayService {
                     epsodelistJSONObject.getString("playUrl")));
         }
         return set;
+    }
+
+    /**
+     * 处理腾讯tv的剧集展示
+     * @param url url
+     * @param name tv名
+     * @return Set<TvCls>
+     */
+    private Set<TvCls> dealTenXunTv(String url,String name){
+        List<String> urlList = tenXunService.analysisPageToList(url);
+        Set<TvCls> tvClsSet = new TreeSet<>();
+        for (int i=0;i<urlList.size();i++){
+            tvClsSet.add(TvCls.builder()
+            .index(i+1)
+            .name(name)
+            .url(urlList.get(i))
+            .build());
+        }
+        return tvClsSet;
     }
 }

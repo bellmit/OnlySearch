@@ -59,8 +59,8 @@ public class TVPlayController {
     @CrossOrigin
     @GetMapping("/showTvMaps")
     public @ResponseBody
-    Set<TvCls> showTvMaps(String url, String aid, String platform) {
-        return getAllTVPlayService.showTv(url, aid, platform);
+    Set<TvCls> showTvMaps(String url, String aid, String platform,String name) {
+        return getAllTVPlayService.showTv(url, aid, platform,name);
     }
 
     @GetMapping("/showTv")

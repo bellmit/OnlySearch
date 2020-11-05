@@ -19,6 +19,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -59,7 +60,7 @@ public class DianYingTianTangSearchService {
             byteArrayOutputStream.write(buffer,0,length);
         }
 
-        String html = new String(byteArrayOutputStream.toByteArray(),"gb2312");
+        String html = new String(byteArrayOutputStream.toByteArray(),"gbk");
 
         System.out.println(html);
 
@@ -236,7 +237,19 @@ public class DianYingTianTangSearchService {
         List<Information> informations = new ArrayList<Information>();
 
         try {
-            String html = dianYingTianTangSearchResultFeign.getSearchPagingResult(URLEncoder.encode(keyword,"gb2312"),typeid,pageIndex);
+            Response response = dianYingTianTangSearchResultFeign.getSearchPagingResult(URLEncoder.encode(keyword,"gbk"),typeid,pageIndex);
+            InputStream inputStream = response.body().asInputStream();
+            int length = -1 ;
+            byte [] buffer = new byte[10240];
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            while ((length = inputStream.read(buffer))!=-1){
+                byteArrayOutputStream.write(buffer,0,length);
+            }
+            String html = new String(byteArrayOutputStream.toByteArray(),"gbk");
+
+            inputStream.close();
+            byteArrayOutputStream.close();
+
             if (!"".equalsIgnoreCase(html)){
                 Document document = Jsoup.parse(html);
 
@@ -260,6 +273,7 @@ public class DianYingTianTangSearchService {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return informations;
     }
 }

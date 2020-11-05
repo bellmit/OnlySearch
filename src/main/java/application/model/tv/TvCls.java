@@ -1,14 +1,11 @@
 package application.model.tv;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@Builder
 public class TvCls implements Comparable<TvCls>{
     private int index;
     private String name;
