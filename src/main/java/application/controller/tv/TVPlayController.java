@@ -1,9 +1,13 @@
 package application.controller.tv;
 
 
+import application.filter.SysContext;
+import application.model.tv.CommonTvData;
 import application.model.tv.TvCls;
 import application.mybatis.model.IQiYi;
+import application.mybatis.model.TenXun;
 import application.service.iqiyi.IQiYiService;
+import application.service.tengxun.TenXunService;
 import application.service.tv.GetAllTvPlayService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -25,6 +30,9 @@ public class TVPlayController {
 
     @Resource
     private IQiYiService iQiYiService;
+
+    @Resource
+    private TenXunService tenXunService;
 
     @CrossOrigin
     @RequestMapping("tvPlayResult")
@@ -52,8 +60,41 @@ public class TVPlayController {
     }
 
     @GetMapping("/selectByTvLikeTitle")
-    public @ResponseBody List<IQiYi> selectByTvLikeTitle(String keyword) {
-        return iQiYiService.searchTvResult(keyword, 0,Integer.MAX_VALUE);
+    public @ResponseBody List<CommonTvData> selectByTvLikeTitle(String keyword) {
+        List<TenXun> tenXuns = tenXunService.searchTvResult(keyword, 0, Integer.MAX_VALUE);
+        List<IQiYi> iQiYis = iQiYiService.searchTvResult(keyword, 0, Integer.MAX_VALUE);
+        List<CommonTvData> commonTvDataList = new ArrayList<>();
+        tenXuns.forEach(tenXun -> {
+            CommonTvData commonTvData = CommonTvData.builder()
+                    .id(tenXun.getId())
+                    .title(tenXun.getTitle())
+                    .href(tenXun.getHref())
+                    .imgSrc(tenXun.getImgSrc())
+                    .jiNumber(tenXun.getJiNumber())
+                    .channelId(tenXun.getChannelId())
+                    .dataType(2)
+                    .aid(SysContext.BLANK_STRING)
+                    .json(SysContext.BLANK_STRING)
+                    .stars(tenXun.getStars())
+                    .build();
+            commonTvDataList.add(commonTvData);
+        });
+        iQiYis.forEach(iQiYi -> {
+            CommonTvData commonTvData = CommonTvData.builder()
+                    .id(iQiYi.getId())
+                    .title(iQiYi.getTitle())
+                    .href(iQiYi.getHref())
+                    .imgSrc(iQiYi.getImgSrc())
+                    .jiNumber(iQiYi.getJiNumber())
+                    .channelId(iQiYi.getChannelId())
+                    .dataType(iQiYi.getDataType())
+                    .aid(iQiYi.getAid())
+                    .json(iQiYi.getJson())
+                    .stars(iQiYi.getStars())
+                    .build();
+            commonTvDataList.add(commonTvData);
+        });
+        return commonTvDataList;
     }
 
     @CrossOrigin

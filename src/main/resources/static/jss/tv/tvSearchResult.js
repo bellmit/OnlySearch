@@ -24,7 +24,14 @@ $(function () {
 
 					for (let i = 0; i < data.length; i++) {
 						let dat = data[i];
-						dat.href = "/showTv?url=" + dat.href + '&platform=iqiyi&aid=' + dat.aid + '&tvName=' + dat.title;
+						let platform = null;
+						if (dat.dataType === 1){
+							platform = "iqiyi";
+						}
+						else if (dat.dataType === 2){
+							platform = "tengxun";
+						}
+						dat.href = "/showTv?url=" + dat.href + '&platform=' + platform + '&aid=' + dat.aid + '&tvName=' + dat.title;
 					}
 					rooter.tvList = data;
 

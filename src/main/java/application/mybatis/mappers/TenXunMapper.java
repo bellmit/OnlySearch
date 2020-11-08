@@ -47,7 +47,7 @@ public interface TenXunMapper {
      * @param size 数目
      * @return List<IQiYi>
      */
-    @Select("select * from tengxun where channelId = 2 and  (title like concat('%',#{keyword},'%') " +
+    @Select("select * from tengxun where channelId = 1 and  (title like concat('%',#{keyword},'%') " +
             " or stars like concat('%',#{keyword},'%')) limit #{offset},#{size}")
     List<TenXun> queryTvByKeyword(String keyword, int offset, int size);
 
@@ -58,7 +58,7 @@ public interface TenXunMapper {
      * @param size 数目
      * @return List<IQiYi>
      */
-    @Select("select * from tengxun where channelId = 1 and  (title like concat('%',#{keyword},'%') " +
+    @Select("select * from tengxun where channelId = 2 and  (title like concat('%',#{keyword},'%') " +
             " or stars like concat('%',#{keyword},'%')) limit #{offset},#{size}")
     List<TenXun> queryMovieByKeyword(String keyword, int offset, int size);
 }

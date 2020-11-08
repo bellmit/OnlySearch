@@ -24,7 +24,7 @@ $(function () {
         }
     });
 
-    /**
+    /*
      * 处理电视剧的播放
      */
     rooter.$watch("tvPlayList",function () {
