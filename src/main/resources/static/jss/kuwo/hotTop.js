@@ -117,7 +117,6 @@ $(function () {
         let rid = songPlayButtons.eq(0).attr("rid");
         playAllButton.unbind().click(function () {
             audioCurrentIndex = 0;
-            globalFlag = true;
             $.ajax({
                 type: "GET",
                 url: "/kuwo/songInfo/" + rid,
@@ -130,8 +129,16 @@ $(function () {
             });
         });
 
-        let audio = $("audio");
-        audio.unbind().on("ended", function () {
+        let $audio = $("audio");
+        let audio = $audio.get(0);
+
+        audio.addEventListener("playing", function () {
+            songPlayButtons = $("span.playButton");
+            songPlayButtons.eq(audioCurrentIndex).parent().addClass("playing");
+            songPlayButtons.eq(audioCurrentIndex).text("播放中......");
+        });
+
+        audio.addEventListener("ended", function () {
             songPlayButtons = $("span.playButton");
             audioCurrentIndex++;
             let rid = songPlayButtons.eq(audioCurrentIndex).attr("rid");
@@ -140,66 +147,52 @@ $(function () {
                 url: "/kuwo/songInfo/" + rid,
                 dataType: "json",
                 success: function (data) {
-                    audio.attr("src", data.url);
+                    $audio.attr("src", data.url);
                     let title = $("title");
                     title.text("祥龙检索-酷我音乐--" + songPlayButtons.eq(audioCurrentIndex).attr("name"));
                 }
             });
+        });
 
-            audio.unbind().on("error", function () {
-                songPlayButtons = $("span.playButton");
-                audioCurrentIndex++;
-                let rid = songPlayButtons.eq(audioCurrentIndex).attr("rid");
-                $.ajax({
-                    type: "GET",
-                    url: "/kuwo/songInfo/" + rid,
-                    dataType: "json",
-                    success: function (data) {
-                        audio.attr("src", data.url);
-                        let title = $("title");
-                        title.text("祥龙检索-酷我音乐--" + songPlayButtons.eq(audioCurrentIndex).attr("name"));
-                    }
-                });
+        audio.addEventListener("error", function () {
+            songPlayButtons = $("span.playButton");
+            audioCurrentIndex++;
+            let rid = songPlayButtons.eq(audioCurrentIndex).attr("rid");
+            $.ajax({
+                type: "GET",
+                url: "/kuwo/songInfo/" + rid,
+                dataType: "json",
+                success: function (data) {
+                    $audio.attr("src", data.url);
+                    let title = $("title");
+                    title.text("祥龙检索-酷我音乐--" + songPlayButtons.eq(audioCurrentIndex).attr("name"));
+                }
             });
         });
 
+        let flag = true;
+
         $(window).scroll(function () {
             if ($(document).scrollTop() >= ($(document).height() - $(window).height()) * 0.95) {
-                pageIndex++;
-                $.ajax({
-                    type: "GET",
-                    url: "/kuwo/leaderBoard/" + hotTopIdList[index - 1][currentIndex] + "/" + pageIndex + "/30",
-                    dataType: "json",
-                    success: function (data) {
-                        let songs = data.data.musicList;
-                        for (let i = 0; i < songs.length; i++) {
-                            rooter.songs.push(songs[i]);
+                if (flag === true){
+                    pageIndex++;
+                    flag = false;
+                    $.ajax({
+                        type: "GET",
+                        url: "/kuwo/leaderBoard/" + hotTopIdList[index - 1][currentIndex] + "/" + pageIndex + "/30",
+                        dataType: "json",
+                        success: function (data) {
+                            let songs = data.data.musicList;
+                            if (songs !== undefined){
+                                for (let i = 0; i < songs.length; i++) {
+                                    rooter.songs.push(songs[i]);
+                                }
+                            }
+                            flag = true;
                         }
-                    }
-                });
+                    });
+                }
             }
         });
-
-        let flag = false;
-        window.setInterval(function () {
-            if (-1 === audioCurrentIndex){
-                return;
-            }
-            songPlayButtons.parents().removeClass("change");
-            if (globalFlag){
-                if (!flag){
-                    window.setTimeout(function () {
-                        songPlayButtons.eq(audioCurrentIndex).parent().addClass("change");
-                        flag = !flag;
-                    },1000);
-                }
-                else{
-                    window.setTimeout(function () {
-                        songPlayButtons.eq(audioCurrentIndex).parent().removeClass("change");
-                        flag = !flag;
-                    },1000);
-                }
-            }
-        },1000);
     });
 });

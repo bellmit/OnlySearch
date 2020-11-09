@@ -178,6 +178,11 @@ div.centerArea li.songsItem ul li.focus{
     background-color: #fafafa;
 }
 
+div.centerArea li.songsItem ul li.playing{
+    background-image: url("/images/bg.gif");
+    background-size: cover;
+}
+
 span.playButton{
     cursor: pointer;
 }
