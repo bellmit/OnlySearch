@@ -37,61 +37,61 @@
     <li></li>
     <li></li>
 </ul>
-
-<div class="recommend">
-    <h1>推荐歌单</h1>
-    <a th:each="recommend : ${recommends}" class="recommendItem">
-        <span th:text="${recommend[0]}"></span>
-    </a>
-
-    <a href="/kuwo/tagPlayListPage/37"><span>更多 &gt;</span></a>
-
-    <ul>
-        <li th:each="recommend : ${recommends[0][1]}" th:_id="${recommend.id}" class="recommendItem">
-            <a th:href="@{'/kuwo/playListInfo/' + ${recommend.id}}">
-                <img th:src="${recommend.imgSrc}"/>
-            </a>
-            <p th:text="${recommend.name}"></p>
-        </li>
-    </ul>
-</div>
-
-<div class="leaderBoard">
-    <h1>排行榜</h1>
-    <a href="/kuwo/hotTop"><span>更多 &gt;</span></a>
-
-    <div class="item">
-    <ul th:each="leaderBoard,index : ${leaderBoards}">
-        <li class="leaderBoardBack">
-            <img th:src="'/images/kuwo/song' + ${index.index + 1} + '.png'"/>
-        </li>
-        <li th:each="item : ${leaderBoard[1]}" th:rid="${item.rid}" class="itemLi">
-            <a>
-                <img th:src="${item.pic}"/>
-                <div>
-                    <span th:text="${item.name}"></span>
-                    <span th:text="${item.artist}"></span>
-                </div>
-            </a>
-        </li>
-    </ul>
-</div>
-</div>
 <div id="rooter">
-    <div class="singer">
-        <h1>歌手推荐</h1>
-        <a href="/kuwo/singer/0/1/100/100/100?prefix=" target="_blank"><span>更多 &gt;</span></a>
+    <div class="recommend">
+        <h1>推荐歌单</h1>
+        <a v-for="item,index in recommendTypes" class="recommendItem">
+            <span v-html="item"></span>
+        </a>
 
-        <div>
-            <ul>
-                <li v-for="item,index in top12">
-                    <a :href="'/kuwo/singerDetailInfo/' + item.id" target="_blank">
-                        <img :src="item.pic"/>
+        <a href="/kuwo/tagPlayListPage/37"><span>更多 &gt;</span></a>
+
+        <ul>
+            <li v-for="(item,index) in playlistCover" :_id="item.id" class="recommendItem">
+                <a :href="'/kuwo/playListInfo/' + item.id">
+                    <img :src="item.img"/>
+                </a>
+                <p v-html="item.name"></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="leaderBoard">
+        <h1>排行榜</h1>
+        <a href="/kuwo/hotTop"><span>更多 &gt;</span></a>
+
+        <div class="item">
+            <ul th:each="leaderBoard,index : ${leaderBoards}">
+                <li class="leaderBoardBack">
+                    <img th:src="'/images/kuwo/song' + ${index.index + 1} + '.png'"/>
+                </li>
+                <li th:each="item : ${leaderBoard[1]}" th:rid="${item.rid}" class="itemLi">
+                    <a>
+                        <img th:src="${item.pic}"/>
+                        <div>
+                            <span th:text="${item.name}"></span>
+                            <span th:text="${item.artist}"></span>
+                        </div>
                     </a>
-                    <p v-html="item.aartist === '' ? item.name : item.aartist"></p>
-                    <p v-html="item.musicNum + '首歌曲'"></p>
                 </li>
             </ul>
+        </div>
+
+        <div class="singer">
+            <h1>歌手推荐</h1>
+            <a href="/kuwo/singer/0/1/100/100/100?prefix=" target="_blank"><span>更多 &gt;</span></a>
+
+            <div>
+                <ul>
+                    <li v-for="item,index in top12">
+                        <a :href="'/kuwo/singerDetailInfo/' + item.id" target="_blank">
+                            <img :src="item.pic"/>
+                        </a>
+                        <p v-html="item.aartist === '' ? item.name : item.aartist"></p>
+                        <p v-html="item.musicNum + '首歌曲'"></p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

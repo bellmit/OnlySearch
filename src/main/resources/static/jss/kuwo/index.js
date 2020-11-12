@@ -15,10 +15,40 @@ $(function () {
         el : "#rooter",
         data : function () {
             return {
+                recommendTypes : ["每日推荐","翻唱","网络","伤感","欧美"],
+                //每日推荐
+                recommend : null,
+                //翻唱
+                playlistCover : null,
+                //网络
+                playlistNet : null,
+                //伤感
+                playlistSad : null,
+                //欧美
+                playlistEurope : null,
                 top12 : []
             };
         },
         created : function () {
+            $.ajax({
+                type: "GET",
+                url: "/kuwo/recommend/1/5",
+                dataType: "json",
+                success: function (data) {
+                    rooter.recommend = data.data.data;
+                }
+            });
+
+            $.ajax({
+                type: "GET",
+                url: "/kuwo/playlist/1/5/1848",
+                dataType: "json",
+                success: function (data) {
+                    rooter.playlistCover = data.data.data;
+                }
+            });
+
+
             $.ajax({
                 type: "GET",
                 url: "/kuwo/artistInfo/0/6/6?prefix=",
