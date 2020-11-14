@@ -40,14 +40,14 @@
 <div id="rooter">
     <div class="recommend">
         <h1>推荐歌单</h1>
-        <a v-for="item,index in recommendTypes" class="recommendItem">
-            <span v-html="item"></span>
+        <a v-for="item,index in recommends" class="recommendItem" :index="index">
+            <span v-html="item[0]"></span>
         </a>
 
         <a href="/kuwo/tagPlayListPage/37"><span>更多 &gt;</span></a>
 
-        <ul>
-            <li v-for="(item,index) in playlistCover" :_id="item.id" class="recommendItem">
+        <ul v-if="recommends.length > 0">
+            <li v-for="(item,index) in recommends[recommendsIndex][1]" :_id="item.id" class="recommendItem">
                 <a :href="'/kuwo/playListInfo/' + item.id">
                     <img :src="item.img"/>
                 </a>
@@ -61,19 +61,21 @@
         <a href="/kuwo/hotTop"><span>更多 &gt;</span></a>
 
         <div class="item">
-            <ul th:each="leaderBoard,index : ${leaderBoards}">
+            <ul v-for="leaderBoard,index in leaderBoards">
                 <li class="leaderBoardBack">
-                    <img th:src="'/images/kuwo/song' + ${index.index + 1} + '.png'"/>
+                    <img :src="'/images/kuwo/song' + (index + 1) + '.png'"/>
                 </li>
-                <li th:each="item : ${leaderBoard[1]}" th:rid="${item.rid}" class="itemLi">
-                    <a>
-                        <img th:src="${item.pic}"/>
-                        <div>
-                            <span th:text="${item.name}"></span>
-                            <span th:text="${item.artist}"></span>
-                        </div>
-                    </a>
-                </li>
+                <ul>
+                    <li v-for="item in leaderBoard[1]" :rid="item.rid" class="itemLi">
+                        <a>
+                            <img :src="item.pic"/>
+                            <div>
+                                <span v-html="item.name"></span>
+                                <span v-html="item.artist"></span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </ul>
         </div>
 

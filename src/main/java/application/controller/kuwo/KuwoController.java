@@ -31,35 +31,7 @@ public class KuwoController {
     private KuwoService kuwoService;
 
     @GetMapping("/index")
-    public String index(Model model) {
-        String recommend = kuwoService.recommend(1, 5);
-        String playlistCover = kuwoService.playlist(1, 5, "1848");
-        String playlistNet = kuwoService.playlist(1, 5, "621");
-        String playlistSad = kuwoService.playlist(1, 5, "146");
-        String playlistEurope = kuwoService.playlist(1, 5, "35");
-        model.addAttribute("recommends", new Object[]{
-                new Object[]{"每日推荐", kuwoService.covertDataToPlaylist(recommend)},
-                new Object[]{"翻唱", kuwoService.covertDataToPlaylist(playlistCover)},
-                new Object[]{"网络", kuwoService.covertDataToPlaylist(playlistNet)},
-                new Object[]{"伤感", kuwoService.covertDataToPlaylist(playlistSad)},
-                new Object[]{"欧美", kuwoService.covertDataToPlaylist(playlistEurope)},
-
-        });
-
-        String hotSongList = kuwoService.leaderBoard("158", 1, 5);
-        String newSongList = kuwoService.leaderBoard("93", 1, 5);
-        String upSongList = kuwoService.leaderBoard("279", 1, 5);
-        String europeSongList = kuwoService.leaderBoard("290", 1, 5);
-        String kuwoSongList = kuwoService.leaderBoard("17", 1, 5);
-        model.addAttribute("leaderBoards", new Object[]{
-                new Object[]{"抖音热歌榜", kuwoService.covertDataToLeaderBoard(hotSongList)},
-                new Object[]{"酷我新歌榜", kuwoService.covertDataToLeaderBoard(newSongList)},
-                new Object[]{"酷我飙升榜", kuwoService.covertDataToLeaderBoard(upSongList)},
-                new Object[]{"ACG新歌榜", kuwoService.covertDataToLeaderBoard(europeSongList)},
-                new Object[]{"酷我热歌榜", kuwoService.covertDataToLeaderBoard(kuwoSongList)},
-
-        });
-
+    public String index() {
         return "kuwo/index";
     }
 
