@@ -141,4 +141,17 @@ public class SysContext {
 
 	public static final String V_QQ_COM = "https://v.qq.com";
 
+
+	public static final String TEMPLATE_FILE_PREFIX_PATH = "D:/mine/tengxun_manhua/";
+
+	public static final String EXECUTE_SCRIPT = "var T = window['DATA'].split(''), N = window.nonce, len, locate, str;\n" +
+			"    N = N.match(/\\\\d+[a-zA-Z]+/g);\n" +
+			"    len = N.length;\n" +
+			"    while (len--) {\n" +
+			"        locate = parseInt(N[len]) & 255;\n" +
+			"        str = N[len].replace(/\\\\d+/g, '');\n" +
+			"        T.splice(locate, str.length)\n" +
+			"    }\n" +
+			"T = T.join('');";
+
 }
