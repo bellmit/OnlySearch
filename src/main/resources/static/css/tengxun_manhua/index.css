@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul,li{
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+div.oneLine{
+    margin: 0 auto;
+    padding-top: 22px;
+    text-align: center;
+    height: 48px;
+    line-height: 48px;
+}
+
+div.oneLine a {
+    display: block;
+}
+
+
+div.searchArea{
+    width: 600px;
+    height: 55px;
+    line-height: 40px;
+    margin: 0 auto;
+    margin-top: 84px;
+    position: relative;
+}
+
+div.searchArea p{
+    width: 80%;
+    height: 100%;
+}
+
+div.searchArea p input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    font-size: 18px;
+    line-height: 55px;
+    padding-left: 6px;
+    transition: all 1s;
+    border: 1px solid #1f36ff;
+}
+
+div.searchArea p input:focus{
+    border: 1px solid #3385ff;
+}
+
+div.searchArea a {
+    display: inline-block;
+    position: relative;
+    background-color: #3385ff;
+    color: #FFF;
+    width: 20%;
+    height: 100%;
+    right: -6px;
+    top: -55px;
+    float: right;
+    text-align: center;
+    line-height: 55px;
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 1px solid #3385ff;
+}
+
+div.searchArea a:hover{
+    font-size: 18px;
+    background-color: #1f36ff;
+    font-weight: bold;
+}
+
+div.tags{
+    padding: 10px;
+}
+
+div.tags div.classify{
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    top: -20px;
+}
+
+div.tags div.classify ul{
+    width: 100%;
+    overflow: hidden;
+}
+
+div.tags div.classify ul li{
+    float: left;
+    color: #FFFFFF;
+}
+
+div.tags div.classify ul li.item{
+    margin: 0 10px;
+    color: #EEEEEE;
+}
+
+div.tags div.classify ul li.item a{
+    color: #FFFFFF;
+}
+
+div.tags div.classify ul li.item a:hover{
+    text-decoration: underline;
+    color: #FF0000;
+}
+
+div.tags div.classify ul li.focus{
+    background-color: #ff5c38;
+}
+
+#rooter div.content{
+    width: 1515px;
+    margin: 20px auto;
+    position: relative;
+}
+
+#rooter div.content ul{
+    width: 100%;
+    overflow: hidden;
+}
+
+#rooter div.content ul li.manhua{
+    float: left;
+    width: 700px;
+    height: 300px;
+    position: relative;
+    border: 1px solid #fcf1e1;
+    padding: 20px;
+}
+
+#rooter div.content ul li a {
+    display: inline-block;
+    width: 200px;
+}
+
+#rooter div.content ul li a img{
+    width: 200px;
+}
+
+#rooter div.content ul li div.info{
+    float: right;
+    width: 500px;
+}
+
+#rooter div.content ul li div.info span.title{
+    font-size: 30px;
+    font-weight: bolder;
+    padding: 20px;
+}
+
+#rooter div.content ul li div.info span.author{
+    font-size: 14px;
+    padding: 20px;
+}
+
+#rooter div.content ul li div.info p.tags{
+    display: inline-block;
+}
+
+#rooter div.content ul li div.info p.tags span{
+    margin: 30px 20px;
+}
+
+#rooter div.content ul li div.info span.description{
+    display: inline-block;
+    width: 90%;
+    padding: 20px;
+    font-size: 16px;
+    color: #999;
+    font-family: 宋体, Arial, "Segoe UI", sans-serif;
+}
+
+#rooter div.content ul li div.info button{
+    position: absolute;
+    left: 226px;
+    bottom: 60px;
+    box-shadow: 0 0 1px rgba(255,255,255,0.6) inset;
+    border: 1px solid #e0cfb1;
+    color: #b6724d;
+    background: #fffbf6;
+    width: 90px;
+    height: 36px;
+}
+
+#rooter div.content ul li div.info button:focus{
+    outline: none;
+}
+
+#rooter div.content ul li div.info button:hover{
+    cursor: pointer;
+    background-color: #fcf1e1;
+}
+
+
+div#fixed_top{
+    position: fixed;
+    width: 100%;
+    z-index: 9999999;
+    left: 0;
+    top: 6px;
+}
+
+div#fixed_top div.searchArea{
+    margin: 0 auto;
+}
