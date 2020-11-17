@@ -41,6 +41,11 @@ public class TengXunManHuaService {
 
     static {
         try {
+            File templateDir = new File(SysContext.TEMPLATE_FILE_PREFIX_PATH);
+            if (!templateDir.exists()){
+                templateDir.mkdirs();
+            }
+
             BufferedInputStream bufferedInputStream = (BufferedInputStream) TengXunManHuaService.class.getResourceAsStream("/static/htmls/tengxun_manhua/腾讯漫画模板.html");
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int length = -1;
