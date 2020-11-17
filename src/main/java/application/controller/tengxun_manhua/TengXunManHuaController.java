@@ -65,4 +65,11 @@ public class TengXunManHuaController {
         model.addAttribute("classify",classify);
         return "tengxun_manhua/index";
     }
+
+    @GetMapping("/showChapter/{id}/{chapterId}")
+    public String showChapter(@PathVariable String id ,@PathVariable String chapterId,Model model){
+        model.addAttribute("id",id);
+        model.addAttribute("chapterId",chapterId);
+        return "tengxun_manhua/showChapter";
+    }
 }

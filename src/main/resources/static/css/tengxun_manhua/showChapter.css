@@ -15,6 +15,10 @@ a {
     text-decoration: none;
 }
 
+body{
+    background-color: #777;
+}
+
 
 div.oneLine{
     margin: 0 auto;
@@ -121,90 +125,43 @@ div.tags div.classify ul li.focus{
 }
 
 #rooter div.content{
-    width: 1515px;
+    width: 1400px;
     margin: 20px auto;
     position: relative;
 }
 
-#rooter div.content ul{
-    width: 100%;
-    overflow: hidden;
-}
-
-#rooter div.content ul li.manhua{
-    float: left;
-    width: 700px;
-    height: 300px;
-    position: relative;
-    border: 1px solid #fcf1e1;
-    padding: 20px;
-}
-
-#rooter div.content ul li a {
-    display: inline-block;
-    width: 200px;
-}
-
-#rooter div.content ul li a img{
-    width: 200px;
-}
-
-#rooter div.content ul li div.info{
-    float: right;
-    width: 500px;
-}
-
-#rooter div.content ul li div.info span.title{
-    font-size: 30px;
-    font-weight: bolder;
-    padding: 20px;
-}
-
-#rooter div.content ul li div.info span.author{
-    font-size: 14px;
-    padding: 20px;
-}
-
-#rooter div.content ul li div.info p.tags{
-    display: inline-block;
-}
-
-#rooter div.content ul li div.info p.tags span{
-    margin: 30px 20px;
-}
-
-#rooter div.content ul li div.info span.description{
-    display: inline-block;
-    width: 90%;
-    padding: 20px;
-    font-size: 16px;
-    color: #999;
-    font-family: 宋体, Arial, "Segoe UI", sans-serif;
-}
-
-#rooter div.content ul li div.info a{
-    position: absolute;
-    left: 226px;
-    bottom: 60px;
-    box-shadow: 0 0 1px rgba(255,255,255,0.6) inset;
-    border: 1px solid #e0cfb1;
-    color: #b6724d;
-    background: #fffbf6;
-    width: 90px;
-    height: 36px;
-    line-height: 36px;
+#rooter div.content h1.title{
     text-align: center;
+    color: #FFFFFF;
 }
 
-#rooter div.content ul li div.info a:focus{
-    outline: none;
+#rooter div.content p.chapterTitle{
+    text-align: center;
+    padding: 20px;
+    color: #FFFFFF;
 }
 
-#rooter div.content ul li div.info a:hover{
-    cursor: pointer;
-    background-color: #fcf1e1;
+#rooter div.content ul.pictures {
+    width: 100%;
+    text-align: center;
+    padding: 30px;
 }
 
+#rooter div.content ul.pictures li img{
+    width: 80%;
+    padding: 20px;
+}
+
+#rooter div.content p.nextChapter{
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    color: #0000ff;
+    background-color: #3385ff;
+    text-align: center;
+    margin: 0 auto;
+}
 
 div#fixed_top{
     position: fixed;

@@ -150,7 +150,7 @@ public class IndexService {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 map.put("title",jsonObject.getString("title"));
                 map.put("url",jsonObject.getString("url"));
-                map.put("desc",jsonObject.getString("desc").substring(0,30) + "...");
+                map.put("desc",jsonObject.getString("desc").substring(0,20) + "...");
                 if (jsonObject.containsKey("img0")){
                     map.put("img",jsonObject.getString("img0"));
                 }

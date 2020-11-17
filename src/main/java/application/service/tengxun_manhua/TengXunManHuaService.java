@@ -130,7 +130,7 @@ public class TengXunManHuaService {
         Element titleElement = bgElement.selectFirst("div.works-intro-text strong");
         Elements spanElements = bgElement.select("div.works-intro-text > p.works-intro-digi > em > span");
         Element descriptionElement = bgElement.selectFirst("div.works-intro-text p.works-intro-short.ui-text-gray9");
-        Elements chapterListElements = bgElement.select("div.works-chapter-list-wr > ol p");
+        Elements chapterListElements = bgElement.select("div.works-chapter-list-wr > ol a");
         String title = titleElement.text();
         String score = bgElement.selectFirst("div.works-score > p.ui-left").html().trim();
         String author = bgElement.selectFirst("div.works-intro-text > p.works-intro-digi > span.first").text()
@@ -141,10 +141,10 @@ public class TengXunManHuaService {
         String collectionNumber = spanElements.get(1).text().replaceAll("收藏数：", SysContext.BLANK_STRING);
         String description = descriptionElement.text().trim();
         List<Map<String,Object>> allChapter = new ArrayList<>();
+
         chapterListElements.forEach(element -> {
-            Element innerEle = element.selectFirst("span.works-chapter-item > a");
             Map<String,Object> chapterInfoMap = new TreeMap<>();
-            chapterInfoMap.put(DOMAIN_NAME + innerEle.attr("href"),innerEle.attr("title"));
+            chapterInfoMap.put(DOMAIN_NAME + element.attr("href"),element.attr("title"));
             allChapter.add(chapterInfoMap);
         });
 
