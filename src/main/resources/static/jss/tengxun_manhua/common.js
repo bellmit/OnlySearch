@@ -18,13 +18,13 @@ $(function (){
     });
 
     $("div.firstInput div.searchArea a").unbind().click(function () {
-        $(this).attr("href","/fiction/fictionSearchResult?keyword="+$("div.firstInput div.searchArea p input").val());
+        $(this).attr("href","/tengxun_manhua/searchPage/" + $("div.firstInput div.searchArea p input").val());
     });
 
     $("div#fixed_top div.firstInput p input").on("keydown",function (event) {
         if (event.keyCode === 13 && $(this).val() !== ""){
             let oA = $("div#fixed_top div.searchArea a");
-            oA.attr("href","/fiction/fictionSearchResult?keyword="+$(this).val());
+            oA.attr("href","/tengxun_manhua/searchPage/" + $("div.firstInput div.searchArea p input").val());
             oA.get(0).click();
         }
     });

@@ -1,5 +1,6 @@
 package application.controller.tengxun_manhua;
 
+import application.mybatis.model.TengXunManHua;
 import application.service.tengxun_manhua.TengXunManHuaService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -71,5 +72,23 @@ public class TengXunManHuaController {
         model.addAttribute("id",id);
         model.addAttribute("chapterId",chapterId);
         return "tengxun_manhua/showChapter";
+    }
+
+    /**
+     * 查询关键字
+     * @param keyword 关键词
+     * @param offset 偏移量
+     * @param size 数目
+     * @return List<TengXunManHua>
+     */
+    @GetMapping("/queryByKeyword/{keyword}/{offset}/{size}")
+    public @ResponseBody List<TengXunManHua> queryByKeyword(@PathVariable String keyword,@PathVariable int offset,@PathVariable int size){
+        return tengXunManHuaService.queryByKeyword(keyword, offset, size);
+    }
+
+    @GetMapping("/searchPage/{keyword}")
+    public String searchPage(@PathVariable("keyword") String keyword,Model model){
+        model.addAttribute("keyword",keyword);
+        return "tengxun_manhua/searchPage";
     }
 }

@@ -1,10 +1,13 @@
 package application.service.tengxun_manhua;
 
 import application.filter.SysContext;
+import application.mybatis.mappers.TengXunManHuaMapper;
+import application.mybatis.model.TengXunManHua;
 import application.service.feign.tengxun_manhua.TengXunManHuaFeign;
 import application.utils.UUID;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.javascript.host.Window;
+import org.apache.ibatis.annotations.Select;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,10 +15,7 @@ import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -46,15 +46,15 @@ public class TengXunManHuaService {
                 templateDir.mkdirs();
             }
 
-            BufferedInputStream bufferedInputStream = (BufferedInputStream) TengXunManHuaService.class.getResourceAsStream("/static/htmls/tengxun_manhua/腾讯漫画模板.html");
+            InputStream inputStream = TengXunManHuaService.class.getResourceAsStream("/static/htmls/tengxun_manhua/腾讯漫画模板.html");
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int length = -1;
             byte [] buffer = new byte[10240];
-            while((length = bufferedInputStream.read(buffer))!=-1){
+            while((length = inputStream.read(buffer))!=-1){
                 byteArrayOutputStream.write(buffer,0,length);
             }
             templateHtml = new String(byteArrayOutputStream.toByteArray());
-            bufferedInputStream.close();
+            inputStream.close();
             byteArrayOutputStream.close();
         }
         catch (Exception e){
@@ -64,6 +64,9 @@ public class TengXunManHuaService {
 
     @Resource
     private TengXunManHuaFeign tengXunManHuaFeign;
+
+    @Resource
+    private TengXunManHuaMapper tengXunManHuaMapper;
 
 
     /**
@@ -217,5 +220,17 @@ public class TengXunManHuaService {
 
         webClient.close();
         return new String(Base64.getDecoder().decode(data));
+    }
+
+
+    /**
+     * 查询关键字
+     * @param keyword 关键词
+     * @param offset 偏移量
+     * @param size 数目
+     * @return List<TengXunManHua>
+     */
+    public List<TengXunManHua> queryByKeyword(String keyword, int offset, int size){
+        return tengXunManHuaMapper.queryByKeyword(keyword, offset, size);
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class RealPathController {
 
-    @GetMapping("/real")
+    @GetMapping("/wtl199201180271")
     public String real(){
         return "realPath/index";
     }

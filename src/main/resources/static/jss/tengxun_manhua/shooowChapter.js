@@ -12,6 +12,7 @@ $(function () {
         el : "#rooter",
         data : function () {
             return {
+                id : id,
                 classifyList: null,
                 manHuaChapterInfo : null,
                 chapterIndex : window.parseInt(index) - 1,

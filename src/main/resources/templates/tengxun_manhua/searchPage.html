@@ -6,15 +6,14 @@
     <meta http-equiv="pragma" content="no-cache"/>
     <meta http-equiv="cache-control" content="no-cache"/>
     <meta http-equiv="expires" content="0"/>
-	<meta name="referrer" content="no-referrer"/>
 	<meta name="keywords" content="漫画,千度,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
 	<meta name="description" content="漫画,千度,千度一下，你更知道,千度搜索,千度网,搜索引擎大全,高级搜索,搜索神器,搜索大全"/>
     <link rel="shortcut icon" href="/images/logo/index_logo.png" type="image/icon"/>
-    <link rel="stylesheet" type="text/css" href="/css/tengxun_manhua/showChapter.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/tengxun_manhua/searchPage.css"/>
     <script type="text/javascript" src="/jss/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="/jss/vue.js"></script>
 	<script type="text/javascript" src="/jss/vue-lazyload.js"></script>
-	<script type="text/javascript" src="/jss/tengxun_manhua/shooowChapter.js"></script>
+	<script type="text/javascript" src="/jss/tengxun_manhua/searchPage.js"></script>
 	<script type="text/javascript" src="/jss/tengxun_manhua/common.js"></script>
 </head>
 
@@ -51,27 +50,31 @@
 	</div>
 
 
-	<div class="content" v-if="manHuaChapterInfo != null">
-		<h1 class="title">{{manHuaChapterInfo.title}}</h1>
-		<p class="chapterTitle">{{manHuaChapterInfo['allChapter'][chapterIndex].chapterTitle}}</p>
-		<p>{{manHuaChapterInfo.description}}</p>
-		<p class="popularity">人气：{{manHuaChapterInfo.popularity}}</p>
-		<div v-html="manHuaChapterInfo.score"></div>
-		<ul class="pictures">
-			<li v-for="(item,index) in chapterPictures">
-				<img v-lazy="item.url"/>
+	<div class="content" v-if="manhuas.length > 0">
+		<ul>
+			<li v-for="(item,index) in manhuas" class="manhua">
+				<a :href="'/tengxun_manhua/showChapter/' + item.id + '/1'" target="_blank">
+					<img v-lazy="item.manHuaMainPic"/>
+				</a>
+				<div class="info">
+					<span class="title">{{item.title}}</span>
+					<br/>
+					<span class="author">{{item.author}}</span>
+					<br/>
+					<p class="tags">
+						<span v-for="value,key in item.tags" v-html="key"></span>
+					</p>
+					<br/>
+					<span class="description">{{item.description}}</span>
+					<a :href="'/tengxun_manhua/showChapter/' + item.id + '/1'" target="_blank">开始阅读</a>
+				</div>
 			</li>
 		</ul>
-
-		<p class="nextChapter">
-			<a :href="'/tengxun_manhua/showChapter/'+ id +'/' + nextChapterId">下一章节</a>
-		</p>
 	</div>
     <div v-else style="text-align: center;padding-top: 100px;">
         <img src="/images/multiMusic/loading.gif"/>
     </div>
 </div>
-<input type="text" style="display: none;" id="id" th:title="${id}"/>
-<input type="text" style="display: none;" id="chapterId" th:title="${chapterId}"/>
+<input type="text" style="display: none;" id="keyword" th:title="${keyword}"/>
 </body>
 </html>
