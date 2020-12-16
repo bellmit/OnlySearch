@@ -57,7 +57,6 @@ public class IQiYiScheduler {
     @Async
     @Scheduled(cron = "0 0 0 15 * ?")
     public void schedule() {
-
         //删除所有记录
         iQiYiMapper.deleteAll();
 
@@ -66,33 +65,38 @@ public class IQiYiScheduler {
             dataType = dataTypes[i];
             for (int j=0;j<Integer.MAX_VALUE;j++){
                 pageNumber = String.valueOf(j + 1);
-                Object json = iQiYiService.searchTv(String.valueOf(channelId),String.valueOf(dataType),finished,marketReleaseDateLevel,mode,pageNumber,pageSize,area,type,version,other,other2,other3);
+                try {
+                    Object json = iQiYiService.searchTv(String.valueOf(channelId),String.valueOf(dataType),finished,marketReleaseDateLevel,mode,pageNumber,pageSize,area,type,version,other,other2,other3);
 
-                JSONObject jsonObject = JSONObject.fromObject(json);
+                    JSONObject jsonObject = JSONObject.fromObject(json);
 
-                System.out.println(jsonObject);
+                    System.out.println(jsonObject);
 
-                JSONArray jsonArray = jsonObject.getJSONObject("data").getJSONArray("list");
+                    JSONArray jsonArray = jsonObject.getJSONObject("data").getJSONArray("list");
 
-                if (jsonArray.size() == 0){
-                    break;
+                    if (jsonArray.size() == 0){
+                        break;
+                    }
+                    for (int k=0;k<jsonArray.size();k++){
+                        JSONObject jsonArrayJSONObject = jsonArray.getJSONObject(k);
+                        iQiYiMapper.insertIQiYi(new IQiYi(
+                                -1,jsonArrayJSONObject.getString("name"),
+                                jsonArrayJSONObject.getString("playUrl"),
+                                jsonArrayJSONObject.getString("imageUrl"),
+                                (jsonArrayJSONObject.containsKey("videoCount") &&
+                                        StringUtils.isNotEmpty(jsonArrayJSONObject.getString("videoCount"))) ?
+                                        jsonArrayJSONObject.getString("videoCount") :
+                                        jsonArrayJSONObject.getString("duration"),
+                                channelId,dataType,
+                                jsonArrayJSONObject.containsKey("albumId") ?
+                                        jsonArrayJSONObject.getString("albumId") : SysContext.BLANK_STRING,
+                                jsonArrayJSONObject.toString(),
+                                jsonArrayJSONObject.getString("secondInfo")
+                        ));
+                    }
                 }
-                for (int k=0;k<jsonArray.size();k++){
-                    JSONObject jsonArrayJSONObject = jsonArray.getJSONObject(k);
-                    iQiYiMapper.insertIQiYi(new IQiYi(
-                            -1,jsonArrayJSONObject.getString("name"),
-                            jsonArrayJSONObject.getString("playUrl"),
-                            jsonArrayJSONObject.getString("imageUrl"),
-                            (jsonArrayJSONObject.containsKey("videoCount") &&
-                                    StringUtils.isNotEmpty(jsonArrayJSONObject.getString("videoCount"))) ?
-                                    jsonArrayJSONObject.getString("videoCount") :
-                                    jsonArrayJSONObject.getString("duration"),
-                            channelId,dataType,
-                            jsonArrayJSONObject.containsKey("albumId") ?
-                            jsonArrayJSONObject.getString("albumId") : SysContext.BLANK_STRING,
-                            jsonArrayJSONObject.toString(),
-                            jsonArrayJSONObject.getString("secondInfo")
-                            ));
+                catch (Exception e){
+                    e.printStackTrace();
                 }
 
             }

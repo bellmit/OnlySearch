@@ -31,11 +31,11 @@ $(function () {
 
             $(this).addClass("focus");
 
-            iframe.attr("src","https://jx.618g.com/?url="+$(this).attr("url"));
+            iframe.attr("src","https://jx.elwtc.com/vip/?url="+$(this).attr("url"));
         });
 
         //初始化
-        iframe.attr("src","https://jx.618g.com/?url="+lis.eq(0).attr("url"));
+        iframe.attr("src","https://jx.elwtc.com/vip/?url="+lis.eq(0).attr("url"));
         lis.eq(0).addClass("focus");
     });
 
