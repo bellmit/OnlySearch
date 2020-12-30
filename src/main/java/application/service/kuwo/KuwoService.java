@@ -1,5 +1,6 @@
 package application.service.kuwo;
 
+import application.filter.SysContext;
 import application.model.kuwo.LeaderBoard;
 import application.model.kuwo.PlayList;
 import application.service.feign.kuwo.KowoFeign;
@@ -50,7 +51,7 @@ public class KuwoService {
      * @return String json
      */
     public String recommend(int pageIndex, int pageSize) {
-        Response response = kowoFeign.recommendByHeader(pageIndex, pageSize);
+        Response response = kowoFeign.playlistByHeader(pageIndex, pageSize, "");
         Collection<String> cookies = response.headers().get("Set-Cookie");
         String result = null;
         for (String cookie : cookies) {
@@ -346,8 +347,10 @@ public class KuwoService {
      * @return String json
      */
     public String playListInfo(String pid,int pageIndex,int pageSize){
-        Response response = kowoFeign.playListInfoByHeader(pid,pageIndex,pageSize);
+        Response response = kowoFeign.recommendByHeader(pageIndex,pageSize);
         Collection<String> cookies = response.headers().get("Set-Cookie");
+
+        System.out.println(cookies);
         String result = null;
         for (String cookie : cookies) {
             result = kowoFeign.playListInfo(cookie.split(";")[0], cookie.split(";")[0].split("=")[1],pid,pageIndex,pageSize);

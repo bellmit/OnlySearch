@@ -1,5 +1,9 @@
 package application.filter;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
 public class SysContext {
 	/**
 	 * 全局access_token
