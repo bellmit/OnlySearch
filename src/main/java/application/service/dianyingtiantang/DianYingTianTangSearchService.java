@@ -194,32 +194,13 @@ public class DianYingTianTangSearchService {
 
         if (!"".equalsIgnoreCase(html)) {
             Document document = Jsoup.parse(html);
+
+            System.out.println(html);
             Element container = document.selectFirst("div.co_content8 ul");
             DownloadSource downloadSource = new DownloadSource();
 
-            downloadSource.setDescription(container.selectFirst("div#Zoom span > p").html());
-            Elements as = document.selectFirst("div#Zoom").select("table a");
-
-            if (as != null && as.size() >= 1){
-                List<String> fileNames = new ArrayList<String>();
-                List<String> downloadUrls = new ArrayList<String>();
-
-                for (int i=0;i<as.size();i++){
-                    fileNames.add(as.get(i).text());
-                    Attributes attributes = as.get(i).attributes();
-
-                    Iterator<Attribute> attributeIterator = attributes.iterator();
-                    while (attributeIterator.hasNext()){
-                        String _url = attributeIterator.next().getValue();
-                        downloadUrls.add(_url);
-                    }
-                }
-
-                downloadSource.setFileNames(fileNames);
-                downloadSource.setDownloadUrls(downloadUrls);
-
-                downloadSources.add(downloadSource);
-            }
+            downloadSource.setDescription(container.selectFirst("div#Zoom").html());
+            downloadSources.add(downloadSource);
         }
         return downloadSources;
     }

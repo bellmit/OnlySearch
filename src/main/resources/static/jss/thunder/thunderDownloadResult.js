@@ -11,18 +11,8 @@ $(function () {
             var thunders = data;
             var sthunderHtml = "";
             for (var i=0;i<thunders.length;i++){
-
-                var downloadStr = "<ul>";
-                for (var j=0;j<thunders[i]["downloadUrls"].length;j++){
-                    downloadStr += "<li><a href='"+urlconvert(thunders[i]["downloadUrls"][j])+"'>"+thunders[i]["fileNames"][j]+"</a></li>";
-                }
-                downloadStr+= "</ul>"
                 sthunderHtml += "<li>\n" +
                     "            <div class=\"description\">"+thunders[i]["description"]+"</div>\n" +
-                    "            <ul class=\"download\">\n" +
-                    "                <li>\n" + downloadStr +
-                    "                </li>\n" +
-                    "            </ul>\n" +
                     "        </li>";
             }
 
