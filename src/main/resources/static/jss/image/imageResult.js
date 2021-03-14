@@ -21,7 +21,7 @@ $(function () {
             var rooter = this;
             $.ajax({
                 type: "GET",
-                url: "getAllMatchingImages?keyword=" + keyword + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize,
+                url: "getAllMatchingImages?keyword=" + keyword + "&offset=" + (pageIndex * pageSize) + "&pageSize=" + pageSize,
                 dataType: "json",
                 success: function (data) {
                     var images = data;
@@ -66,9 +66,9 @@ $(function () {
 
     //数据提交
     $("div.searchArea p input").on("keydown", function (event) {
-        $("div.searchArea a").attr("href", "imageResult?keyword=" + $(this).val() + "&pageIndex=1&pageSize=60");
+        $("div.searchArea a").attr("href", "imageResult?keyword=" + $(this).val() + "&offset=0&pageSize=60");
         if (event.keyCode === 13 && $(this).val() !== "") {
-            window.location = "imageResult?keyword=" + $(this).val() + "&pageIndex=1&pageSize=60";
+            window.location = "imageResult?keyword=" + $(this).val() + "&offset=0&pageSize=60";
         }
     });
 
@@ -90,7 +90,7 @@ $(function () {
             pageIndex ++;
             $.ajax({
                 type: "GET",
-                url: "getAllMatchingImages?keyword=" + keyword + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize,
+                url: "getAllMatchingImages?keyword=" + keyword + "&offset=" + (pageIndex * pageSize) + "&pageSize=" + pageSize,
                 dataType: "json",
                 success: function (data) {
                     var images = data;

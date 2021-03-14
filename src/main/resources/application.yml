@@ -19,5 +19,9 @@ spring:
     initial-size: 10
 
 
+feign:
+  httpclient:
+    enabled: true
+
 server:
   port: 80

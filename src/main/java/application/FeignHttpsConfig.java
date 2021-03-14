@@ -25,7 +25,7 @@ public class FeignHttpsConfig {
     @ConditionalOnBean
     public Client feignClient(CachingSpringLoadBalancerFactory cachingFactory,
                               SpringClientFactory clientFactory) throws NoSuchAlgorithmException, KeyManagementException {
-        SSLContext ctx = SSLContext.getInstance("SSL");
+        SSLContext ctx = SSLContext.getInstance("TLS");
         X509TrustManager tm = new X509TrustManager() {
             @Override
             public void checkClientTrusted(X509Certificate[] chain,

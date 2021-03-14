@@ -21,16 +21,16 @@ public class ImageSearchController {
     /**
      * 获得所有匹配关键字的分页图片api
      * @param keyword
-     * @param pageIndex
+     * @param offset
      * @param pageSize
      * @return
      */
     @RequestMapping("/getAllMatchingImages")
     public @ResponseBody
     Object getAllMatchingImages(String keyword,
-                                     int pageIndex,
+                                     int offset,
                                      int pageSize){
-        return imageSearchService.getAllMatchingImages(keyword, pageIndex, pageSize);
+        return imageSearchService.getAllMatchingImages(keyword, offset, pageSize);
     }
 
     @RequestMapping("/imageResult")
