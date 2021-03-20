@@ -2,6 +2,7 @@ package application.service.tv;
 
 import application.model.tv.TvCls;
 import application.service.feign.tv.AiqiyiTvFeign;
+import application.service.metv.MetvService;
 import application.service.tengxun.TenXunService;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -23,6 +24,9 @@ public class GetAllTvPlayService {
 
     @Resource
     private TenXunService tenXunService;
+
+    @Resource
+    private MetvService metvService;
 
     @Resource
     private List<TVPlaySearchServiceInterface> tvPlaySearchServiceInterfaces;
@@ -55,6 +59,8 @@ public class GetAllTvPlayService {
                 return dealTenXunTv(url,name);
             case "iqiyi":
                 return dealAqiyiTv(url,aid);
+            case "metv":
+                return dealMetvTv(url,name);
             default:
                 break;
         }
@@ -100,6 +106,29 @@ public class GetAllTvPlayService {
             .name(name)
             .url(urlList.get(i))
             .build());
+        }
+        return tvClsSet;
+    }
+
+
+    /**
+     * 处理腾讯tv的剧集展示
+     * @param url url
+     * @param name tv名
+     * @return Set<TvCls>
+     */
+    private Set<TvCls> dealMetvTv(String url,String name){
+        String[] splits = url.split("\\.")[2].split("/");
+        String cid = splits[2];
+        String vid = splits[3];
+        List<String> urlList = metvService.analysisPageToList(vid,cid);
+        Set<TvCls> tvClsSet = new TreeSet<>();
+        for (int i=0;i<urlList.size();i++){
+            tvClsSet.add(TvCls.builder()
+                    .index(i+1)
+                    .name(name)
+                    .url(urlList.get(i))
+                    .build());
         }
         return tvClsSet;
     }

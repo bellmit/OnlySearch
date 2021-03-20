@@ -31,6 +31,9 @@ $(function () {
 						else if (dat.dataType === 2){
 							platform = "tengxun";
 						}
+						else if (dat.dataType === 3){
+							platform = "metv";
+						}
 						dat.href = "/showTv?url=" + dat.href + '&platform=' + platform + '&aid=' + dat.aid + '&tvName=' + dat.title;
 					}
 					rooter.tvList = data;

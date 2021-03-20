@@ -4,8 +4,10 @@ package application.controller.movie;
 import application.filter.SysContext;
 import application.model.tv.CommonTvData;
 import application.mybatis.model.IQiYi;
+import application.mybatis.model.Metv;
 import application.mybatis.model.TenXun;
 import application.service.iqiyi.IQiYiService;
+import application.service.metv.MetvService;
 import application.service.movie.GetAllMovieService;
 import application.service.tengxun.TenXunService;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,9 @@ public class MovieController {
 
     @Resource
     private TenXunService tenXunService;
+
+    @Resource
+    private MetvService metvService;
 
     /**
      * 获得电影分页列表api
@@ -68,6 +73,7 @@ public class MovieController {
         List<CommonTvData> commonTvDataList = new ArrayList<>();
         List<IQiYi> iQiYis = iQiYiService.searchMovieResult(keyword, 0, Integer.MAX_VALUE);
         List<TenXun> tenXuns = tenXunService.searchMovieResult(keyword, 0, Integer.MAX_VALUE);
+        List<Metv> metvs = metvService.searchMovieResult(keyword);
         tenXuns.forEach(tenXun -> {
             CommonTvData commonTvData = CommonTvData.builder()
                     .id(tenXun.getId())
@@ -95,6 +101,22 @@ public class MovieController {
                     .aid(iQiYi.getAid())
                     .json(iQiYi.getJson())
                     .stars(iQiYi.getStars())
+                    .build();
+            commonTvDataList.add(commonTvData);
+        });
+
+        metvs.forEach(metv -> {
+            CommonTvData commonTvData = CommonTvData.builder()
+                    .id(metv.getId())
+                    .title(metv.getTitle())
+                    .href("https://www.mgtv.com/b/" + metv.getClipId() + "/" + metv.getPlayPartId() + ".html?lastp=list_index")
+                    .imgSrc(metv.getImgUrl())
+                    .jiNumber(metv.getUpdateInfo())
+                    .channelId(metv.getChannelId())
+                    .dataType(2)
+                    .aid(SysContext.BLANK_STRING)
+                    .json(SysContext.BLANK_STRING)
+                    .stars(metv.getStarts())
                     .build();
             commonTvDataList.add(commonTvData);
         });
